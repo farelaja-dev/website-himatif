@@ -28,8 +28,7 @@
 
                             </div>
                         </div>
-                        <marquee direction="left"
-                            class="text-lg w-full [&_a]:font-medium [&_a]:text-blue-600 [&_a]:dark:text-blue-500 [&_a]:hover:underline">
+                        <marquee direction="left" class="text-lg w-full [&_a]:font-medium [&_a]:text-blue-600 [&_a]:dark:text-blue-500 [&_a]:hover:underline">
 
                             {!! $header['5-marquee_info']->content !!}
                         </marquee>
@@ -38,17 +37,15 @@
                 </div>
                 <div class="md:w-2/3 lg:w-1/2 pr-4 pl-4 order-1 lg:order-2 mb-3 lg:mb-0 pt-3">
                     <h3 class="text-dec text-dec-secondary-1 text-dec-tl text-midnight font-extrabold mb-2 lg:hidden">
-                        HIMPUNAN MAHASISWA TEKNOLOGI INFORMASI
+                        {{ $header['1-text']->content }}
                     </h3>
                     @if (file_exists(storage_path('app/public/' . $header['3-photo']->content)))
                         <div class="header-img">
-                            <img src="{{ asset('storage/' . $header['3-photo']->content) }}" alt=""
-                                class="max-w-full h-auto">
+                            <img src="{{ asset('storage/' . $header['3-photo']->content) }}" alt="" class="max-w-full h-auto">
                         </div>
                     @else
                         <div class="header-img">
-                            <img src="{{ asset('img/' . $header['3-photo']->content) }}" alt=""
-                                class="max-w-full h-auto">
+                            <img src="{{ asset('img/' . $header['3-photo']->content) }}" alt="" class="max-w-full h-auto">
                         </div>
                     @endif
                 </div>
@@ -65,13 +62,11 @@
                 </div>
 
                 <div class="lg:w-1/3 pr-4 pl-4 mb-3 lg:mb-0">
-                    <div
-                        class="relative flex flex-col min-w-0 rounded-md break-words border bg-white border-1 border-gray-300 shadow-md shadow-yellow-100">
+                    <div class="relative flex flex-col min-w-0 rounded-md break-words border bg-white border-1 border-gray-300 shadow-md shadow-yellow-100">
                         <div class="flex-auto p-6">
                             <div class="flex flex-wrap  items-center">
                                 <div class="col-auto">
-                                    <img src="{{ asset('img/icons/pencil-warning.svg') }}" alt=""
-                                        class="w-3rem w-lg-5rem">
+                                    <img src="{{ asset('img/icons/pencil-warning.svg') }}" alt="" class="w-3rem w-lg-5rem">
                                 </div>
                                 <div class="relative flex-grow max-w-full flex-1 px-4">
                                     <h6 class="text-midnight font-bold">
@@ -86,13 +81,11 @@
                     </div>
                 </div>
                 <div class="lg:w-1/3 pr-4 pl-4 mb-3 lg:mb-0 lg:mt-4">
-                    <div
-                        class="relative flex flex-col min-w-0 rounded-md break-words border bg-white border-1 border-gray-300 shadow-md shadow-blue-200">
+                    <div class="relative flex flex-col min-w-0 rounded-md break-words border bg-white border-1 border-gray-300 shadow-md shadow-blue-200">
                         <div class="flex-auto p-6">
                             <div class="flex flex-wrap  items-center">
                                 <div class="col-auto">
-                                    <img src="{{ asset('img/icons/list-info.svg') }}" alt=""
-                                        class="w-3rem w-lg-5rem">
+                                    <img src="{{ asset('img/icons/list-info.svg') }}" alt="" class="w-3rem w-lg-5rem">
                                 </div>
                                 <div class="relative flex-grow max-w-full flex-1 px-4">
                                     <h6 class="text-midnight font-bold">
@@ -107,13 +100,11 @@
                     </div>
                 </div>
                 <div class="lg:w-1/3 pr-4 pl-4 mb-3 lg:mb-0 lg:mt-12">
-                    <div
-                        class="relative flex flex-col min-w-0 rounded-md break-words border bg-white border-1 border-gray-300 shadow-md shadow-green-200">
+                    <div class="relative flex flex-col min-w-0 rounded-md break-words border bg-white border-1 border-gray-300 shadow-md shadow-green-200">
                         <div class="flex-auto p-6">
                             <div class="flex flex-wrap  items-center">
                                 <div class="col-auto">
-                                    <img src="{{ asset('img/icons/graduate-secondary.svg') }}" alt=""
-                                        class="w-3rem w-lg-5rem">
+                                    <img src="{{ asset('img/icons/graduate-secondary.svg') }}" alt="" class="w-3rem w-lg-5rem">
                                 </div>
                                 <div class="relative flex-grow max-w-full flex-1 px-4">
                                     <h6 class="text-midnight font-bold">
@@ -135,28 +126,32 @@
     {{-- Section 1 : Tentang --}}
     <section id="section-1">
         <div class="container mx-auto sm:px-4 mx-auto sm:px-4">
-            <div class="flex flex-wrap items-center justify-center lg:justify-around text-center ">
-                <div class="col-auto lg:w-2/5 pr-4 pl-4 mb-3 lg:mb-0">
+            <div class="flex flex-wrap items-center justify-center lg:justify-around text-center">
+                <div class="col-auto lg:w-[50%] pr-2 pl-4 mb-3 lg:mb-0 text-center">
                     <h3 class="text-dec text-dec-info-2 text-dec-tl text-midnight font-extrabold mb-2 lg:hidden">
                         TENTANG HIMATIF
                     </h3>
-                    <div class="img-wrapper-about">
-                        @for ($i = 1; $i <= 3; $i++)
-                            @if (file_exists(storage_path('app/public/' . $section3["image$i"]->content)))
-                                <div class="img-about">
-                                    <img src="{{ asset('storage/' . $section3["image$i"]->content) }}" alt="">
+                    <div class="img-wrapper-about mx-auto">
+                        <div class="swiper-wrapper-container">
+                            <div class="swiper tentangSwiper">
+                                <div class="swiper-wrapper">
+                                    @for ($i = 1; $i <= 3; $i++)
+                                        <div class="swiper-slide">
+                                            @if (file_exists(storage_path('app/public/' . $section3["image$i"]->content)))
+                                                <img src="{{ asset('storage/' . $section3["image$i"]->content) }}" alt="">
+                                            @else
+                                                <img src="{{ asset('img/' . $section3["image$i"]->content) }}" alt="">
+                                            @endif
+                                        </div>
+                                    @endfor
                                 </div>
-                            @else
-                                <div class="img-about">
-                                    <img src="{{ asset('img/' . $section3["image$i"]->content) }}" alt="">
-                                </div>
-                            @endif
-                        @endfor
+                                <div class="tentang-pagination"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="lg:w-2/5 pr-4 pl-4">
-                    <h3
-                        class="text-dec text-dec-info-2 text-dec-tl text-midnight font-extrabold mb-2 hidden lg:inline-block">
+                <div class="lg:w-2/5 pr-4 pl-2">
+                    <h3 class="text-dec text-dec-info-2 text-dec-tl text-midnight font-extrabold mb-2 hidden lg:inline-block">
                         TENTANG HIMATIF
                     </h3>
                     <p class="text-gray mb-2">
@@ -190,28 +185,24 @@
                 @endphp
                 @foreach ($dataKeysVisionMission as $key)
                     <div class="lg:w-1/2 pr-4 pl-4 mb-3 lg:mb-0 ">
-                        <div
-                            class="relative flex flex-col min-w-0 shadow-sm  rounded-xl break-words border bg-white border-1 border-gray-300 ">
+                        <div class="relative flex flex-col min-w-0 shadow-sm  rounded-xl break-words border bg-white border-1 border-gray-300 ">
                             <div class="flex-auto p-6">
                                 <div class="flex flex-wrap no-gutters">
                                     <div class="lg:w-1/3 pr-4 pl-4">
                                         @if (file_exists(storage_path('app/public/' . $visionMission[$key . '_photo']->content)))
                                             <div class="img-fit img-fit-cover h-20rem">
-                                                <img src="{{ asset('storage/' . $visionMission[$key . '_photo']->content) }}"
-                                                    alt="">
+                                                <img src="{{ asset('storage/' . $visionMission[$key . '_photo']->content) }}" alt="">
                                             </div>
                                         @else
                                             <div class="img-fit img-fit-cover h-20rem">
-                                                <img src="{{ asset('img/' . $visionMission[$key . '_photo']->content) }}"
-                                                    alt="">
+                                                <img src="{{ asset('img/' . $visionMission[$key . '_photo']->content) }}" alt="">
                                             </div>
                                         @endif
                                     </div>
                                     <div class="relative lg:flex-grow lg:flex-1 p-2 lg:p-6">
                                         <h5 class="text-midnight text-shadowed font-extrabold">
                                             {{ $visionMission[$key . '_text']->content }}
-                                            <span
-                                                class="text-shadowed-content">{{ $visionMission[$key . '_text']->content }}</span>
+                                            <span class="text-shadowed-content">{{ $visionMission[$key . '_text']->content }}</span>
                                         </h5>
                                         <div class="divider my-2"></div>
                                         <div class="text-gray">
@@ -252,7 +243,8 @@
                         [
                             'shortname' => 'psdm',
                             'name' => 'Pengembangan Sumber Daya Mahasiswa',
-                            'content' => 'Pengembangan dan pemberdayaan akademik dan softskill mahasiswa serta untuk menciptakan mahasiswa berkompeten dan unggul',
+                            'content' =>
+                                'Pengembangan dan pemberdayaan akademik dan softskill mahasiswa serta untuk menciptakan mahasiswa berkompeten dan unggul',
                         ],
                         [
                             'shortname' => 'litbang',
@@ -262,7 +254,8 @@
                         [
                             'shortname' => 'humas',
                             'name' => 'Hubungan Mahasiswa',
-                            'content' => 'Media komunikasi antara HIMATIF birokrasi, organisasi lain, instansi, maupun masyarakat umum dan menjadi penghubung antara himatif dengan mahasiswa teknologi informasi secara langsung',
+                            'content' =>
+                                'Media komunikasi antara HIMATIF birokrasi, organisasi lain, instansi, maupun masyarakat umum dan menjadi penghubung antara himatif dengan mahasiswa teknologi informasi secara langsung',
                         ],
                         [
                             'shortname' => 'mediatek',
@@ -276,8 +269,7 @@
                     <div class="md:w-1/2 xl:w-1/3 pr-4 pl-4 mb-8 md:mb-12 ">
                         <div class="flex flex-wrap  gutters-xs justify-center text-center lg:text-left">
                             <div class="col-auto mb-3 mr-2 lg:mb-0">
-                                <img src="{{ asset('img/icons/' . $division['shortname'] . '-secondary.svg') }}"
-                                    alt="" class="max-w-full h-auto">
+                                <img src="{{ asset('img/icons/' . $division['shortname'] . '-secondary.svg') }}" alt="" class="max-w-full h-auto">
                             </div>
                             <div class="relative lg:flex-grow lg:flex-1 lg:pl-1">
                                 <h5 class="text-white font-bold mb-1">{{ $division['name'] }}</h5>
@@ -306,28 +298,24 @@
             <h6 class="text-gray mb-2">Program Kerja Himatif tahun 2023/2024</h6>
 
             <div class="flex flex-wrap w-full justify-between op-5">
-                <button type="button"
-                    class="relative top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+                <button type="button" class="relative top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
                     id="slick-proker-prev">
                     <span
                         class=" inline-flex items-center justify-center w-10 h-10 rounded-full bg-midnight/30 group-hover:bg-black/50 group-focus:ring-4 group-focus:ring-white/70 group-focus:outline-none">
-                        <svg class="my-auto mx-auto w-1/5 font-medium leading-tight text-xl text-white rtl:rotate-180"
-                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M5 1 1 5l4 4" />
+                        <svg class="my-auto mx-auto w-1/5 font-medium leading-tight text-xl text-white rtl:rotate-180" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4" />
                         </svg>
                         <span class="sr-only">Previous</span>
                     </span>
                 </button>
-                <button type="button"
-                    class="relative top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+                <button type="button" class="relative top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
                     id="slick-proker-next">
                     <span
                         class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-midnight/30 group-hover:bg-black/50 group-focus:ring-4 group-focus:ring-white/70 group-focus:outline-none">
-                        <svg class="my-auto mx-auto w-1/5 font-medium leading-tight text-xl text-white rtl:rotate-180"
-                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="m1 9 4-4-4-4" />
+                        <svg class="my-auto mx-auto w-1/5 font-medium leading-tight text-xl text-white rtl:rotate-180" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
                         </svg>
                         <span class="sr-only">Next</span>
                     </span>
@@ -338,8 +326,7 @@
             <div class="flex flex-wrap " id="slick-proker-row">
                 @foreach ($prokers as $proker)
                     <div class="relative lg:flex-grow lg:flex-1 my-3 md:my-6 px-2 ">
-                        <div
-                            class="relative flex flex-col min-w-0 rounded-md break-words bg-white border-1 border-gray-300 card-proker border shadow-sm h-full">
+                        <div class="relative flex flex-col min-w-0 rounded-md break-words bg-white border-1 border-gray-300 card-proker border shadow-sm h-full">
                             <div class="flex-auto p-6 w-full h-full">
                                 <div class="flex flex-wrap  justify-center  h-full">
                                     <div class="col-auto mb-2 lg:mb-0">
@@ -347,15 +334,13 @@
                                             @if ($proker->logo)
                                                 <img src="{{ asset('storage/' . $proker->logo) }}" alt="">
                                             @else
-                                                <img src="{{ asset('img/placeholder/product-image-default.svg') }}"
-                                                    alt="">
+                                                <img src="{{ asset('img/placeholder/product-image-default.svg') }}" alt="">
                                             @endif
                                         </div>
                                     </div>
                                     <div class="relative md:flex-grow md:flex-1 flex flex-col justify-between">
                                         <div class="flex-grow">
-                                            <a href="{{ route('frontpage.proker.show', $proker->id) }}"
-                                                class="text-midnight">
+                                            <a href="{{ route('frontpage.proker.show', $proker->id) }}" class="text-midnight">
                                                 <h5 class="font-semibold mb-1">{{ $proker->name }}</h5>
                                             </a>
 
@@ -370,8 +355,7 @@
                                             </p>
                                         </div>
 
-                                        <a href="{{ route('frontpage.proker.show', $proker->id) }}"
-                                            class="text-gray pb-3">Lihat
+                                        <a href="{{ route('frontpage.proker.show', $proker->id) }}" class="text-gray pb-3">Lihat
                                             Detail <i class="fas fa-arrow-right"></i></a>
                                     </div>
                                 </div>
@@ -386,7 +370,7 @@
     </section>
 
     <section id="section-alumni" class="review" style="width: 100%">
-        <div class="relative container overflow-hidden mx-auto sm:px-4 swiper">
+        <div class="relative container overflow-hidden mx-auto sm:px-4 swiper review-swiper">
             <div class="w-full text-left mb-3 md:mb-12">
                 <h3 class="text-dec text-dec-info-1 text-dec-tr text-midnight font-extrabold mb-2">
                     APA KATA ALUMNI KITA?
@@ -394,28 +378,24 @@
                 <h6 class="text-gray ">Tentang Alumni Teknologi Informasi</h6>
             </div>
             <div class="flex flex-wrap w-full justify-between op-5 py-5">
-                <button type="button"
-                    class="relative top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+                <button type="button" class="relative top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
                     id="swiper-button-prev">
                     <span
                         class=" inline-flex items-center justify-center w-10 h-10 rounded-full bg-midnight/30 group-hover:bg-black/50 group-focus:ring-4 group-focus:ring-white/70 group-focus:outline-none">
-                        <svg class="my-auto mx-auto w-1/5 font-medium leading-tight text-xl text-white rtl:rotate-180"
-                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M5 1 1 5l4 4" />
+                        <svg class="my-auto mx-auto w-1/5 font-medium leading-tight text-xl text-white rtl:rotate-180" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4" />
                         </svg>
                         <span class="sr-only">Previous</span>
                     </span>
                 </button>
-                <button type="button"
-                    class="relative top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+                <button type="button" class="relative top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
                     id="swiper-button-next">
                     <span
                         class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-midnight/30 group-hover:bg-black/50 group-focus:ring-4 group-focus:ring-white/70 group-focus:outline-none">
-                        <svg class="my-auto mx-auto w-1/5 font-medium leading-tight text-xl text-white rtl:rotate-180"
-                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="m1 9 4-4-4-4" />
+                        <svg class="my-auto mx-auto w-1/5 font-medium leading-tight text-xl text-white rtl:rotate-180" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
                         </svg>
                         <span class="sr-only">Next</span>
                     </span>
@@ -426,19 +406,15 @@
                     <div class="swiper-slide">
                         <div class="r-card">
                             <div class="card-inner h-full">
-                                <div
-                                    class="card-front border border-solid border-black border-opacity-20 h-full shadow-lg">
+                                <div class="card-front border border-solid border-black border-opacity-20 h-full shadow-lg">
                                     <div class="image-content">
                                         <span class="overlay"></span>
                                         <div class="card-image">
                                             @if (file_exists(storage_path('app/public/' . $review->photo)))
-                                                <img src="{{ asset('storage/' . $review->photo) }}" alt=" "
-                                                    class="card-img">
+                                                <img src="{{ asset('storage/' . $review->photo) }}" alt=" " class="card-img">
                                             @else
-                                                <svg xmlns="http://www.w3.org/2000/svg"
-                                                    xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
-                                                    width="256" height="256" viewBox="0 0 256 256"
-                                                    xml:space="preserve">
+                                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="256"
+                                                    height="256" viewBox="0 0 256 256" xml:space="preserve">
 
                                                     <defs>
                                                     </defs>
@@ -493,16 +469,12 @@
 
                 <div class="lg:w-1/2 pr-4 pl-4 mb-1 lg:mb-0">
                     @if (file_exists(storage_path('app/public/' . $gallery['1-image1']->content)))
-                        <div data-src="{{ asset('storage/' . $gallery['1-image1']->content) }}"
-                            class="img-gallery img-gallery-main">
-                            <img src="{{ asset('storage/' . $gallery['1-image1']->content) }}" class="max-w-full h-auto"
-                                alt="">
+                        <div data-src="{{ asset('storage/' . $gallery['1-image1']->content) }}" class="img-gallery img-gallery-main">
+                            <img src="{{ asset('storage/' . $gallery['1-image1']->content) }}" class="max-w-full h-auto" alt="">
                         </div>
                     @else
-                        <div data-src="{{ asset('img/' . $gallery['1-image1']->content) }}"
-                            class="img-gallery img-gallery-main">
-                            <img src="{{ asset('img/' . $gallery['1-image1']->content) }}" class="max-w-full h-auto"
-                                alt="">
+                        <div data-src="{{ asset('img/' . $gallery['1-image1']->content) }}" class="img-gallery img-gallery-main">
+                            <img src="{{ asset('img/' . $gallery['1-image1']->content) }}" class="max-w-full h-auto" alt="">
                         </div>
                     @endif
                 </div>
@@ -511,16 +483,12 @@
                         @for ($i = 2; $i <= 5; $i++)
                             <div class="w-1/2 mb-1">
                                 @if (file_exists(storage_path('app/public/' . $gallery["$i-image$i"]->content)))
-                                    <div data-src="{{ asset('storage/' . $gallery["$i-image$i"]->content) }}"
-                                        class="img-gallery">
-                                        <img src="{{ asset('storage/' . $gallery["$i-image$i"]->content) }}"
-                                            alt="" class="max-w-full h-auto">
+                                    <div data-src="{{ asset('storage/' . $gallery["$i-image$i"]->content) }}" class="img-gallery">
+                                        <img src="{{ asset('storage/' . $gallery["$i-image$i"]->content) }}" alt="" class="max-w-full h-auto">
                                     </div>
                                 @else
-                                    <div data-src="{{ asset('img/' . $gallery["$i-image$i"]->content) }}"
-                                        class="img-gallery">
-                                        <img src="{{ asset('img/' . $gallery["$i-image$i"]->content) }}" alt=""
-                                            class="max-w-full h-auto">
+                                    <div data-src="{{ asset('img/' . $gallery["$i-image$i"]->content) }}" class="img-gallery">
+                                        <img src="{{ asset('img/' . $gallery["$i-image$i"]->content) }}" alt="" class="max-w-full h-auto">
                                     </div>
                                 @endif
                             </div>
@@ -538,11 +506,10 @@
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-    <link rel="stylesheet" type="text/css"
-        href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/css/lightgallery.min.css"
-        integrity="sha512-kwJUhJJaTDzGp6VTPBbMQWBFUof6+pv0SM3s8fo+E6XnPmVmtfwENK0vHYup3tsYnqHgRDoBDTJWoq7rnQw2+g=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        integrity="sha512-kwJUhJJaTDzGp6VTPBbMQWBFUof6+pv0SM3s8fo+E6XnPmVmtfwENK0vHYup3tsYnqHgRDoBDTJWoq7rnQw2+g==" crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
     <!-- Lightgallery -->
     <style>
         #slick-proker-prev,
@@ -697,41 +664,41 @@
         }
 
         /*
-                                                                                                                                                                                                                                                    .swiper-button-next,
-                                                                                                                                                                                                                                                    .swiper-button-prev {
-                                                                                                                                                                                                                                                        color: #000 !important;
-                                                                                                                                                                                                                                                        background-color: rgba(255, 255, 255, 0.8) !important;
-                                                                                                                                                                                                                                                        border-radius: 50% !important;
-                                                                                                                                                                                                                                                        width: 40px !important;
-                                                                                                                                                                                                                                                        height: 40px !important;
-                                                                                                                                                                                                                                                        font-size: 23px !important;
-                                                                                                                                                                                                                                                        display: flex !important;
-                                                                                                                                                                                                                                                        align-items: center !important;
-                                                                                                                                                                                                                                                        justify-content: center !important;
-                                                                                                                                                                                                                                                        cursor: pointer;
-                                                                                                                                                                                                                                                        z-index: 10 !important;
-                                                                                                                                                                                                                                                        position: absolute !important;
-                                                                                                                                                                                                                                                        top: 40% !important;
-                                                                                                                                                                                                                                                        transform: translateY(-50%) !important;
-                                                                                                                                                                                                                                                        transition: background-color 0.3s ease, color 0.3s ease;
-                                                                                                                                                                                                                                                        box-sizing: border-box;
-                                                                                                                                                                                                                                                        border: 1px solid #ddd !important;
-                                                                                                                                                                                                                                                    }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    .swiper-button-next,
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    .swiper-button-prev {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        color: #000 !important;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        background-color: rgba(255, 255, 255, 0.8) !important;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        border-radius: 50% !important;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        width: 40px !important;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        height: 40px !important;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        font-size: 23px !important;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        display: flex !important;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        align-items: center !important;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        justify-content: center !important;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        cursor: pointer;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        z-index: 10 !important;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        position: absolute !important;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        top: 40% !important;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        transform: translateY(-50%) !important;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        transition: background-color 0.3s ease, color 0.3s ease;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        box-sizing: border-box;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        border: 1px solid #ddd !important;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    }
 
-                                                                                                                                                                                                                                                    .swiper-button-next:hover,
-                                                                                                                                                                                                                                                    .swiper-button-prev:hover {
-                                                                                                                                                                                                                                                        background-color: rgba(255, 255, 255, 1) !important;
-                                                                                                                                                                                                                                                        color: #000 !important;
-                                                                                                                                                                                                                                                    }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    .swiper-button-next:hover,
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    .swiper-button-prev:hover {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        background-color: rgba(255, 255, 255, 1) !important;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        color: #000 !important;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    }
 
-                                                                                                                                                                                                                                                    .swiper-button-next {
-                                                                                                                                                                                                                                                        right: 10px !important;
-                                                                                                                                                                                                                                                    }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    .swiper-button-next {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        right: 10px !important;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    }
 
-                                                                                                                                                                                                                                                    .swiper-button-prev {
-                                                                                                                                                                                                                                                        left: 10px !important;
-                                                                                                                                                                                                                                                    }
-                                                                                                                                                                                                                                            */
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    .swiper-button-prev {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        left: 10px !important;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            */
 
         .swiper-pagination-bullet {
             background: #ebd2b1 !important;
@@ -877,18 +844,55 @@
         }
     </style>
 
+    <style>
+        .swiper-wrapper-container {
+            position: relative;
+            height: fit-content;
+            background: transparent;
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            color: #000;
+        }
+
+        .swiper-wrapper-container .swiper {
+            width: 100%;
+            height: 100%;
+        }
+
+        .swiper-wrapper-container .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .swiper-wrapper-container .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        /* Slide dengan lebar dinamis */
+        .swiper-wrapper-container .swiper-slide {
+            width: 80%;
+            height: fit-content;
+        }
+    </style>
+
 @endsection
 
 @section('script')
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
-        integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
     {{-- Slick --}}
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     {{-- Light Gallery --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/js/lightgallery.min.js"
-        integrity="sha512-b4rL1m5b76KrUhDkj2Vf14Y0l1NtbiNXwV+SzOzLGv6Tz1roJHa70yr8RmTUswrauu2Wgb/xBJPR8v80pQYKtQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        integrity="sha512-b4rL1m5b76KrUhDkj2Vf14Y0l1NtbiNXwV+SzOzLGv6Tz1roJHa70yr8RmTUswrauu2Wgb/xBJPR8v80pQYKtQ==" crossorigin="anonymous"
+        referrerpolicy="no-referrer"></script>
     <script>
         $(function() {
             lightGallery(document.getElementById('row-gallery'), {
@@ -901,6 +905,7 @@
                 selector: '[data-src]',
                 download: false,
             });
+
             $('#slick-proker-row').slick({
                 infinite: true,
                 autoplay: true,
@@ -955,7 +960,7 @@
     {{-- Light Gallery --}}
 
     <script>
-        const swiper = new Swiper('.swiper', {
+        const swiper = new Swiper('.review-swiper', {
 
             centeredSlides: true,
             pagination: {
@@ -991,4 +996,24 @@
     </script>
     {{-- Review-Alumni --}}
 
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            new Swiper(".tentangSwiper", {
+                slidesPerView: "auto",
+                centeredSlides: true,
+                spaceBetween: 20,
+                loop: true,
+                loopAddBlankSlides: false,
+                lazy: false,
+                pagination: {
+                    el: ".tentang-pagination",
+                    clickable: true,
+                },
+                autoplay: {
+                    delay: 2500,
+                    disableOnInteraction: false,
+                },
+            });
+        });
+    </script>
 @endsection

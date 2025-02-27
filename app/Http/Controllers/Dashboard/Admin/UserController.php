@@ -17,9 +17,9 @@ class UserController extends Controller
 
     public function __construct()
     {
-        $this->divisionRepository = new DivisionRepository;
-        $this->userRepository = new UserRepository;
-        $this->roleRepository = new RoleRepository;
+        $this->divisionRepository = new DivisionRepository();
+        $this->userRepository = new UserRepository();
+        $this->roleRepository = new RoleRepository();
     }
 
     /**
@@ -32,11 +32,7 @@ class UserController extends Controller
         $countAllUser = $this->userRepository->count();
         $countActiveUser = $this->userRepository->count([['status', '1']]);
         $countInactiveUser = $this->userRepository->count([['status', '0']]);
-        return view('dashboard.admin.users.index', compact([
-            'countAllUser',
-            'countActiveUser',
-            'countInactiveUser',
-        ]));
+        return view('dashboard.admin.users.index', compact(['countAllUser', 'countActiveUser', 'countInactiveUser']));
     }
 
     /**
@@ -49,10 +45,7 @@ class UserController extends Controller
         $divisions = $this->divisionRepository->get();
         $positions = GlobalConstant::DIVISION_POSITION_NAME;
 
-        return view('dashboard.admin.users.create', compact([
-            'divisions',
-            'positions',
-        ]));
+        return view('dashboard.admin.users.create', compact(['divisions', 'positions']));
     }
 
     /**
@@ -63,29 +56,30 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        \Validator::make($request->all(), [
-            'name' => 'required',
-            'nim' => 'required',
-            'email' => 'required|string|email|unique:users',
-            'password' => 'required|min:6',
-            'position' => 'required',
-            'division_id' => 'required',
-        ])->validate();
-
         try {
+            \Validator::make($request->all(), [
+                'name' => 'required',
+                'nim' => 'required',
+                'email' => 'required|string|email|unique:users',
+                'password' => 'required|min:6',
+            ])->validate();
+
             $this->userRepository->save($request->all());
-            return redirect()->route('dashboard.admin.users.index')->with([
-                'type' => 'success',
-                'message' => 'Tambah Data User Berhasil'
-            ]);
+            return redirect()
+                ->route('dashboard.admin.users.index')
+                ->with([
+                    'type' => 'success',
+                    'message' => 'Tambah Data User Berhasil',
+                ]);
         } catch (\Exception $e) {
-            return redirect()->back('dashboard.admin.users.create')->with([
-                'type' => 'danger',
-                'message' => 'Tambah Data User Gagal, Terjadi kesalahan pada sistem.'
-            ]);
+            return redirect()
+                ->back() // ✅ Benar
+                ->with([
+                    'type' => 'danger',
+                    'message' => 'Tambah Data User Gagal, Terjadi kesalahan pada sistem.' . $e->getMessage(),
+                ]);
         }
     }
-
     /**
      * Display the specified resource.
      *
@@ -113,11 +107,7 @@ class UserController extends Controller
             abort(404);
         }
 
-        return view('dashboard.admin.users.edit', compact([
-            'user',
-            'divisions',
-            'positions',
-        ]));
+        return view('dashboard.admin.users.edit', compact(['user', 'divisions', 'positions']));
     }
 
     /**
@@ -129,6 +119,7 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // Validasi input
         \Validator::make($request->all(), [
             'name' => 'required',
             'nim' => 'required',
@@ -139,18 +130,59 @@ class UserController extends Controller
             'periode_division' => 'required|array',
             'periode_position' => 'required|array',
         ])->validate();
+
         try {
-            $this->userRepository->update($id, $request->all());
-            return redirect()->route('dashboard.admin.users.index')->with([
-                'type' => 'success',
-                'message' => 'Ubah Data User Berhasil'
-            ]);
+            // Ambil data user
+            $user = $this->userRepository->findById($id);
+            if (!$user) {
+                return redirect()
+                    ->back()
+                    ->with([
+                        'type' => 'danger',
+                        'message' => 'User tidak ditemukan!',
+                    ]);
+            }
+
+            // Ambil semua input kecuali password (jika kosong)
+            $data = $request->except('password');
+
+            // Jika password diisi, update dengan hash
+            if ($request->filled('password')) {
+                $data['password'] = bcrypt($request->password);
+            }
+
+            // Format periode menjadi JSON sebelum update
+            $data['periode'] = json_encode(
+                array_map(
+                    function ($year, $division, $position) {
+                        return [
+                            'year' => $year,
+                            'division_id' => $division,
+                            'position' => $position,
+                        ];
+                    },
+                    $request->periode_year,
+                    $request->periode_division,
+                    $request->periode_position,
+                ),
+            );
+
+            // Update user
+            $this->userRepository->update($id, $data);
+
+            return redirect()
+                ->route('dashboard.admin.users.index')
+                ->with([
+                    'type' => 'success',
+                    'message' => 'Ubah Data User Berhasil',
+                ]);
         } catch (\Exception $e) {
-            dd($e);
-            return redirect()->back('dashboard.admin.users.create')->with([
-                'type' => 'danger',
-                'message' => 'Ubah Data User Gagal, Terjadi kesalahan pada sistem.'
-            ]);
+            return redirect()
+                ->back()
+                ->with([
+                    'type' => 'danger',
+                    'message' => 'Ubah Data User Gagal, Terjadi kesalahan pada sistem. ' . $e->getMessage(),
+                ]);
         }
     }
 
@@ -158,16 +190,20 @@ class UserController extends Controller
     {
         try {
             $result = $this->userRepository->setStatus($request->id, $request->status);
-            return redirect()->route('dashboard.admin.users.index')->with([
-                'type' => 'success',
-                'message' => "Ubah Status Data Pengurus Berhasil, $result data Sudah diubah"
-            ]);
+            return redirect()
+                ->route('dashboard.admin.users.index')
+                ->with([
+                    'type' => 'success',
+                    'message' => "Ubah Status Data Pengurus Berhasil, $result data Sudah diubah",
+                ]);
         } catch (\Exception $e) {
             dd($e);
-            return redirect()->route('dashboard.admin.users.index')->with([
-                'type' => 'danger',
-                'message' => 'Ubah Status Data Pengurus gagal, Terjadi kesalahan pada sistem.'
-            ]);
+            return redirect()
+                ->route('dashboard.admin.users.index')
+                ->with([
+                    'type' => 'danger',
+                    'message' => 'Ubah Status Data Pengurus gagal, Terjadi kesalahan pada sistem.',
+                ]);
         }
     }
 
@@ -179,16 +215,20 @@ class UserController extends Controller
 
         try {
             $this->userRepository->update($id, $request->password);
-            return redirect()->route('dashboard.admin.users.index')->with([
-                'type' => 'success',
-                'message' => 'Ubah Password User Berhasil'
-            ]);
+            return redirect()
+                ->route('dashboard.admin.users.index')
+                ->with([
+                    'type' => 'success',
+                    'message' => 'Ubah Password User Berhasil',
+                ]);
         } catch (\Exception $e) {
             dd($e);
-            return redirect()->back('dashboard.admin.users.create')->with([
-                'type' => 'danger',
-                'message' => 'Ubah Password User Gagal, Terjadi kesalahan pada sistem.'
-            ]);
+            return redirect()
+                ->back('dashboard.admin.users.create')
+                ->with([
+                    'type' => 'danger',
+                    'message' => 'Ubah Password User Gagal, Terjadi kesalahan pada sistem.',
+                ]);
         }
     }
 

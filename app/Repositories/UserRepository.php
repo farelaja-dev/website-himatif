@@ -8,11 +8,6 @@ use App\Models\User;
 
 class UserRepository
 {
-    /**
-     * Get datatable for ajax
-     *
-     * @return mixed
-     */
     public function getDatatable()
     {
         $users = User::all();
@@ -25,42 +20,21 @@ class UserRepository
                         </div>';
             })
             ->addColumn('photo', function ($user) {
-                if ($user->photo) {
-                    return '<div class="img-wrapper img-wrapper-table"><img src=' . asset('storage/' . $user->photo) . ' alt=""></div>';
-                } else {
-                    return '<div class="img-wrapper img-wrapper-table"><i class="fas fa-image text-white"></i></div>';
-                }
+                return $user->photo ? '<div class="img-wrapper img-wrapper-table"><img src=' . asset('storage/' . $user->photo) . ' alt=""></div>'
+                                    : '<div class="img-wrapper img-wrapper-table"><i class="fas fa-image text-white"></i></div>';
             })
-            ->addColumn('name', function ($user) {
-                return $user->name;
-            })
-            ->addColumn('nim', function ($user) {
-                return $user->nim;
-            })
+            ->addColumn('name', fn($user) => $user->name)
+            ->addColumn('nim', fn($user) => $user->nim)
             ->addColumn('division', function ($user) {
-                return Division::find($user->periode[0]['division_id'])->name . " ({$user->periode[0]['position']})" ;
+                return $user->periode[0]['division_id'] ? Division::find($user->periode[0]['division_id'])->name . " ({$user->periode[0]['position']})" : '-';
             })
-            ->addColumn('linkedin', function ($user) {
-                return $user->linkedin;
-            })
-            ->addColumn('instagram', function ($user) {
-                return $user->instagram;
-            })
-            ->addColumn('status', function ($user) {
-                return $user->status === '1' ?
-                    '<span class="badge badge-success">Aktif</span>' :
-                    '<span class="badge badge-secondary">Tidak Aktif</span>';
-            })
-            ->addColumn('phone', function ($user) {
-                return $user->phone;
-            })
-            ->addColumn('email', function ($user) {
-                return $user->email;
-            })
-            ->addColumn('role', function ($user) {
-                return $user->role->name;
-            })
-            ->rawColumns(['action', 'photo', 'status', 'is_featured'])
+            ->addColumn('linkedin', fn($user) => $user->linkedin)
+            ->addColumn('instagram', fn($user) => $user->instagram)
+            ->addColumn('status', fn($user) => $user->status === '1' ? '<span class="badge badge-success">Aktif</span>' : '<span class="badge badge-secondary">Tidak Aktif</span>')
+            ->addColumn('phone', fn($user) => $user->phone)
+            ->addColumn('email', fn($user) => $user->email)
+            ->addColumn('role', fn($user) => $user->role->name)
+            ->rawColumns(['action', 'photo', 'status'])
             ->make(true);
     }
 
@@ -68,53 +42,34 @@ class UserRepository
     {
         return User::all();
     }
-    
+
     public function getPengurus()
     {
-        return User::where('status', "1")->get();
+        return User::where('status', '1')->get();
     }
 
     public function count(array $condition = [])
     {
-        return User::when(count($condition) > 0, function ($q) use ($condition) {
-            $q->where($condition);
-        })->count();
+        return User::when(count($condition) > 0, fn($q) => $q->where($condition))->count();
     }
 
-    /**
-     * Get User by id
-     *
-     * @param int $id
-     * @return User
-     */
     public function findById($id)
     {
         return User::find($id);
     }
 
-    /**
-     * @param User $data
-     * @return User
-     */
     public function save($data)
     {
         try {
-            $user = new User;
-            $user->name = $data['name'];
-            $user->nim = $data['nim'];
-            $user->linkedin = $data['linkedin'];
-            $user->instagram = $data['instagram'];
-            $user->position = $data['position'];
-            $user->division_id = $data['division_id'];
-            $user->status = $data['status'] ?? '1';
-            $user->phone = $data['phone'];
-            $user->email = $data['email'];
+            $user = new User($data);
             $user->password = bcrypt($data['password']);
-            $user->year_entry = $data['year_entry'];
             $user->role_id = '2';
-            $user->created_at = now();
+            $user->periode = array_map(fn($i) => [
+                'year' => $data['periode_year'][$i],
+                'division_id' => $data['periode_division'][$i] ?? null,
+                'position' => $data['periode_position'][$i] ?? null,
+            ], array_keys($data['periode_year']));
 
-            // check if has photo request
             if (isset($data['photo'])) {
                 $user->photo = $data['photo']->store('photo/user', 'public');
             }
@@ -127,52 +82,23 @@ class UserRepository
         }
     }
 
-    /**
-     * @param int $id
-     * @param User $data
-     * @return User
-     */
     public function update($id, $data)
     {
         try {
-            $periode_year = $data['periode_year'] ;
-            $periode_division = $data['periode_division'] ;
-            $periode_position = $data['periode_position'] ;
-            
-            // Combine periode arrays into an associative array
-            $periodes = [];
-            $count = count($periode_year);
-            for ($i = 0; $i < $count; $i++) {
-                $periodes[] = [
-                    'year' => $periode_year[$i],
-                    'division_id' => $periode_division[$i],
-                    'position' => $periode_position[$i],
-                ];
-            }
+            $user = User::findOrFail($id);
+            $user->fill($data);
+            $user->periode = array_map(fn($i) => [
+                'year' => $data['periode_year'][$i],
+                'division_id' => $data['periode_division'][$i] ?? null,
+                'position' => $data['periode_position'][$i] ?? null,
+            ], array_keys($data['periode_year']));
 
-            // Convert to JSON
-            $periodesJson = json_encode($periodes);
-
-            $user = User::find($id);
-            $user->name = $data['name'] ?? $user->name;
-            $user->nim = $data['nim'] ?? $user->nim;
-            $user->periode = $periodes;
-            $user->linkedin = $data['linkedin'] ?? $user->linkedin;
-            $user->instagram = $data['instagram'] ?? $user->instagram;
-            $user->status = $data['status'] ?? $user->status;
-            $user->phone = $data['phone'] ?? $user->phone;
-            $user->email = $data['email'] ?? $user->email;
-            
-            $user->updated_at = now();
-
-            // check if has password update request
             if (isset($data['password'])) {
                 $user->password = bcrypt($data['password']);
             }
 
-            // check if has photo request
             if (isset($data['photo'])) {
-                if ($user->photo && file_exists(storage_path('app/public/' . $user->photo))) {
+                if ($user->photo) {
                     \Storage::delete('public/' . $user->photo);
                 }
                 $user->photo = $data['photo']->store('photo/user', 'public');
@@ -186,23 +112,8 @@ class UserRepository
         }
     }
 
-    /**
-     * @param int $proker_id
-     * @param array $ids
-     * @param string $status = '0'|'1'
-     */
     public function setStatus($ids, $status)
     {
-        $query = "id = $ids[0]";
-        if (count($ids) > 1) {
-            foreach ($ids as $i => $id) {
-                // skip index 0, already appened on '$query'
-                if ($i !== 0) $query .= " or id = $id";
-            }
-        }
-
-        $result = \DB::table('users')->whereRaw($query)->update(['status' => $status]);
-
-        return $result;
+        return User::whereIn('id', $ids)->update(['status' => $status]);
     }
 }

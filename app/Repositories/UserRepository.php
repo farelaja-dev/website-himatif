@@ -64,6 +64,7 @@ class UserRepository
             $user = new User($data);
             $user->password = bcrypt($data['password']);
             $user->role_id = '2';
+            $user->status='1';
             $user->periode = array_map(fn($i) => [
                 'year' => $data['periode_year'][$i],
                 'division_id' => $data['periode_division'][$i] ?? null,
@@ -87,6 +88,7 @@ class UserRepository
         try {
             $user = User::findOrFail($id);
             $user->fill($data);
+            $user->status = $data['status'] ?? $user->status;
             $user->periode = array_map(fn($i) => [
                 'year' => $data['periode_year'][$i],
                 'division_id' => $data['periode_division'][$i] ?? null,

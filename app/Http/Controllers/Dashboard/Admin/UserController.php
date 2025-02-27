@@ -126,6 +126,7 @@ class UserController extends Controller
             'instagram' => 'nullable|url',
             'linkedin' => 'nullable|url',
             'email' => 'required|string|email|unique:users,email,' . $id,
+            'status' => 'required',
             'periode_year' => 'required|array',
             'periode_division' => 'required|array',
             'periode_position' => 'required|array',

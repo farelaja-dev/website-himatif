@@ -3,1036 +3,595 @@
 @section('title', 'BERANDA')
 
 @section('pageClass', 'homepage')
+
 @section('content')
-
-    {{-- Header --}}
-    <header>
-        <div class="container mx-auto sm:px-4 mx-auto sm:px-4">
-
-            <div class="flex flex-wrap mb-5 mb-lg-10 justify-center text-center ">
-                <div class="lg:w-1/2 pr-4 pl-4 order-2 lg:order-1 ">
-                    <h3 class="text-dec text-dec-secondary-1 text-dec-tl text-midnight font-extrabold mb-2 hidden lg:block">
-                        {{ $header['1-text']->content }}
-                    </h3>
-                    <p class="text-gray font-semibold mb-3">
-                        {{ $header['2-text2']->content }}
-                    </p>
-
-                    <div
-                        class="flex flex-row py-5 px-6 max-md:p-6 items-center justify-center bg-white border border-gray-200 rounded-full shadow hover:bg-gray-100">
-                        <div class="">
-                            <span class="bg-blue-400 text-white text-lg font-medium me-2 px-3 py-1 rounded-full">
-                                {{ $header['4-marquee_tag']->content }}
-                            </span>
-                            <div class="">
-
-                            </div>
-                        </div>
-                        <marquee direction="left" class="text-lg w-full [&_a]:font-medium [&_a]:text-blue-600 [&_a]:dark:text-blue-500 [&_a]:hover:underline">
-
-                            {!! $header['5-marquee_info']->content !!}
-                        </marquee>
-                    </div>
-
+    {{-- HERO SECTION --}}
+    <section class="hero-section">
+        <div class="hero-container">
+            <!-- Left Content -->
+            <div class="left-content">
+                <div class="hero-badge">
+                    <span class="badge-text">HIMPUNAN MAHASISWA</span>
                 </div>
-                <div class="md:w-2/3 lg:w-1/2 pr-4 pl-4 order-1 lg:order-2 mb-3 lg:mb-0 pt-3">
-                    <h3 class="text-dec text-dec-secondary-1 text-dec-tl text-midnight font-extrabold mb-2 lg:hidden">
-                        {{ $header['1-text']->content }}
-                    </h3>
-                    @if (file_exists(storage_path('app/public/' . $header['3-photo']->content)))
-                        <div class="header-img">
-                            <img src="{{ asset('storage/' . $header['3-photo']->content) }}" alt="" class="max-w-full h-auto">
-                        </div>
-                    @else
-                        <div class="header-img">
-                            <img src="{{ asset('img/' . $header['3-photo']->content) }}" alt="" class="max-w-full h-auto">
-                        </div>
-                    @endif
+                <h1 class="hero-title">TEKNOLOGI INFORMASI</h1>
+                <div class="description-text">
+                    <p>
+                        HIMATIF (Himpunan Mahasiswa Teknologi Informasi) adalah<br>
+                        Salah satu Organisasi Mahasiswa di Fakultas Ilmu Komputer<br>
+                        Universitas Jember. Terbentuknya HIMATIF dirintis oleh 7 Orang<br>
+                        Mahasiswa Teknologi Informasi pada tanggal 6 Agustus 2017.
+                    </p>
                 </div>
             </div>
 
-            <div class="flex flex-wrap pt-32">
-                <div class="w-full text-center mb-24">
-                    <h3 class="text-dec text-dec-secondary-2 text-dec-tl text-midnight font-extrabold mb-2">
-                        {{ $section2['text']->content }}
-                    </h3>
-                    <h6 class="text-gray font-semibold">
-                        {{ $section2['text2']->content }}
-                    </h6>
+            <!-- Right Content -->
+            <div class="right-content">
+                <div class="person-wrapper">
+                    <img src="{{ asset('img/ulul.png') }}" alt="HIMATIF Member" class="person-image">
                 </div>
-
-                <div class="lg:w-1/3 pr-4 pl-4 mb-3 lg:mb-0">
-                    <div class="relative flex flex-col min-w-0 rounded-md break-words border bg-white border-1 border-gray-300 shadow-md shadow-yellow-100">
-                        <div class="flex-auto p-6">
-                            <div class="flex flex-wrap  items-center">
-                                <div class="col-auto">
-                                    <img src="{{ asset('img/icons/pencil-warning.svg') }}" alt="" class="w-3rem w-lg-5rem">
-                                </div>
-                                <div class="relative flex-grow max-w-full flex-1 px-4">
-                                    <h6 class="text-midnight font-bold">
-                                        {{ $section2['card1_text']->content }}
-                                    </h6>
-                                    <div class="text-gray">
-                                        {{ $section2['card1_text2']->content }}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="lg:w-1/3 pr-4 pl-4 mb-3 lg:mb-0 lg:mt-4">
-                    <div class="relative flex flex-col min-w-0 rounded-md break-words border bg-white border-1 border-gray-300 shadow-md shadow-blue-200">
-                        <div class="flex-auto p-6">
-                            <div class="flex flex-wrap  items-center">
-                                <div class="col-auto">
-                                    <img src="{{ asset('img/icons/list-info.svg') }}" alt="" class="w-3rem w-lg-5rem">
-                                </div>
-                                <div class="relative flex-grow max-w-full flex-1 px-4">
-                                    <h6 class="text-midnight font-bold">
-                                        {{ $section2['card2_text']->content }}
-                                    </h6>
-                                    <div class="text-gray">
-                                        {{ $section2['card2_text2']->content }}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="lg:w-1/3 pr-4 pl-4 mb-3 lg:mb-0 lg:mt-12">
-                    <div class="relative flex flex-col min-w-0 rounded-md break-words border bg-white border-1 border-gray-300 shadow-md shadow-green-200">
-                        <div class="flex-auto p-6">
-                            <div class="flex flex-wrap  items-center">
-                                <div class="col-auto">
-                                    <img src="{{ asset('img/icons/graduate-secondary.svg') }}" alt="" class="w-3rem w-lg-5rem">
-                                </div>
-                                <div class="relative flex-grow max-w-full flex-1 px-4">
-                                    <h6 class="text-midnight font-bold">
-                                        {{ $section2['card3_text']->content }}
-                                    </h6>
-                                    <div class="text-gray">
-                                        {{ $section2['card3_text2']->content }}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-    {{-- End of Header --}}
-
-    {{-- Section 1 : Tentang --}}
-    <section id="section-1">
-        <div class="container mx-auto sm:px-4 mx-auto sm:px-4">
-            <div class="flex flex-wrap items-center justify-center lg:justify-around text-center">
-                <div class="mb-5 w-full">
-                    <h3 class="text-dec text-dec-info-2 text-dec-tl text-midnight font-extrabold mb-2 lg:inline-block">
-                        TENTANG HIMATIF
-                    </h3>
-                    <p class="text-gray mb-2">
-                        HIMATIF (Himpunan Mahasiswa Teknologi Informasi) adalah Salah satu Organisasi Mahasiswa di Fakultas
-                        Ilmu Komputer Universitas Jember. Terbentuknya HIMATIF dirintis oleh 7 Orang Mahasiswa Teknologi
-                        Informasi pada tanggal 6 Agustus 2017.
-                    </p>
-                    <a href="{{ route('frontpage.about') }}"
-                        class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap rounded-md py-1 px-3 leading-normal no-underline btn-gradient-primary">Lihat
-                        Lebih Lengkap</a>
-                </div>
-                <div class="text-center mt-5 w-full">
-                    <div class="mx-auto">
-                        <div class="swiper-wrapper-container">
-                            <div class="swiper tentangSwiper">
-                                <div class="swiper-wrapper">
-                                    @for ($i = 1; $i <= 3; $i++)
-                                        <div class="swiper-slide">
-                                            @if (file_exists(storage_path('app/public/' . $section3["image$i"]->content)))
-                                                <img src="{{ asset('storage/' . $section3["image$i"]->content) }}" alt="">
-                                            @else
-                                                <img src="{{ asset('img/' . $section3["image$i"]->content) }}" alt="">
-                                            @endif
-                                        </div>
-                                    @endfor
-                                </div>
-                                <div class="tentang-pagination mt-3"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
     </section>
-    {{-- End of Section 1 : Tentang --}}
 
-    {{-- Section 2 : Visi & Misi --}}
-    <section id="section-2">
-        <div class="container mx-auto sm:px-4 ">
-            <div class="flex flex-wrap ">
-                <div class="w-full text-center mb-5">
-                    <h3 class="text-dec text-dec-info-1 text-dec-tr text-midnight font-extrabold mb-2">
-                        {{ $visionMission['1-text']->content }}
-                    </h3>
-                    <p class="text-gray">
-                        {{ $visionMission['2-text2']->content }}
-                    </p>
-                </div>
-                @php
-                    $dataKeysVisionMission = ['3-vision', '4-mission'];
-                @endphp
-                @foreach ($dataKeysVisionMission as $key)
-                    <div class="lg:w-1/2 pr-4 pl-4 mb-3 lg:mb-0 ">
-                        <div class="relative flex flex-col min-w-0 shadow-sm  rounded-xl break-words border bg-white border-1 border-gray-300 ">
-                            <div class="flex-auto p-6">
-                                <div class="flex flex-wrap no-gutters">
-                                    <div class="lg:w-1/3 pr-4 pl-4">
-                                        @if (file_exists(storage_path('app/public/' . $visionMission[$key . '_photo']->content)))
-                                            <div class="img-fit img-fit-cover h-20rem">
-                                                <img src="{{ asset('storage/' . $visionMission[$key . '_photo']->content) }}" alt="">
-                                            </div>
-                                        @else
-                                            <div class="img-fit img-fit-cover h-20rem">
-                                                <img src="{{ asset('img/' . $visionMission[$key . '_photo']->content) }}" alt="">
-                                            </div>
-                                        @endif
-                                    </div>
-                                    <div class="relative lg:flex-grow lg:flex-1 p-2 lg:p-6">
-                                        <h5 class="text-midnight text-shadowed font-extrabold">
-                                            {{ $visionMission[$key . '_text']->content }}
-                                            <span class="text-shadowed-content">{{ $visionMission[$key . '_text']->content }}</span>
-                                        </h5>
-                                        <div class="divider my-2"></div>
-                                        <div class="text-gray">
-                                            {!! $visionMission[$key . '_text2']->content !!}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+    {{-- APA YANG KAMI LAKUKAN --}}
+    <section class="apa-kami-lakukan relative py-20" style="background: linear-gradient(to bottom, #FEF9F1, #002F49);">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center px-6 md:px-12">
+            <!-- Left Image -->
+            <div class="w-full md:w-1/3 flex justify-center md:justify-start mb-10 md:mb-0 relative">
+                <img src="{{ asset('img/ulul.png') }}" alt="HIMATIF Member" class="w-64 md:w-80 rounded-lg z-10 relative" />
+            </div>
+
+            <!-- Right Content -->
+            <div class="w-full md:w-2/3">
+                <h2
+                    class="text-3xl md:text-4xl font-extrabold text-white text-center md:text-left bg-[#910E19] inline-block px-10 py-4 rounded-full mb-10">
+                    APA YANG KAMI LAKUKAN
+                </h2>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <!-- Card -->
+                    <div class="bg-[#910E19] text-white px-6 py-6 rounded-[30px] shadow-lg relative">
+                        <h3 class="font-bold text-lg mb-3">Menyusun Proker</h3>
+                        <p class="text-sm leading-relaxed">Program kerja dibuat dan dikelola oleh masing-masing divisi di
+                            HIMATIF sesuai ruang lingkup masing-masing</p>
+                        <span
+                            class="absolute -top-3 -right-3 bg-[#5C0B11] text-white w-10 h-10 flex items-center justify-center rounded-full shadow-md">➜</span>
                     </div>
-                @endforeach
+                    <!-- Card -->
+                    <div class="bg-[#910E19] text-white px-6 py-6 rounded-[30px] shadow-lg relative">
+                        <h3 class="font-bold text-lg mb-3">Melaksanakan Proker</h3>
+                        <p class="text-sm leading-relaxed">Program kerja yang telah dirancang, dilaksanakan dan diikuti oleh
+                            seluruh elemen di HIMATIF</p>
+                        <span
+                            class="absolute -top-3 -right-3 bg-[#5C0B11] text-white w-10 h-10 flex items-center justify-center rounded-full shadow-md">➜</span>
+                    </div>
+                    <!-- Card -->
+                    <div class="bg-[#910E19] text-white px-6 py-6 rounded-[30px] shadow-lg relative">
+                        <h3 class="font-bold text-lg mb-3">Meningkatkan Kualitas Sumber Daya Mahasiswa</h3>
+                        <p class="text-sm leading-relaxed">Output yang diharapkan pada setiap proker yaitu meningkatnya
+                            kualitas Sumber Daya Mahasiswa HIMATIF</p>
+                        <span
+                            class="absolute -top-3 -right-3 bg-[#5C0B11] text-white w-10 h-10 flex items-center justify-center rounded-full shadow-md">➜</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
-    {{-- End of Section 2 : Visi & Misi --}}
 
-    {{-- Section 3 : Divisi --}}
-    <section id="section-3">
-        <div class="container mx-auto sm:px-4 mx-auto sm:px-4">
-            <div class="flex flex-wrap  justify-center">
-                <div class="w-full text-center mb-5">
-                    <h3 class="text-dec text-dec-warning-1 text-dec-tl text-white font-extrabold mb-8">
-                        PENGURUS HIMATIF
-                    </h3>
-                    <h6 class="text-gray-100">
-                        Pengurus HIMATIF terbagi atas beberapa divisi dengan
-                        tugas pokok dan tanggung jawab masing-masing
-                    </h6>
+    {{-- VISI MISI --}}
+    <section class="visi-misi-section">
+        <div class="container">
+            <h2 class="title">VISI DAN MISI</h2>
+            <div class="content">
+                <div class="box visi">
+                    <h3>VISI</h3>
+                    <p>Terwujudnya mahasiswa berkarakter serta menjadi media untuk mengembangkan potensi mahasiswa di bidang
+                        IPTEK yang didasari tanggung jawab dan sikap profesionalisme.</p>
                 </div>
-
-                @php
-                    $divisions = [
-                        [
-                            'shortname' => 'bph',
-                            'name' => 'Badan Pengurus Harian',
-                            'content' => 'BPH Terdisi atas Ketua Umum, Sekretaris Umum dan Bendahara Umum',
-                        ],
-                        [
-                            'shortname' => 'psdm',
-                            'name' => 'Pengembangan Sumber Daya Mahasiswa',
-                            'content' =>
-                                'Pengembangan dan pemberdayaan akademik dan softskill mahasiswa serta untuk menciptakan mahasiswa berkompeten dan unggul',
-                        ],
-                        [
-                            'shortname' => 'litbang',
-                            'name' => 'Penelitian dan Pengembangan',
-                            'content' => 'Melakukan penelitian untuk mendapatkan hasil optimal dalam pengembangan mahasiswa teknologi informasi',
-                        ],
-                        [
-                            'shortname' => 'humas',
-                            'name' => 'Hubungan Mahasiswa',
-                            'content' =>
-                                'Media komunikasi antara HIMATIF birokrasi, organisasi lain, instansi, maupun masyarakat umum dan menjadi penghubung antara himatif dengan mahasiswa teknologi informasi secara langsung',
-                        ],
-                        [
-                            'shortname' => 'mediatek',
-                            'name' => 'Media Teknologi',
-                            'content' => 'Media informasi dan komunikasi seputar teknologi informasi serta media pengembang teknologi HIMATIF',
-                        ],
-                    ];
-                @endphp
-
-                @foreach ($divisions as $i => $division)
-                    <div class="md:w-1/2 xl:w-1/3 pr-4 pl-4 mb-8 md:mb-12 ">
-                        <div class="flex flex-wrap  gutters-xs justify-center text-center lg:text-left">
-                            <div class="col-auto mb-3 mr-2 lg:mb-0">
-                                <img src="{{ asset('img/icons/' . $division['shortname'] . '-secondary.svg') }}" alt="" class="max-w-full h-auto">
-                            </div>
-                            <div class="relative lg:flex-grow lg:flex-1 lg:pl-1">
-                                <h5 class="text-white font-bold mb-1">{{ $division['name'] }}</h5>
-                                <p class="text-gray-100">
-                                    {{-- {{ strlen($division['content']) > 85 ? substr($division['content'], 0, 85) . '...' : $division['content'] }} --}}
-                                    {{ $division['content'] }}
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-
+                <div class="box misi">
+                    <h3>MISI</h3>
+                    <ol>
+                        <li>Mengadakan kegiatan yang bertujuan untuk mengembangkan IPTEK.</li>
+                        <li>Meningkatkan kualitas sumber daya manusia di bidang akademis, kewirausahaan, dan keprofesian.
+                        </li>
+                        <li>Memperkenalkan Program Studi Teknologi Informasi di lingkungan masyarakat luas.</li>
+                        <li>Menjalin hubungan dan kerjasama atas dasar kekeluargaan dengan organisasi di dalam atau di luar
+                            Program Studi Teknologi Informasi.</li>
+                        <li>Melaksanakan setiap kegiatan dengan berlandaskan disiplin dan penuh tanggung jawab.</li>
+                        <li>Mempererat tali persaudaraan antar mahasiswa khususnya anggota HIMATIF.</li>
+                    </ol>
+                </div>
+                <div class="photo">
+                    <img src="{{ asset('img/ulul.png') }}" alt="Foto Ulul" />
+                </div>
             </div>
         </div>
     </section>
-    {{-- End of Section 3 : Divisi --}}
 
-
-    {{-- Section 4 : Proker --}}
-    <section id="section-4">
-
-        <div class="container mx-auto sm:px-4  mx-auto sm:px-4">
-            <h3 class="text-dec text-dec-info-1 text-dec-tr text-midnight font-extrabold mb-2">
-                PROGRAM KERJA
-            </h3>
-            <h6 class="text-gray mb-2">Program Kerja Himatif tahun 2023/2024</h6>
-
-            <div class="flex flex-wrap w-full justify-between op-5">
-                <button type="button" class="relative top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-                    id="slick-proker-prev">
-                    <span
-                        class=" inline-flex items-center justify-center w-10 h-10 rounded-full bg-midnight/30 group-hover:bg-black/50 group-focus:ring-4 group-focus:ring-white/70 group-focus:outline-none">
-                        <svg class="my-auto mx-auto w-1/5 font-medium leading-tight text-xl text-white rtl:rotate-180" aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4" />
-                        </svg>
-                        <span class="sr-only">Previous</span>
-                    </span>
-                </button>
-                <button type="button" class="relative top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-                    id="slick-proker-next">
-                    <span
-                        class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-midnight/30 group-hover:bg-black/50 group-focus:ring-4 group-focus:ring-white/70 group-focus:outline-none">
-                        <svg class="my-auto mx-auto w-1/5 font-medium leading-tight text-xl text-white rtl:rotate-180" aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
-                        </svg>
-                        <span class="sr-only">Next</span>
-                    </span>
-                </button>
-
+    {{-- DIVISI --}}
+    <section class="divisi-section">
+        <div class="container">
+            <h2 class="title">DIVISI</h2>
+            <div class="divisi-list">
+                <div class="divisi-item">
+                    <div class="logo-wrapper"><img src="{{ asset('img/logo1.png') }}" alt="BPH"></div>
+                    <strong>BPH</strong>
+                    <p>Badan Pengurus Harian</p>
+                </div>
+                <div class="divisi-item">
+                    <div class="logo-wrapper"><img src="{{ asset('img/logo2.png') }}" alt="PSDM"></div>
+                    <strong>PSDM</strong>
+                    <p>Pengembangan Sumber Daya Manusia</p>
+                </div>
+                <div class="divisi-item">
+                    <div class="logo-wrapper"><img src="{{ asset('img/logo3.png') }}" alt="Litbang"></div>
+                    <strong>LITBANG</strong>
+                    <p>Penelitian dan Pengembangan</p>
+                </div>
+                <div class="divisi-item">
+                    <div class="logo-wrapper"><img src="{{ asset('img/logo4.png') }}" alt="Humas"></div>
+                    <strong>HUMAS</strong>
+                    <p>Hubungan Mahasiswa</p>
+                </div>
+                <div class="divisi-item">
+                    <div class="logo-wrapper"><img src="{{ asset('img/logo5.png') }}" alt="Mediatek"></div>
+                    <strong>MEDIATEK</strong>
+                    <p>Media Teknologi</p>
+                </div>
             </div>
+        </div>
+    </section>
 
-            <div class="flex flex-wrap " id="slick-proker-row">
+    <section id="proker-section">
+        <div class="container">
+            <h2 class="section-title">PROGRAM KERJA</h2>
+
+            <div class="proker-slider">
                 @foreach ($prokers as $proker)
-                    <div class="relative lg:flex-grow lg:flex-1 my-3 md:my-6 px-2 ">
-                        <div class="relative flex flex-col min-w-0 rounded-md break-words bg-white border-1 border-gray-300 card-proker border shadow-sm h-full">
-                            <div class="flex-auto p-6 w-full h-full">
-                                <div class="flex flex-wrap  justify-center  h-full">
-                                    <div class="col-auto mb-2 lg:mb-0">
-                                        <div class="w-52 h-52 pr-5 rounded-md flex items-center">
-                                            @if ($proker->logo)
-                                                <img src="{{ asset('storage/' . $proker->logo) }}" alt="">
-                                            @else
-                                                <img src="{{ asset('img/placeholder/product-image-default.svg') }}" alt="">
-                                            @endif
-                                        </div>
-                                    </div>
-                                    <div class="relative md:flex-grow md:flex-1 flex flex-col justify-between">
-                                        <div class="flex-grow">
-                                            <a href="{{ route('frontpage.proker.show', $proker->id) }}" class="text-midnight">
-                                                <h5 class="font-semibold mb-1">{{ $proker->name }}</h5>
-                                            </a>
-
-                                            @if ($proker->is_registration_open === '1')
-                                                <div
-                                                    class="inline-block p-1 text-center font-semibold text-sm align-baseline leading-none rounded-md badge-lg bg-green-500 text-white hover:green-600 mb-2">
-                                                    Pendaftaran Dibuka</div>
-                                            @endif
-
-                                            <p class="text-12 text-md-14 text-gray mb-3">
-                                                {{ substr(strip_tags($proker->description), 0, 80) . (strlen(strip_tags($proker->description)) > 80 ? '...' : '') }}
-                                            </p>
-                                        </div>
-
-                                        <a href="{{ route('frontpage.proker.show', $proker->id) }}" class="text-gray pb-3">Lihat
-                                            Detail <i class="fas fa-arrow-right"></i></a>
-                                    </div>
-                                </div>
-                            </div>
+                    <div class="proker-card">
+                        <div class="card-img">
+                            @if ($proker->logo)
+                                <img src="{{ asset('storage/' . $proker->logo) }}" alt="{{ $proker->name }}">
+                            @else
+                                <img src="{{ asset('img/placeholder/product-image-default.svg') }}" alt="placeholder">
+                            @endif
                         </div>
-                    </div>
-                @endforeach
-
-            </div>
-
-        </div>
-    </section>
-
-    <section id="section-alumni" class="review" style="width: 100%">
-        <div class="relative container overflow-hidden mx-auto sm:px-4 swiper review-swiper">
-            <div class="w-full text-left mb-3 md:mb-12">
-                <h3 class="text-dec text-dec-info-1 text-dec-tr text-midnight font-extrabold mb-2">
-                    APA KATA ALUMNI KITA?
-                </h3>
-                <h6 class="text-gray ">Tentang Alumni Teknologi Informasi</h6>
-            </div>
-            <div class="flex flex-wrap w-full justify-between op-5 py-5">
-                <button type="button" class="relative top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-                    id="swiper-button-prev">
-                    <span
-                        class=" inline-flex items-center justify-center w-10 h-10 rounded-full bg-midnight/30 group-hover:bg-black/50 group-focus:ring-4 group-focus:ring-white/70 group-focus:outline-none">
-                        <svg class="my-auto mx-auto w-1/5 font-medium leading-tight text-xl text-white rtl:rotate-180" aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4" />
-                        </svg>
-                        <span class="sr-only">Previous</span>
-                    </span>
-                </button>
-                <button type="button" class="relative top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-                    id="swiper-button-next">
-                    <span
-                        class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-midnight/30 group-hover:bg-black/50 group-focus:ring-4 group-focus:ring-white/70 group-focus:outline-none">
-                        <svg class="my-auto mx-auto w-1/5 font-medium leading-tight text-xl text-white rtl:rotate-180" aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
-                        </svg>
-                        <span class="sr-only">Next</span>
-                    </span>
-                </button>
-            </div>
-            <div class="slide-content swiper-wrapper py-5">
-                @foreach ($reviews as $review)
-                    <div class="swiper-slide">
-                        <div class="r-card">
-                            <div class="card-inner h-full">
-                                <div class="card-front border border-solid border-black border-opacity-20 h-full shadow-lg">
-                                    <div class="image-content">
-                                        <span class="overlay"></span>
-                                        <div class="card-image">
-                                            @if (file_exists(storage_path('app/public/' . $review->photo)))
-                                                <img src="{{ asset('storage/' . $review->photo) }}" alt=" " class="card-img">
-                                            @else
-                                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="256"
-                                                    height="256" viewBox="0 0 256 256" xml:space="preserve">
-
-                                                    <defs>
-                                                    </defs>
-                                                    <g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;"
-                                                        transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)">
-                                                        <path
-                                                            d="M 45 53.718 c -10.022 0 -18.175 -8.153 -18.175 -18.175 S 34.978 17.368 45 17.368 c 10.021 0 18.175 8.153 18.175 18.175 S 55.021 53.718 45 53.718 z"
-                                                            style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;"
-                                                            transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
-                                                        <path
-                                                            d="M 45 0 C 20.187 0 0 20.187 0 45 c 0 24.813 20.187 45 45 45 c 24.813 0 45 -20.187 45 -45 C 90 20.187 69.813 0 45 0 z M 74.821 70.096 c -3.543 -5.253 -8.457 -9.568 -14.159 -12.333 c -2.261 -1.096 -4.901 -1.08 -7.247 0.047 c -2.638 1.268 -5.47 1.91 -8.415 1.91 c -2.945 0 -5.776 -0.643 -8.415 -1.91 c -2.343 -1.125 -4.984 -1.143 -7.247 -0.047 c -5.702 2.765 -10.616 7.08 -14.16 12.333 C 9.457 63.308 6 54.552 6 45 C 6 23.495 23.495 6 45 6 s 39 17.495 39 39 C 84 54.552 80.543 63.308 74.821 70.096 z"
-                                                            style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;"
-                                                            transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
-                                                    </g>
-                                                </svg>
-                                            @endif
-
-                                        </div>
-                                    </div>
-                                    <div class="card-content h-1/2 w-4/5 xl:w-3/5 px-5 overflow-hidden py-2 ">
-                                        <h2 class="name text-white font-extrabold">{{ $review->name }}</h2>
-                                        <p class="description text-center text-white text-sm">{{ $review->motivation }}
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="card-back flex flex-col p-8 gap-4 h-full">
-                                    <p>Pengalaman Kerja ( {{ $review->tempat_kerja }})</p>
-                                    <p class="card-back-text h-4/5">{{ $review->experience }}</p>
-                                </div>
-                            </div>
+                        <div class="card-content">
+                            <h3>{{ $proker->name }}</h3>
+                            <p>{{ substr(strip_tags($proker->description), 0, 60) }}...</p>
                         </div>
+                        <a href="{{ route('frontpage.proker.show', $proker->id) }}" class="card-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                                stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
+                                class="feather feather-arrow-up-right">
+                                <line x1="7" y1="17" x2="17" y2="7"></line>
+                                <polyline points="7 7 17 7 17 17"></polyline>
+                            </svg>
+                        </a>
                     </div>
                 @endforeach
             </div>
-
-
-        </div>
-        <div class="swiper-pagination"></div>
-    </section>
-
-
-    {{-- Section 5 : Galerry --}}
-    <section id="section-5">
-        <div class="container mx-auto sm:px-4 mx-auto sm:px-4">
-            <div id="row-gallery" class="flex flex-wrap justify-start gutters-xs">
-                <div class="w-full text-left mb-3 md:mb-12">
-                    <h3 class="text-dec text-dec-info-1 text-dec-tr text-midnight font-extrabold mb-2">
-                        GALERI KEGIATAN
-                    </h3>
-                    <h6 class="text-gray mb-2">Dokumentasi kegiatan HIMATIF terbaru</h6>
-                </div>
-
-                <div class="lg:w-1/2 pr-4 pl-4 mb-1 lg:mb-0">
-                    @if (file_exists(storage_path('app/public/' . $gallery['1-image1']->content)))
-                        <div data-src="{{ asset('storage/' . $gallery['1-image1']->content) }}" class="img-gallery img-gallery-main">
-                            <img src="{{ asset('storage/' . $gallery['1-image1']->content) }}" class="max-w-full h-auto" alt="">
-                        </div>
-                    @else
-                        <div data-src="{{ asset('img/' . $gallery['1-image1']->content) }}" class="img-gallery img-gallery-main">
-                            <img src="{{ asset('img/' . $gallery['1-image1']->content) }}" class="max-w-full h-auto" alt="">
-                        </div>
-                    @endif
-                </div>
-                <div class="lg:w-1/2 pr-4 pl-4">
-                    <div class="flex flex-wrap  gutters-xs">
-                        @for ($i = 2; $i <= 5; $i++)
-                            <div class="w-1/2 mb-1">
-                                @if (file_exists(storage_path('app/public/' . $gallery["$i-image$i"]->content)))
-                                    <div data-src="{{ asset('storage/' . $gallery["$i-image$i"]->content) }}" class="img-gallery">
-                                        <img src="{{ asset('storage/' . $gallery["$i-image$i"]->content) }}" alt="" class="max-w-full h-auto">
-                                    </div>
-                                @else
-                                    <div data-src="{{ asset('img/' . $gallery["$i-image$i"]->content) }}" class="img-gallery">
-                                        <img src="{{ asset('img/' . $gallery["$i-image$i"]->content) }}" alt="" class="max-w-full h-auto">
-                                    </div>
-                                @endif
-                            </div>
-                        @endfor
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
-    {{-- End of Section 5 : Galerry --}}
 
-@endsection
 
-@section('style')
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/css/lightgallery.min.css"
-        integrity="sha512-kwJUhJJaTDzGp6VTPBbMQWBFUof6+pv0SM3s8fo+E6XnPmVmtfwENK0vHYup3tsYnqHgRDoBDTJWoq7rnQw2+g==" crossorigin="anonymous"
-        referrerpolicy="no-referrer" />
-    <!-- Lightgallery -->
+
+
+    {{-- CSS --}}
     <style>
-        #slick-proker-prev,
-        #slick-proker-next {
-            transition: all .3s ease;
-            font-size: 2.4rem;
-            cursor: pointer;
-        }
-
-        #slick-proker-prev:hover,
-        #slick-proker-next:hover {
-            font-size: 2.6rem;
-        }
-
-        .slick-track {
-            margin-left: unset;
-            margin-right: unset;
-        }
-    </style>
-
-    <style>
-        .swiper-wrapper {
+        /* --- HERO --- */
+        .hero-section {
+            background-color: #FEF9F1;
+            min-height: 100vh;
             display: flex;
-            width: 100%
+            align-items: center;
+            padding: 80px 0;
         }
 
-        .swiper-slide {
+        .hero-container {
+            display: flex;
+            align-items: center;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 60px;
+            width: 100%;
+        }
+
+        .left-content {
+            flex: 0 0 60%;
+            padding-right: 60px;
+        }
+
+        .right-content {
+            flex: 0 0 40%;
             display: flex;
             justify-content: center;
             align-items: center;
-            flex-shrink: 0;
-            width: calc(33.33% - 20px);
-            transition: transform 0.5s ease-in-out;
         }
 
-        .r-card {
-            width: 100%;
-            height: 300px;
-            perspective: 1000px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .hero-badge {
+            margin-bottom: 30px;
         }
 
-        .card-inner {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            transition: transform 0.6s;
-            transform-style: preserve-3d;
-            cursor: pointer;
+        .badge-text {
+            background: #910E19;
+            color: #FEF9F1;
+            padding: 20px 100px;
+            border-radius: 60px;
+            font-weight: 900;
+            font-size: 32px;
+            letter-spacing: 1px;
+            display: inline-block;
         }
 
-        .card-front,
-        .card-back {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            backface-visibility: hidden;
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 900;
+            color: #1a1a1a;
+            margin: 0 0 40px 50px;
+            letter-spacing: -1px;
+            text-align: left;
         }
 
-        .card-front {
-            background-color: transparent;
-            border-radius: 10px;
-            stroke-opacity: 50% overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .card-back {
-            background-color: #42465f;
-            color: #f3f2eb;
-            transform: rotateY(180deg);
-            border-radius: 10px;
-        }
-
-        .r-card:hover .card-inner {
-            transform: rotateY(180deg);
-        }
-
-        .image-content {
-            padding: 20px;
+        .description-text {
+            max-width: 600px;
+            margin: 0 0 0 8px;
             text-align: center;
         }
 
-        .card-image {
+        .person-image {
+            width: 320px;
+            border-radius: 12px;
+        }
+
+        /* --- VISI MISI --- */
+        .visi-misi-section {
+            background: #013049;
+            padding: 40px 20px;
+            color: #fff;
+        }
+
+        .visi-misi-section .container {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .visi-misi-section .title {
+            background: #910E19;
+            padding: 12px 35px;
+            border-radius: 50px;
+            font-size: 22px;
+            font-weight: bold;
+            color: #fff;
+            margin-bottom: 40px;
+            display: inline-block;
+        }
+
+        .visi-misi-section .content {
+            display: grid;
+            grid-template-columns: 1fr 1fr auto;
+            gap: 20px;
+            align-items: start;
+        }
+
+        .visi-misi-section .box {
+            background: #fff;
+            color: #000;
+            padding: 20px;
+            border-radius: 12px 12px 12px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .visi-misi-section .box.visi {
+            border-left: 6px solid #910E19;
+        }
+
+        .visi-misi-section .box.misi {
+            border-left: 6px solid #013049;
+        }
+
+        .visi-misi-section .photo img {
+            max-width: 250px;
+            border-radius: 12px;
+            transform: translateX(30px);
+        }
+
+        /* --- DIVISI --- */
+        .divisi-section {
+            background: linear-gradient(to bottom, #013049 0%, #FEF9F1 100%);
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .divisi-section .title {
+            background: #910E19;
+            padding: 12px 35px;
+            border-radius: 50px;
+            font-size: 22px;
+            font-weight: bold;
+            color: #fff;
+            margin-bottom: 40px;
+            display: inline-block;
+        }
+
+        .divisi-section .divisi-list {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 30px;
+            justify-items: center;
+        }
+
+        .divisi-section .divisi-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .divisi-section .logo-wrapper {
             width: 120px;
             height: 120px;
-            border-radius: 50%;
-            background-color: #f3f2eb;
-            padding: 5px;
-            border: 5px solid #fff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             display: flex;
-            align-items: center;
             justify-content: center;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .divisi-section .logo-wrapper img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .divisi-section .divisi-item strong {
+            font-weight: bold;
+            font-size: 15px;
+            color: #013049;
+            margin-bottom: 4px;
+        }
+
+        .divisi-section .divisi-item p {
+            color: #013049;
+            font-size: 13px;
+            margin: 0;
+        }
+
+        #proker-section {
+            background: linear-gradient(to bottom, #FEF9F1, #013049);
+            padding: 60px 20px;
+            overflow: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
             margin: 0 auto;
         }
 
+        .section-title {
+            display: inline-block;
+            background: #9b0d18;
+            color: #fff;
+            font-size: 28px;
+            font-weight: bold;
+            padding: 10px 30px;
+            border-radius: 50px;
+            margin-bottom: 40px;
+        }
+
+        .proker-slider {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            scrollbar-width: none;
+            /* Firefox */
+        }
+
+        .proker-slider::-webkit-scrollbar {
+            display: none;
+            /* Chrome, Safari */
+        }
+
+        .proker-card {
+            flex: 0 0 250px;
+            background: #9b0d18;
+            border-radius: 20px;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+            padding-bottom: 40px;
+        }
+
         .card-img {
-            width: 100%;
-            height: 100%;
+            background: #ddd;
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 15px 15px 0 0;
+            overflow: hidden;
+        }
+
+        .card-img img {
+            max-width: 100%;
+            max-height: 100%;
             object-fit: cover;
-            border-radius: 50%;
         }
 
         .card-content {
-            background-color: #42465f;
-            box-sizing: border-box;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: center;
-            border-radius: 10px 10px 0 0;
+            padding: 15px;
         }
 
-        .name {
-            font-size: 14px;
+        .card-content h3 {
+            font-size: 16px;
             font-weight: bold;
-            margin-bottom: 10px;
-            text-align: center;
-            white-space: normal;
-            word-wrap: break-word;
-            overflow: hidden;
-            text-overflow: ellipsis;
+            margin-bottom: 8px;
         }
 
-        .description {
-            display: block;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            display: -webkit-box;
-            -webkit-line-clamp: 5;
-            -webkit-box-orient: vertical;
-        }
-
-        .card-back-text {
+        .card-content p {
             font-size: 14px;
-            line-height: 1.5;
-            text-align: justify;
-            word-wrap: break-word;
-            overflow: hidden;
-            display: -webkit-box;
-            -webkit-line-clamp: 12;
-            -webkit-box-orient: vertical;
-            text-overflow: ellipsis;
-            margin-top: 0;
-            margin-bottom: auto;
-            max-height: 100%;
-            white-space: normal;
+            line-height: 1.4;
         }
 
-        /*
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            .swiper-button-next,
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            .swiper-button-prev {
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                color: #000 !important;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                background-color: rgba(255, 255, 255, 0.8) !important;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                border-radius: 50% !important;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                width: 40px !important;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                height: 40px !important;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                font-size: 23px !important;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                display: flex !important;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                align-items: center !important;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                justify-content: center !important;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                cursor: pointer;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                z-index: 10 !important;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                position: absolute !important;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                top: 40% !important;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                transform: translateY(-50%) !important;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                transition: background-color 0.3s ease, color 0.3s ease;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                box-sizing: border-box;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                border: 1px solid #ddd !important;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            }
-
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            .swiper-button-next:hover,
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            .swiper-button-prev:hover {
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                background-color: rgba(255, 255, 255, 1) !important;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                color: #000 !important;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            }
-
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            .swiper-button-next {
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                right: 10px !important;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            }
-
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            .swiper-button-prev {
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                left: 10px !important;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            }
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    */
-
-        .swiper-pagination-bullet {
-            background: #ebd2b1 !important;
-            opacity: 0.7 !important;
-            width: 10px !important;
-            height: 10px !important;
-            border-radius: 50% !important;
-        }
-
-        .swiper-pagination-bullet-active {
-            background: #c56d33 !important;
-            opacity: 1 !important;
-        }
-
-        .swiper-button-next::before,
-        .swiper-button-prev::before {
-            content: none !important;
-            /* Menghapus pseudo-element */
-        }
-
-        .swiper-button-next::after,
-        .swiper-button-prev::after {
-            content: none !important;
-        }
-
-        .swiper-pagination {
-            position: relative !important;
-            bottom: -20px !important;
-            text-align: center !important;
-        }
-
-
-        @media (max-width: 768px) {
-
-            .swiper-slide {
-                width: 100%;
-            }
-
-            .r-card {
-                height: 300px;
-                width: 80%;
-            }
-
-            .card-inner {
-                width: 100%;
-                height: 100%;
-            }
-
-            .card-image {
-                width: 120px;
-                height: 120px;
-            }
-
-            .name {
-                font-size: 18px;
-            }
-
-            .description {
-                font-size: 14px;
-            }
-
-            .card-back-text {
-                font-size: 16px;
-            }
-
-            .swiper-button-next,
-            .swiper-button-prev {
-                width: 45px;
-                height: 45px;
-                font-size: 18px;
-                top: 20px;
-                background-color: rgba(255, 255, 255, 0.9);
-                border-radius: 50%;
-                border: 1px solid #ddd;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-
-            .swiper-button-next {
-                right: 40px;
-            }
-
-            .swiper-button-prev {
-                left: 40px;
-            }
-        }
-
-        @media (max-width: 480px) {
-
-            .swiper-slide {
-                width: 100%;
-            }
-
-            .r-card {
-                height: 300px;
-                width: 80%;
-            }
-
-            .card-inner {
-                width: 100%;
-                height: 100%;
-            }
-
-            .card-image {
-                width: 120px;
-                height: 120px;
-            }
-
-            .name {
-                font-size: 18px;
-            }
-
-            .description {
-                font-size: 14px;
-            }
-
-            .card-back-text {
-                font-size: 16px;
-            }
-
-            .swiper-button-next,
-            .swiper-button-prev {
-                width: 45px;
-                height: 45px;
-                font-size: 18px;
-                top: 39%;
-                background-color: rgba(255, 255, 255, 0.9);
-                border-radius: 50%;
-                border: 1px solid #ddd;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-
-            .swiper-button-next {
-                right: 40px;
-            }
-
-            .swiper-button-prev {
-                left: 40px;
-            }
-        }
-    </style>
-
-    <style>
-        .swiper-wrapper-container {
-            position: relative;
-            height: fit-content;
-            background: transparent;
-            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-            font-size: 14px;
-            color: #000;
-        }
-
-        .swiper-wrapper-container .swiper {
-            width: 100%;
-            height: 100%;
-        }
-
-        .swiper-wrapper-container .swiper-slide {
-            text-align: center;
-            font-size: 18px;
+        .card-icon {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
             background: #fff;
+            color: #013049;
+            font-size: 18px;
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
             display: flex;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
+            text-decoration: none;
         }
 
-        .swiper-wrapper-container .swiper-slide img {
-            filter: brightness(70%);
-            opacity: 0.7;
-            transition: 0.5s ease-out;
+        /* --- RESPONSIVE --- */
+        @media(max-width:1200px) {
+            .hero-container {
+                padding: 0 40px;
+            }
+
+            .hero-title {
+                font-size: 2.8rem;
+            }
+
+            .person-image {
+                width: 280px;
+            }
+
+            .visi-misi-section .content {
+                grid-template-columns: 1fr 1fr;
+                text-align: center;
+            }
         }
 
-        .swiper-wrapper-container .swiper-slide.swiper-slide-active img {
-            filter: brightness(100%);
-            opacity: 1;
-            transition: 0.5s ease-out;
+        @media(max-width:992px) {
+            .hero-container {
+                flex-direction: column;
+                text-align: center;
+                padding: 0 30px;
+            }
+
+            .left-content {
+                flex: none;
+                padding-right: 0;
+                margin-bottom: 50px;
+            }
+
+            .right-content {
+                flex: none;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+                margin: 0 0 20px 0;
+                white-space: normal;
+                text-align: center;
+            }
+
+            .description-text {
+                margin: 0 auto;
+            }
+
+            .description-text br {
+                display: none;
+            }
+
+            .divisi-section .divisi-list {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .visi-misi-section .content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .visi-misi-section .photo img {
+                transform: none;
+                margin: 0 auto;
+            }
+        }
+
+        @media(max-width:768px) {
+            .hero-section {
+                padding: 60px 0;
+            }
+
+            .hero-container {
+                padding: 0 25px;
+            }
+
+            .hero-title {
+                font-size: 2.2rem;
+            }
+
+            .person-image {
+                width: 240px;
+            }
+
+            .badge-text {
+                font-size: 18px;
+                padding: 16px 40px;
+            }
+
+            .apa-kami-lakukan .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .divisi-section .divisi-list {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media(max-width:576px) {
+            .hero-container {
+                padding: 0 20px;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .person-image {
+                width: 200px;
+            }
+
+            .badge-text {
+                font-size: 16px;
+                padding: 14px 30px;
+            }
+
+            .description-text p {
+                font-size: 0.95rem;
+            }
+
+            .divisi-section .divisi-list {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
-
-@endsection
-
-@section('script')
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
-    {{-- Slick --}}
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-    {{-- Light Gallery --}}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/js/lightgallery.min.js"
-        integrity="sha512-b4rL1m5b76KrUhDkj2Vf14Y0l1NtbiNXwV+SzOzLGv6Tz1roJHa70yr8RmTUswrauu2Wgb/xBJPR8v80pQYKtQ==" crossorigin="anonymous"
-        referrerpolicy="no-referrer"></script>
     <script>
-        $(function() {
-            lightGallery(document.getElementById('row-gallery'), {
-                mode: 'lg-fade',
-                cssEasing: 'ease-in',
-                speed: 1000,
-                startClass: 'lg-fade',
-                backdropDuration: 500,
-                hideBarsDelay: 500,
-                selector: '[data-src]',
-                download: false,
-            });
+        const slider = document.querySelector('.proker-slider');
 
-            $('#slick-proker-row').slick({
-                infinite: true,
-                autoplay: true,
-                pauseOnDotsHover: true,
-                slidesToShow: 2,
-                slidesToScroll: 2,
-                autoplay: true,
-                dots: false,
-                prevArrow: $('#slick-proker-prev'),
-                nextArrow: $('#slick-proker-next'),
-                responsive: [{
-                    breakpoint: 768,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1
-                    }
-                }]
-            });
+        function autoScroll() {
+            if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth) {
+                // balik ke awal kalau sudah mentok kanan
+                slider.scrollTo({
+                    left: 0,
+                    behavior: 'smooth'
+                });
+            } else {
+                // geser 1 card (280px termasuk gap)
+                slider.scrollBy({
+                    left: 270,
+                    behavior: 'smooth'
+                });
+            }
+        }
 
-            $('#slick-alumni-row').slick({
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                arrows: false,
-                fade: true,
-
-                asNavFor: '#slider-nav'
-            });
-            $('#slider-nav').slick({
-                slidesToShow: 4,
-                responsive: [{
-                    breakpoint: 1024,
-                    settings: {
-                        slidesToShow: 2,
-                        slidesToScroll: 1
-                    }
-                }, {
-                    breakpoint: 640,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1
-                    }
-                }],
-                slidesToScroll: 1,
-                asNavFor: '#slick-alumni-row',
-                dots: false,
-                centerMode: true,
-                focusOnSelect: true
-            });
-
-        })
+        setInterval(autoScroll, 3000); // setiap 3 detik auto geser
     </script>
-    {{-- Light Gallery --}}
-
-    <script>
-        const swiper = new Swiper('.review-swiper', {
-
-            centeredSlides: true,
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            navigation: {
-                nextEl: '#swiper-button-next',
-                prevEl: '#swiper-button-prev',
-            },
-            loop: true,
-            speed: 600,
-            effect: 'slide',
-            autoplay: {
-                delay: 3000,
-                disableOnInteraction: false,
-            },
-            breakpoints: {
-                0: {
-                    slidesPerView: 1,
-                    spaceBetween: 10,
-                },
-                768: {
-                    slidesPerView: 2,
-                    spaceBetween: 20,
-                },
-                1024: {
-                    slidesPerView: 3,
-                    spaceBetween: 25,
-                },
-            },
-        });
-    </script>
-    {{-- Review-Alumni --}}
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            new Swiper(".tentangSwiper", {
-                // slidesPerView: 3,
-                spaceBetween: 20,
-                centeredSlides: true,
-                loop: true,
-                speed: 500,
-                pagination: {
-                    el: ".tentang-pagination",
-                    clickable: true,
-                },
-                autoplay: {
-                    delay: 2500,
-                    disableOnInteraction: false,
-                },
-                effect: 'coverflow',
-                coverflowEffect: {
-                    rotate: 0,
-                    stretch: 0,
-                    depth: 100,
-                    modifier: 1,
-                    slideShadows: false,
-                },
-                breakpoints: {
-                    0: {
-                        slidesPerView: 1,
-                        spaceBetween: 10,
-                    },
-                    768: {
-                        slidesPerView: 2,
-                        spaceBetween: 20,
-                    },
-                    1024: {
-                        slidesPerView: 2.7,
-                        spaceBetween: 30,
-                    },
-                },
-            });
-        });
-    </script>
-    {{-- Tentang-Kami --}}
 @endsection

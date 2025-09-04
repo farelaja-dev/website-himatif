@@ -3,364 +3,461 @@
 @section('title', 'Pemilu Himatif')
 
 @section('pageClass', 'pemilu')
+
 @section('content')
-    <div class="relative w-full h-full ">
-        <div class="absolute -z-40 w-full h-full bg-grid bg-repeat opacity-[0.03]">
-        </div>
-        <div class="absolute -z-50 w-full h-full bg-gray-100">
-        </div>
+    <!-- Header Section - Di luar wrapper supaya lebar selayar -->
+    <div class="pemilu-header">
+        <!-- Gambar dekorasi di dalam header -->
+        <img src="{{ asset('img/bagian/3.png') }}" class="header-decoration-left">
+        <img src="{{ asset('img/bagian/4.png') }}" class="header-decoration-right">
 
-        <div class="grid grid-cols-2 p-10">
-            <div class="flex flex-col gap-2 justify-center items-center ">
-                <div class="">
-                    <p class="max-md:text-base"> Hello Mahasiswa Teknologi Informasi 👋, </p>
-                    <p class="max-md:text-base">Selamat datang di ...</p>
-                </div>
-            </div>
-
-            <div class="m-auto">
-                <img src="/img/hd_logo.png" alt="Logo HIMATIF" class="h-72 max-md:h-56 max-sm:h-40 aspect-square">
-            </div>
+        <h1 class="pemilu-title">PEMILU HIMATIF 202</h1>
+        <p class="pemilu-subtitle">Dengan Tema</p>
+        <div class="theme-card">
+            <p style="font-size: 1.5rem; line-height: 1.6; font-weight: 600;">
+                Mewujudkan Kepemimpinan Inovatif yang Kolaboratif, Responsif, Proaktif, dan Berintegritas bagi
+                HIMATIF
+                2024/2025
+            </p>
         </div>
-        <div class="flex flex-col justify-center items-center gap-4 py-10">
-            <div class="flex flex-col items-center ">
-                <p class="text-[4rem] py-4 font-bold max-md:text-[3rem] max-sm:text-[2rem]">PEMILU HIMATIF 2024</p>
-            </div>
-            <p class="text-xl">Dengan tema :</p>
-            <div
-                class="group relative flex items-center justify-center hover:cursor-pointer  transition-all duration-150 ease-in-out">
-                <div
-                    class="rounded-tr-3xl rounded-bl-3xl rounded-tl-lg rounded-br-lg border border-black w-[90%] bg-white group-hover:bg-black">
-                    <p class="py-3 px-4 text-center font-semibold group-hover:text-white max-sm:text-sm">Mewujudkan
-                        Kepemimpinan Inovatif
-                        yang Kolaboratif, Responsif, Proaktif, dan Berintegritas bagi HIMATIF 2024/2025</p>
-                </div>
-                <div
-                    class="absolute -bottom-2 max-sm:right-8 right-11 -z-10 rounded-tr-xl rounded-bl-3xl rounded-tl-lg rounded-br-lg  w-[90%] bg-red-400 group-hover:bg-white border border-transparent group-hover:border-black h-20">
-                </div>
-            </div>
-        </div>
+    </div>
 
-        <div class="flex flex-col justify-center items-center my-16 gap-4 text-center ">
-            <p class="max-sm:text-base">Scoll Kebawah untuk melihat Visi dan Misi mereka</p>
-            <div class="w-5 h-5 animate-bounce"><svg xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 256 256" xml:space="preserve">
-                    <defs>
-                    </defs>
-                    <g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;"
-                        transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)">
-                        <path
-                            d="M 90 24.25 c 0 -0.896 -0.342 -1.792 -1.025 -2.475 c -1.366 -1.367 -3.583 -1.367 -4.949 0 L 45 60.8 L 5.975 21.775 c -1.367 -1.367 -3.583 -1.367 -4.95 0 c -1.366 1.367 -1.366 3.583 0 4.95 l 41.5 41.5 c 1.366 1.367 3.583 1.367 4.949 0 l 41.5 -41.5 C 89.658 26.042 90 25.146 90 24.25 z"
-                            style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;"
-                            transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
-                    </g>
+    <div class="pemilu-wrapper">
+        <!-- konten utama -->
+
+        <!-- Scroll Indicator -->
+        <div style="text-align: center; padding: 40px 0;">
+            <p style="color: #FEF9F1; margin-bottom: 15px;">Scroll kebawah untuk melihat Visi dan Misi mereka</p>
+            <div style="width: 30px; height: 30px; margin: 0 auto; animation: bounce 2s infinite;">
+                <svg viewBox="0 0 24 24" fill="#FEF9F1" style="width: 100%; height: 100%;">
+                    <path d="M7 10l5 5 5-5z" />
                 </svg>
             </div>
         </div>
 
-        <div class="flex flex-col justify-center items-center w-full gap-8 mt-5">
-            <p class="text-2xl font-extrabold text-center max-sm:text-lg">3 Alasan Kenapa Jangan Sampai Golput</p>
-            <div class="grid lg:grid-cols-3 justify-center items-center w-[90%] gap-8 min-h-80 max-xl:min-h-56">
-                <div
-                    class="rounded-xl overflow-hidden border-black border-2 w-96 max-xl:w-80  h-full hover:scale-110 hover:cursor-pointer transition-all duration-150 ease-in-out">
-                    <div
-                        class="relative py-2 px-3 w-full h-1/4 border-b-2 border-black bg-green-400 flex justify-center items-center">
-                        <p class="font-extrabold text-base  text-center text-black">
-                            Partisipasi Aktif Mendorong Kepemimpinan yang Berkualitas
-                        </p>
+        <!-- 3 Reasons Section -->
+        <div class="reasons-section">
+            <h2 class="reasons-title">3 Alasan Kenapa Jangan Sampai Golput</h2>
+            <div class="reasons-grid">
+                <div class="reason-card">
+                    <div class="reason-header">
+                        Partisipasi Aktif Mendorong Kepemimpinan yang Berkualitas
                     </div>
-                    <div class="p-2 h-3/4 flex items-center bg-white">
-                        <p class="text-center align-middle text-lg max-xl:text-sm">
-                            Pemilihan umum adalah cara demokratis untuk menentukan pemimpin yang akan mewakili mahasiswa.
-                            Dengan tidak Golput maka mahasiswa berpartisipasi aktif ini memastikan bahwa pemilihan dilakukan
-                            secara adil dan demokratis.
-                        </p>
-                    </div>
-                </div>
-                <div
-                    class="rounded-xl overflow-hidden border-black border-2 w-96 max-xl:w-80  h-full hover:scale-110 hover:cursor-pointer transition-all duration-150 ease-in-out">
-                    <div
-                        class="relative py-2 px-3 w-full h-1/4 border-b-2 border-black bg-green-400 flex justify-center items-center">
-                        <p class="font-extrabold text-base  text-center text-black">
-                            Menghormati Proses Demokrasi
-                        </p>
-                    </div>
-                    <div class="p-2 h-3/4 flex items-center bg-white">
-                        <p class="text-center align-middle text-lg max-xl:text-sm">
-                            Dengan memberikan suara, mahasiswa ikut serta dalam pembentukan keputusan bersama dan
-                            menunjukkan rasa tanggung jawab terhadap pilihan kepemimpinan yang akan mempengaruhi arah
-                            himpunan.
-                        </p>
-                    </div>
-                </div>
-                <div
-                    class="rounded-xl overflow-hidden border-black border-2 w-96 max-xl:w-80  h-full hover:scale-110 hover:cursor-pointer transition-all duration-150 ease-in-out">
-                    <div
-                        class="relative py-2 px-3 w-full h-1/4 border-b-2 border-black bg-green-400 flex justify-center items-center">
-                        <p class="font-extrabold text-base  text-center text-black">
-                            Meningkatkan Legitimasi Pemimpin Terpilih
-                        </p>
-                    </div>
-                    <div class="p-2 h-3/4 flex items-center bg-white">
-                        <p class="text-center align-middle text-lg max-xl:text-sm">
-                            Memastikan bahwa kepemimpinan yang terpilih memiliki dukungan luas dari anggota himpunan. Jika
-                            banyak anggota memilih untuk golput, pemimpin terpilih mungkin menghadapi tantangan untuk
-                            meyakinkan anggota bahwa mereka memiliki dukungan yang diperlukan.
-                        </p>
+                    <div class="reason-content">
+                        Pemilihan umum adalah cara demokratis untuk menentukan pemimpin yang akan mewakili mahasiswa.
+                        Dengan tidak Golput maka mahasiswa berpartisipasi aktif ini memastikan bahwa pemilihan dilakukan
+                        secara adil dan demokratis.
                     </div>
                 </div>
 
+                <div class="reason-card">
+                    <div class="reason-header">
+                        Menghormati Proses Demokrasi
+                    </div>
+                    <div class="reason-content">
+                        Dengan memberikan suara, mahasiswa ikut serta dalam pembentukan keputusan bersama dan
+                        menunjukkan rasa tanggung jawab terhadap pilihan kepemimpinan yang akan mempengaruhi arah
+                        himpunan.
+                    </div>
+                </div>
+
+                <div class="reason-card">
+                    <div class="reason-header">
+                        Meningkatkan Legitimasi Pemimpin Terpilih
+                    </div>
+                    <div class="reason-content">
+                        Memastikan bahwa kepemimpinan yang terpilih memiliki dukungan luas dari anggota himpunan. Jika
+                        banyak anggota memilih untuk golput, pemimpin terpilih mungkin menghadapi tantangan untuk
+                        meyakinkan anggota bahwa mereka memiliki dukungan yang diperlukan.
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="flex flex-col gap-4 mt-32">
+        <!-- Candidates Section -->
+        <div class="candidates-section">
             @foreach ($candidates as $key => $candidate)
                 @if ($key > 0)
-                    <div class="h-[1px] w-[97%] bg-black rounded-full mx-auto"></div>
+                    <div class="divider"></div>
                 @endif
-                @if ($key === 0)
-                    <div class="relative w-full my-8">
-                        <div class="grid md:grid-cols-6 grid-cols-1 gap-4">
-                            <div
-                                class=" relative col-span-2 max-sm:col-span-4 flex flex-col justify-end items-center h-[24rem] ">
-                                <div
-                                    class="absolute z-10 -top-4 h-fit px-4 py-1 w-fit -bottom-8 rounded-lg bg-white border-red-500 border-2">
-                                    <p class="text-black font-bold"> Paslon {{ $candidate->id }}</p>
-                                </div>
-                                <img class="h-[24rem] w-fit object-cover overflow-hidden rounded-t-xl px-5 bg-purple-100 border-purple-700 border-t-4 border-r-4 border-l-4"
-                                    src="{{ asset('storage/' . $candidate->photo) }}" alt="Candidate {{ $candidate->id }}">
-                                <div
-                                    class="relative h-fit w-fit min-w-80 flex items-center justify-center py-3 px-10 rounded-2xl border border-black bg-purple-400 ">
-                                    <p class="text-center align-middle text-lg text-black font-extrabold ">
-                                        {{ $candidate->nama }}</p>
 
+                <div class="candidate-container">
+                    <div class="candidate-grid" style="{{ $key === 1 ? 'direction: rtl;' : '' }}">
+                        <div class="candidate-photo-section" style="{{ $key === 1 ? 'direction: ltr;' : '' }}">
+                            <div class="paslon-badge">Paslon {{ $candidate->id }}</div>
+                            <div style="display: inline-block;">
+                                <img src="{{ asset('storage/' . $candidate->photo) }}" alt="Candidate {{ $candidate->id }}"
+                                    class="candidate-photo">
+                                <div class="candidate-name">
+                                    {{ $candidate->nama }}
                                 </div>
                             </div>
-                            <div class="col-span-4 px-10 w-full flex flex-col gap-8">
-                                <div class="rounded-xl overflow-hidden border-black border-2">
-                                    <div
-                                        class="relative py-2 w-full border-b-2 border-black bg-blue-500 flex justify-center items-center">
-                                        <p class="font-extrabold text-2xl ">
-                                            Visi
-                                        </p>
-                                        <div class="absolute z-10 right-5 flex flex-row gap-2">
-                                            <div class="rounded-full h-5 aspect-square bg-red-500 border border-black">
-                                            </div>
-                                            <div class="rounded-full h-5 aspect-square bg-green-500 border border-black">
-                                            </div>
-                                            <div class="rounded-full h-5 aspect-square bg-yellow-500 border border-black">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="py-5 px-8 bg-white max-sm:px-5">
-                                        <p class="text-justify align-middle text-lg max-sm:text-sm ">
-                                            {{ $candidate->visi }}
-                                        </p>
-                                    </div>
+                        </div>
+
+                        <div class="candidate-info" style="{{ $key === 1 ? 'direction: ltr;' : '' }}">
+                            <div class="info-card">
+                                <div class="info-header">Visi</div>
+                                <div class="info-content">
+                                    {{ $candidate->visi }}
                                 </div>
-                                <div class="rounded-xl overflow-hidden border-black border-2">
-                                    <div
-                                        class="relative py-2 w-full border-b-2 border-black bg-green-400 flex justify-center items-center">
-                                        <p class="font-extrabold text-2xl">
-                                            Misi
-                                        </p>
-                                        <div class="absolute z-10 right-5 flex flex-row gap-2">
-                                            <div class="rounded-full h-5 aspect-square bg-red-500 border border-black">
-                                            </div>
-                                            <div class="rounded-full h-5 aspect-square bg-green-500 border border-black">
-                                            </div>
-                                            <div class="rounded-full h-5 aspect-square bg-yellow-500 border border-black">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="py-5 px-8 max-sm:px-5 bg-white">
-                                        <ol class="list-decimal px-10 max-sm:px-5">
-                                            @foreach ($candidate->misi as $item)
-                                                <li class="text-lg text-justify align-middle max-sm:text-sm">
-                                                    {{ $item }} </li>
-                                            @endforeach
-                                        </ol>
-                                    </div>
+                            </div>
+
+                            <div class="info-card">
+                                <div class="info-header">Misi</div>
+                                <div class="info-content">
+                                    <ol>
+                                        @foreach ($candidate->misi as $item)
+                                            <li>{{ $item }}</li>
+                                        @endforeach
+                                    </ol>
                                 </div>
                             </div>
                         </div>
                     </div>
-                @elseif ($key === 1)
-                    <div class="relative w-full my-8">
-                        <div class="grid md:grid-cols-6 grid-cols-1 ">
-                            <div
-                                class="md:order-last relative col-span-2 max-sm:col-span-4 flex flex-col justify-end items-center h-[24rem] ">
-                                <div
-                                    class="absolute z-10 -top-4 h-fit px-4 py-1 w-fit -bottom-8 rounded-lg bg-white border-red-500 border-2">
-                                    <p class="text-black font-bold"> Paslon {{ $candidate->id }}</p>
-                                </div>
-                                <img class="h-[24rem] w-fit object-cover overflow-hidden rounded-t-xl px-5 bg-blue-100 border-blue-700 border-t-4 border-r-4 border-l-4"
-                                    src="{{ asset('storage/' . $candidate->photo) }}" alt="Candidate {{ $candidate->id }}">
-                                <div
-                                    class="relative h-fit w-fit min-w-80 flex items-center justify-center py-3 px-10 rounded-2xl border border-black bg-blue-400 ">
-                                    <p class="text-center align-middle text-lg text-black font-extrabold ">
-                                        {{ $candidate->nama }}</p>
-
-                                </div>
-                            </div>
-                            <div class="max-md:order-last col-span-4 px-10 w-full flex flex-col gap-8 mt-4">
-                                <div class="rounded-xl overflow-hidden border-black border-2">
-                                    <div
-                                        class="relative py-2 w-full border-b-2 border-black bg-red-400 flex justify-center items-center">
-                                        <p class="font-extrabold text-2xl ">
-                                            Visi
-                                        </p>
-                                        <div class="absolute z-10 right-5 flex flex-row gap-2">
-                                            <div class="rounded-full h-5 aspect-square bg-red-500 border border-black">
-                                            </div>
-                                            <div class="rounded-full h-5 aspect-square bg-green-500 border border-black">
-                                            </div>
-                                            <div class="rounded-full h-5 aspect-square bg-yellow-500 border border-black">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="py-5 px-8 bg-white  max-sm:px-5">
-                                        <p class="text-justify align-middle text-lg max-sm:text-sm">
-                                            {{ $candidate->visi }}
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="rounded-xl overflow-hidden border-black border-2">
-                                    <div
-                                        class="relative py-2 w-full border-b-2 border-black bg-purple-400 flex justify-center items-center">
-                                        <p class="font-extrabold text-2xl">
-                                            Misi
-                                        </p>
-                                        <div class="absolute z-10 right-5 flex flex-row gap-2">
-                                            <div class="rounded-full h-5 aspect-square bg-red-500 border border-black">
-                                            </div>
-                                            <div class="rounded-full h-5 aspect-square bg-green-500 border border-black">
-                                            </div>
-                                            <div class="rounded-full h-5 aspect-square bg-yellow-500 border border-black">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="py-5 px-8  max-sm:px-5 bg-white">
-                                        <ol class="list-decimal px-10  max-sm:px-5">
-                                            @foreach ($candidate->misi as $item)
-                                                <li class="text-lg text-justify max-sm:text-sm"> {{ $item }} </li>
-                                            @endforeach
-                                        </ol>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                @elseif ($key === 2)
-                    <div class="relative w-full my-8">
-                        <div class="grid md:grid-cols-6 grid-cols-1 gap-4">
-                            <div
-                                class="relative col-span-2 max-sm:col-span-4 flex flex-col justify-end items-center h-[24rem] ">
-                                <div
-                                    class="absolute z-10 -top-4 h-fit px-4 py-1 w-fit -bottom-8 rounded-lg bg-white border-red-500 border-2">
-                                    <p class="text-black font-bold"> Paslon {{ $candidate->id }}</p>
-                                </div>
-                                <img class="h-[24rem] w-fit object-cover overflow-hidden rounded-t-xl px-5 bg-purple-50 border-red-700 border-t-4 border-r-4 border-l-4"
-                                    src="{{ asset('storage/' . $candidate->photo) }}"
-                                    alt="Candidate {{ $candidate->id }}">
-                                <div
-                                    class="relative h-fit w-fit min-w-80 flex items-center justify-center py-3 px-10 rounded-2xl border border-black bg-red-400 ">
-                                    <p class="text-center align-middle text-lg text-black font-extrabold ">
-                                        {{ $candidate->nama }}</p>
-
-                                </div>
-                            </div>
-                            <div class="col-span-4 px-10 w-full flex flex-col gap-8">
-                                <div class="rounded-xl overflow-hidden border-black border-2">
-                                    <div
-                                        class="relative py-2 w-full border-b-2 border-black bg-purple-500 flex justify-center items-center">
-                                        <p class="font-extrabold text-2xl ">
-                                            Visi
-                                        </p>
-                                        <div class="absolute z-10 right-5 flex flex-row gap-2">
-                                            <div class="rounded-full h-5 aspect-square bg-red-500 border border-black">
-                                            </div>
-                                            <div class="rounded-full h-5 aspect-square bg-green-500 border border-black">
-                                            </div>
-                                            <div class="rounded-full h-5 aspect-square bg-yellow-500 border border-black">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="py-5 px-8 bg-white  max-sm:px-5">
-                                        <p class="text-justify align-middle text-lg  max-sm:text-sm">
-                                            {{ $candidate->visi }}
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="rounded-xl overflow-hidden border-black border-2">
-                                    <div
-                                        class="relative py-2 w-full border-b-2 border-black bg-blue-400 flex justify-center items-center">
-                                        <p class="font-extrabold text-2xl">
-                                            Misi
-                                        </p>
-                                        <div class="absolute z-10 right-5 flex flex-row gap-2">
-                                            <div class="rounded-full h-5 aspect-square bg-red-500 border border-black">
-                                            </div>
-                                            <div class="rounded-full h-5 aspect-square bg-green-500 border border-black">
-                                            </div>
-                                            <div class="rounded-full h-5 aspect-square bg-yellow-500 border border-black">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="py-5 px-8 bg-white  max-sm:px-5">
-                                        <ol class="list-decimal px-10  max-sm:px-5">
-                                            @foreach ($candidate->misi as $item)
-                                                <li class="text-lg text-justify  max-sm:text-sm"> {{ $item }}
-                                                </li>
-                                            @endforeach
-                                        </ol>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                @endif
+                </div>
             @endforeach
         </div>
-        <div class="w-full flex flex-col gap-3 justify-center items-center py-14">
-            <p class="text-center"> Klik tombol, jika sudah siap memberikan suara</p>
-            <div onclick="location.href='{{ route('frontpage.pemilu.vote') }}'"
-                class="bg-slate-600 py-2 px-5 rounded-full w-fit text-white hover:cursor-pointer hover:bg-slate-200 hover:text-slate-600 
-                transition-all ease-out duration-200 scale-100 hover:scale-110 
-                border-2 border-transparent hover:border-slate-900">
-                <p class="mx-5 font-bold">
-                    Vote Sekarang
-                </p>
-            </div>
+
+        <!-- Vote Section -->
+        <div class="vote-section">
+            <p class="vote-text">Klik tombol, jika sudah siap memberikan suara</p>
+            <button class="vote-button" onclick="location.href='{{ route('frontpage.pemilu.vote') }}'">
+                Vote Sekarang
+            </button>
         </div>
     </div>
-
-
 @endsection
 
 @section('style')
     <style>
+        body.pemilu {
+            background-color: #013049 !important;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        .pemilu-header {
+            background-color: #FEF9F1;
+            padding: 60px 20px 80px 20px;
+            text-align: center;
+            border-radius: 0 0 120px 120px;
+            margin-bottom: 0;
+            width: 100%;
+            position: relative;
+        }
+
+        .header-decoration-left {
+            position: absolute;
+            top: -20px;
+            left: 0;
+            width: 35px;
+            height: auto;
+            z-index: 1000;
+        }
+
+        .header-decoration-right {
+            position: absolute;
+            top: -20px;
+            right: 0;
+            width: 35px;
+            height: auto;
+            z-index: 1000;
+        }
+
+        .pemilu-wrapper {
+            background-color: #013049;
+            min-height: 100vh;
+            width: 100%;
+        }
+
+        .pemilu-title {
+            font-size: 3rem;
+            font-weight: 900;
+            color: white;
+            background: #910E19;
+            padding: 20px 40px;
+            border-radius: 50px;
+            display: inline-block;
+            margin: 0 0 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .pemilu-subtitle {
+            font-size: 1.4rem;
+            color: #013049;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        .theme-card {
+            background: transparent;
+            color: black;
+            padding: 0;
+            border-radius: 0;
+            max-width: 900px;
+            margin: 0 auto;
+            border: none;
+            box-shadow: none;
+            font-weight: 600;
+        }
+
+        .reasons-section {
+            padding: 80px 20px;
+            text-align: center;
+            background-color: #013049;
+        }
+
+        .reasons-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #FEF9F1;
+            margin-bottom: 50px;
+        }
+
+        .reasons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .reason-card {
+            background: #910E19;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            border: 2px solid #FEF9F1;
+        }
+
+        .reason-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+        }
+
+        .reason-header {
+            background: #910E19;
+            color: #FEF9F1;
+            padding: 20px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-align: center;
+        }
+
+        .reason-content {
+            background: #910E19;
+            padding: 25px;
+            color: #FEF9F1;
+            font-size: 1rem;
+            line-height: 1.6;
+            text-align: left;
+        }
+
+        .candidates-section {
+            padding: 80px 20px;
+            background-color: #013049;
+        }
+
+        .candidate-container {
+            max-width: 1400px;
+            margin: 0 auto 60px;
+            background: #013049;
+            border-radius: 0;
+            padding: 40px;
+            box-shadow: none;
+            border: none;
+        }
+
+        .candidate-grid {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .candidate-photo-section {
+            text-align: center;
+        }
+
+        .paslon-badge {
+            background: #910E19;
+            color: #FEF9F1;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .candidate-photo {
+            width: 200px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid #910E19;
+            margin-bottom: 15px;
+        }
+
+        .candidate-name {
+            background: #910E19;
+            color: #FEF9F1;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .candidate-info {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .info-card {
+            background: transparent;
+            border: 2px solid #FEF9F1;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .info-header {
+            background: transparent;
+            color: #FEF9F1;
+            padding: 15px 25px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-align: left;
+            border-bottom: 2px solid #FEF9F1;
+        }
+
+        .info-content {
+            padding: 25px;
+            color: #FEF9F1;
+            font-size: 1rem;
+            line-height: 1.7;
+            text-align: left;
+        }
+
+        .info-content ol {
+            padding-left: 20px;
+            color: #FEF9F1;
+        }
+
+        .info-content li {
+            margin-bottom: 10px;
+            color: #FEF9F1;
+        }
+
+        .vote-section {
+            text-align: center;
+            padding: 60px 20px;
+            background-color: #013049;
+        }
+
+        .vote-text {
+            font-size: 1.3rem;
+            color: #FEF9F1;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        .vote-button {
+            background: #910E19;
+            color: #FEF9F1;
+            padding: 18px 40px;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid #FEF9F1;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .vote-button:hover {
+            background: #FEF9F1;
+            color: #910E19;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .divider {
+            height: 2px;
+            background: #FEF9F1;
+            border-radius: 5px;
+            margin: 60px auto;
+            width: 80%;
+            max-width: 600px;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            53%,
+            80%,
+            100% {
+                transform: translateY(0);
+            }
+
+            40%,
+            43% {
+                transform: translateY(-10px);
+            }
+
+            70% {
+                transform: translateY(-5px);
+            }
+        }
+
+        @media (max-width: 768px) {
+
+            .header-decoration-left,
+            .header-decoration-right {
+                display: none;
+            }
+
+            .pemilu-title {
+                font-size: 2.5rem;
+            }
+
+            .candidate-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .candidate-photo {
+                width: 250px;
+                height: 280px;
+            }
+
+            .reasons-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .candidate-container {
+                padding: 25px;
+            }
+
+            .pemilu-header>div:first-child {
+                grid-template-columns: 1fr !important;
+                text-align: center !important;
+            }
+
+            .pemilu-header>div:first-child>div:first-child {
+                text-align: center !important;
+            }
+        }
     </style>
 @endsection
 
 @section('script')
     <script></script>
 @endsection
-
-<!--
-<div class="relative col-span-2 flex flex-col justify-end items-center h-fit ">
-                                    <div class="absolute z-10 -top-2 h-fit px-4 py-1 w-fit  rounded-lg bg-red-50 border-red-500 border-2">
-                                        <p class="text-black font-extrabold "> Paslon {{ $candidate->id }}</p>
-                                    </div>
-                                    <div class="absolute top-16 bg-purple-600 rotate-12 w-60 h-60 -z-10">
-
-                                    </div>
-                                    <img class="h-[26rem] w-fit object-cover overflow-hidden rounded-t-xl px-5 -bottom-1"
-                                        src="{{ asset('storage/' . $candidate->photo) }}" alt="Gambar Kandidat {{ $candidate->id }}">
-                                    <div class=" relative h-fit w-fit min-w-80 flex items-center justify-center py-3 px-10 rounded-2xl border border-black bg-purple-400 ">
-                                        <p class="text-center align-middle text-lg text-black font-extrabold ">
-                                            {{ $candidate->nama }}</p>
-                                            
-                                    </div>
-                                </div> -->

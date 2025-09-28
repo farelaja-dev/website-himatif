@@ -82,14 +82,29 @@
                 @endif
 
                 <div class="candidate-container">
+                    <!-- Paslon Badge di luar dan di atas -->
+                    <div class="paslon-badge-container">
+                        <div class="paslon-badge">Paslon {{ $candidate->id }}</div>
+                    </div>
+                    
                     <div class="candidate-grid" style="{{ $key === 1 ? 'direction: rtl;' : '' }}">
                         <div class="candidate-photo-section" style="{{ $key === 1 ? 'direction: ltr;' : '' }}">
-                            <div class="paslon-badge">Paslon {{ $candidate->id }}</div>
-                            <div style="display: inline-block;">
-                                <img src="{{ asset('storage/' . $candidate->photo) }}" alt="Candidate {{ $candidate->id }}"
-                                    class="candidate-photo">
-                                <div class="candidate-name">
-                                    {{ $candidate->nama }}
+                            <div class="photo-name-card">
+                                <div class="photo-section">
+                                    <img src="{{ asset('storage/' . $candidate->photo) }}" alt="Candidate {{ $candidate->id }}"
+                                        class="candidate-photo">
+                                </div>
+                                <div class="name-social-section">
+                                    <div class="candidate-name">
+                                        {{ $candidate->nama }}
+                                    </div>
+                                    <div class="social-section">
+                                        <div class="arrow">→</div>
+                                        <div class="social-icons">
+                                            <span class="linkedin-icon">in</span>
+                                            <span class="instagram-icon">📷</span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -125,7 +140,16 @@
                 Vote Sekarang
             </button>
         </div>
-    </div>
+        <!-- Footer Image -->
+        
+        <!-- Footer Image -->
+        <div style="width:100%;text-align:center;margin:48px 0 0 0;">
+        <div style="background:#FEF9F1;width:100vw;max-width:100%;margin:0 auto;padding:32px 0;display:flex;justify-content:center;align-items:center;position:relative;">
+            <div style="width:100%;text-align:center;position:relative;">
+                <img src="{{ asset('img/bagian/9.png') }}" alt="Bagian 8" style="max-width:1600px;width:100%;height:auto;display:block;margin:0 auto;position:absolute;top:-40px;left:50%;transform:translateX(-50%);">
+            </div>
+        </div>
+        </div>
 @endsection
 
 @section('style')
@@ -265,51 +289,113 @@
             margin: 0 auto 60px;
             background: #013049;
             border-radius: 0;
-            padding: 40px;
+            padding: 0;
             box-shadow: none;
             border: none;
+            position: relative;
         }
 
-        .candidate-grid {
-            display: grid;
-            grid-template-columns: 300px 1fr;
-            gap: 40px;
-            align-items: start;
-        }
-
-        .candidate-photo-section {
-            text-align: center;
+        .paslon-badge-container {
+            text-align: left;
+            margin-bottom: 20px;
         }
 
         .paslon-badge {
             background: #910E19;
             color: #FEF9F1;
-            padding: 8px 20px;
-            border-radius: 25px;
+            padding: 12px 30px;
+            border-radius: 30px;
             font-weight: 700;
+            font-size: 1.2rem;
             display: inline-block;
-            margin-bottom: 20px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border: 2px solid #FEF9F1;
+        }
+
+        .candidate-grid {
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 40px;
+            align-items: start;
+            padding: 0 40px;
+        }
+
+        .candidate-photo-section {
+            display: flex;
+            justify-content: center;
+        }
+
+        .photo-name-card {
+            background: #910E19;
+            border-radius: 25px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            /* Clip path untuk sudut kiri atas masuk ke dalam lebih dalam */
+            clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 25%);
+        }
+
+        .photo-section {
+            background: #910E19;
+            padding: 30px 30px 20px 30px;
+        }
+
+        .name-social-section {
+            background: #FEF9F1;
+            padding: 15px 20px;
+            color: #013049;
         }
 
         .candidate-photo {
             width: 200px;
-            height: 250px;
+            height: 200px;
             object-fit: cover;
             border-radius: 50%;
-            border: 4px solid #910E19;
-            margin-bottom: 15px;
+            border: 4px solid #FEF9F1;
         }
 
         .candidate-name {
-            background: #910E19;
-            color: #FEF9F1;
-            padding: 10px 20px;
-            border-radius: 25px;
-            font-weight: 700;
-            font-size: 1.1rem;
-            display: inline-block;
-            margin-top: 10px;
+            font-weight: 900;
+            font-size: 1.2rem;
+            text-align: center;
+            margin-bottom: 10px;
+            color: #013049;
+        }
+
+        .social-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .arrow {
+            font-size: 1.5rem;
+            color: #910E19;
+            font-weight: bold;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 8px;
+        }
+
+        .linkedin-icon {
+            background: #0077B5;
+            color: white;
+            padding: 5px 8px;
+            border-radius: 3px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .instagram-icon {
+            background: #E4405F;
+            color: white;
+            padding: 3px 6px;
+            border-radius: 3px;
+            font-size: 0.9rem;
         }
 
         .candidate-info {
@@ -430,11 +516,16 @@
             .candidate-grid {
                 grid-template-columns: 1fr;
                 gap: 30px;
+                padding: 0 20px;
             }
 
             .candidate-photo {
-                width: 250px;
-                height: 280px;
+                width: 200px;
+                height: 200px;
+            }
+
+            .photo-name-card {
+                padding: 25px;
             }
 
             .reasons-grid {
@@ -443,7 +534,7 @@
             }
 
             .candidate-container {
-                padding: 25px;
+                padding: 0;
             }
 
             .pemilu-header>div:first-child {

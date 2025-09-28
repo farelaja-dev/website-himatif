@@ -19,7 +19,7 @@
                         <a id="lainnya" class="nav-item nav-link dropdown-toggle">Lainnya ▾</a>
                         <ul class="dropdown-menu">
                             <li><a id="nim-checker" href="/nim-checker" class="dropdown-item">NIM CHECKER</a></li>
-                            <li><a id="cakap" href="/CakapxHimatif" class="dropdown-item">CAKAPxHIMATIF</a></li>
+                            {{-- <li><a id="cakap" href="/CakapxHimatif" class="dropdown-item">CAKAPxHIMATIF</a></li> --}}
                             <li><a id="pemilu" href="/pemilu" class="dropdown-item">PEMILU</a></li>
                         </ul>
                     </div>

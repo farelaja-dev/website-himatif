@@ -5,13 +5,30 @@
 @section('pageClass', 'homepage')
 
 @section('content')
+    <!-- Preload gambar utama beranda untuk optimasi loading -->
+    <link rel="preload" as="image" href="{{ asset('img/bagian/1.png') }}">
+    <link rel="preload" as="image" href="{{ asset('img/bagian/5.png') }}">
+    <link rel="preload" as="image" href="{{ asset('img/bagian/6.png') }}">
+    <link rel="preload" as="image" href="{{ asset('img/bagian/7.png') }}">
+    <link rel="preload" as="image" href="{{ asset('img/bagian/8.png') }}">
+    <link rel="preload" as="image" href="{{ asset('img/logo1.png') }}">
+    <link rel="preload" as="image" href="{{ asset('img/logo2.png') }}">
+    <link rel="preload" as="image" href="{{ asset('img/logo3.png') }}">
+    <link rel="preload" as="image" href="{{ asset('img/logo4.png') }}">
+    <link rel="preload" as="image" href="{{ asset('img/logo5.png') }}">
+    <link rel="preload" as="image" href="{{ asset('img/ulul.png') }}">
     {{-- HERO SECTION --}}
     <section class="hero-section">
+        <!-- Decorative Side Image -->
+        <div class="decorative-side left-side">
+            <img src="{{ asset('img/bagian/1.png') }}" alt="decorative left">
+        </div>
+        
         <div class="hero-container">
             <!-- Left Content -->
             <div class="left-content">
                 <div class="hero-badge">
-                    <span class="badge-text">HIMPUNAN MAHASISWA</span>
+                    <span class="badge-text font-black">HIMPUNAN MAHASISWA</span>
                 </div>
                 <h1 class="hero-title">TEKNOLOGI INFORMASI</h1>
                 <div class="description-text">
@@ -35,6 +52,11 @@
 
     {{-- APA YANG KAMI LAKUKAN --}}
     <section class="apa-kami-lakukan relative py-20" style="background: linear-gradient(to bottom, #FEF9F1, #002F49);">
+        <!-- Decorative Right Image -->
+        <div class="decorative-side right-side-apa">
+            <img src="{{ asset('img/bagian/5.png') }}" alt="decorative right">
+        </div>
+        
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center px-6 md:px-12">
             <!-- Left Image -->
             <div class="w-full md:w-1/3 flex justify-center md:justify-start mb-10 md:mb-0 relative">
@@ -44,33 +66,48 @@
             <!-- Right Content -->
             <div class="w-full md:w-2/3">
                 <h2
-                    class="text-3xl md:text-4xl font-extrabold text-white text-center md:text-left bg-[#910E19] inline-block px-10 py-4 rounded-full mb-10">
+                    class="text-3xl md:text-4xl font-black text-white text-center md:text-left bg-[#910E19] inline-block px-10 py-4 rounded-full mb-10">
                     APA YANG KAMI LAKUKAN
                 </h2>
                 <div class="grid md:grid-cols-3 gap-6">
                     <!-- Card -->
                     <div class="bg-[#910E19] text-white px-6 py-6 rounded-[30px] shadow-lg relative">
-                        <h3 class="font-bold text-lg mb-3">Menyusun Proker</h3>
+                        <h3 class="font-black text-lg mb-3">Menyusun Proker</h3>
                         <p class="text-sm leading-relaxed">Program kerja dibuat dan dikelola oleh masing-masing divisi di
                             HIMATIF sesuai ruang lingkup masing-masing</p>
-                        <span
-                            class="absolute -top-3 -right-3 bg-[#5C0B11] text-white w-10 h-10 flex items-center justify-center rounded-full shadow-md">➜</span>
+                        <span class="absolute -top-3 -right-3 bg-[#5C0B11] text-white w-10 h-10 flex items-center justify-center rounded-full shadow-md">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                                stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="7" y1="17" x2="17" y2="7"></line>
+                                <polyline points="7 7 17 7 17 17"></polyline>
+                            </svg>
+                        </span>
                     </div>
                     <!-- Card -->
                     <div class="bg-[#910E19] text-white px-6 py-6 rounded-[30px] shadow-lg relative">
-                        <h3 class="font-bold text-lg mb-3">Melaksanakan Proker</h3>
+                        <h3 class="font-black text-lg mb-3">Melaksanakan Proker</h3>
                         <p class="text-sm leading-relaxed">Program kerja yang telah dirancang, dilaksanakan dan diikuti oleh
                             seluruh elemen di HIMATIF</p>
-                        <span
-                            class="absolute -top-3 -right-3 bg-[#5C0B11] text-white w-10 h-10 flex items-center justify-center rounded-full shadow-md">➜</span>
+                        <span class="absolute -top-3 -right-3 bg-[#5C0B11] text-white w-10 h-10 flex items-center justify-center rounded-full shadow-md">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                                stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="7" y1="17" x2="17" y2="7"></line>
+                                <polyline points="7 7 17 7 17 17"></polyline>
+                            </svg>
+                        </span>
                     </div>
                     <!-- Card -->
                     <div class="bg-[#910E19] text-white px-6 py-6 rounded-[30px] shadow-lg relative">
-                        <h3 class="font-bold text-lg mb-3">Meningkatkan Kualitas Sumber Daya Mahasiswa</h3>
+                        <h3 class="font-black text-lg mb-3">Meningkatkan Kualitas Sumber Daya Mahasiswa</h3>
                         <p class="text-sm leading-relaxed">Output yang diharapkan pada setiap proker yaitu meningkatnya
                             kualitas Sumber Daya Mahasiswa HIMATIF</p>
-                        <span
-                            class="absolute -top-3 -right-3 bg-[#5C0B11] text-white w-10 h-10 flex items-center justify-center rounded-full shadow-md">➜</span>
+                        <span class="absolute -top-3 -right-3 bg-[#5C0B11] text-white w-10 h-10 flex items-center justify-center rounded-full shadow-md">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                                stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="7" y1="17" x2="17" y2="7"></line>
+                                <polyline points="7 7 17 7 17 17"></polyline>
+                            </svg>
+                        </span>
                     </div>
                 </div>
             </div>
@@ -79,9 +116,13 @@
 
     {{-- VISI MISI --}}
     <section class="visi-misi-section">
-        <div class="container">
-            <h2 class="title">VISI DAN MISI</h2>
-            <div class="content">
+            <!-- Decorative Side Image Left -->
+            <div class="decorative-side visi-misi-left">
+                <img src="{{ asset('img/bagian/6.png') }}" alt="decorative left visi misi">
+            </div>
+            <div class="container">
+                <h2 class="title font-black">VISI DAN MISI</h2>
+                <div class="content">
                 <div class="box visi">
                     <h3>VISI</h3>
                     <p>Terwujudnya mahasiswa berkarakter serta menjadi media untuk mengembangkan potensi mahasiswa di bidang
@@ -142,33 +183,121 @@
     </section>
 
     <section id="proker-section">
-        <div class="container">
-            <h2 class="section-title">PROGRAM KERJA</h2>
+            <!-- Decorative Side Image Left for Program Kerja -->
+            <div class="decorative-side proker-left">
+                <img src="{{ asset('img/bagian/7.png') }}" alt="decorative left program kerja">
+            </div>
+            <div class="container">
+            <h2 class="section-title font-black">PROGRAM KERJA</h2>
+            
+            <div class="navigation-wrapper">
+                <button type="button" class="swiper-button-prev proker-prev">
+                    <span class="nav-button-inner">
+                        <svg class="nav-arrow" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4" />
+                        </svg>
+                    </span>
+                </button>
+                <button type="button" class="swiper-button-next proker-next">
+                    <span class="nav-button-inner">
+                        <svg class="nav-arrow" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
+                        </svg>
+                    </span>
+                </button>
+            </div>
 
-            <div class="proker-slider">
-                @foreach ($prokers as $proker)
-                    <div class="proker-card">
-                        <div class="card-img">
-                            @if ($proker->logo)
-                                <img src="{{ asset('storage/' . $proker->logo) }}" alt="{{ $proker->name }}">
-                            @else
-                                <img src="{{ asset('img/placeholder/product-image-default.svg') }}" alt="placeholder">
-                            @endif
+            <div class="swiper proker-swiper">
+                <div class="swiper-wrapper">
+                    @foreach ($prokers as $proker)
+                        <div class="swiper-slide">
+                            <div class="proker-card">
+                                <div class="card-img">
+                                    @if ($proker->logo)
+                                        <img src="{{ asset('storage/' . $proker->logo) }}" alt="{{ $proker->name }}">
+                                    @else
+                                        <img src="{{ asset('img/placeholder/product-image-default.svg') }}" alt="placeholder">
+                                    @endif
+                                </div>
+                                <div class="card-content">
+                                    <h3>{{ $proker->name }}</h3>
+                                    <p>{{ substr(strip_tags($proker->description), 0, 60) }}...</p>
+                                </div>
+                                <a href="{{ route('frontpage.proker.show', $proker->id) }}" class="card-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                                        stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
+                                        class="feather feather-arrow-up-right">
+                                        <line x1="7" y1="17" x2="17" y2="7"></line>
+                                        <polyline points="7 7 17 7 17 17"></polyline>
+                                    </svg>
+                                </a>
+                            </div>
                         </div>
-                        <div class="card-content">
-                            <h3>{{ $proker->name }}</h3>
-                            <p>{{ substr(strip_tags($proker->description), 0, 60) }}...</p>
+                    @endforeach
+                </div>
+                <div class="swiper-pagination proker-pagination"></div>
+            </div>
+        </div>
+    </section>
+
+    {{-- REVIEW ALUMNI --}}
+        <section id="alumni-section">
+            <!-- Decorative Side Image Left for Alumni Section -->
+            <div class="decorative-side alumni-left">
+                <img src="{{ asset('img/bagian/8.png') }}" alt="decorative left alumni">
+            </div>
+            <div class="container">
+            <h2 class="section-title font-black">APA KATA ALUMNI KITA?</h2>
+            
+            <div class="navigation-wrapper">
+                <button type="button" class="swiper-button-prev alumni-prev">
+                    <span class="nav-button-inner">
+                        <svg class="nav-arrow" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4" />
+                        </svg>
+                    </span>
+                </button>
+                <button type="button" class="swiper-button-next alumni-next">
+                    <span class="nav-button-inner">
+                        <svg class="nav-arrow" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
+                        </svg>
+                    </span>
+                </button>
+            </div>
+
+            <div class="swiper alumni-swiper">
+                <div class="swiper-wrapper">
+                    @foreach ($reviews as $review)
+                        <div class="swiper-slide">
+                            <div class="alumni-card">
+                                <div class="alumni-card-inner">
+                                    <div class="alumni-card-front">
+                                        <div class="alumni-image-content">
+                                            <div class="alumni-card-image">
+                                                @if ($review->photo && file_exists(storage_path('app/public/' . $review->photo)))
+                                                    <img src="{{ asset('storage/' . $review->photo) }}" alt="{{ $review->name }}" class="alumni-img">
+                                                @else
+                                                    <img src="{{ asset('img/placeholder/profile-placeholder.svg') }}" alt="placeholder" class="alumni-img">
+                                                @endif
+                                            </div>
+                                        </div>
+                                        <div class="alumni-card-content">
+                                            <h3 class="alumni-name">{{ $review->name }}</h3>
+                                            <p class="alumni-motivation">{{ substr($review->motivation, 0, 80) }}{{ strlen($review->motivation) > 80 ? '...' : '' }}</p>
+                                        </div>
+                                    </div>
+                                    <div class="alumni-card-back">
+                                        <h4>Pengalaman Kerja</h4>
+                                        <p class="alumni-workplace">({{ $review->tempat_kerja }})</p>
+                                        <p class="alumni-experience">{{ $review->experience }}</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <a href="{{ route('frontpage.proker.show', $proker->id) }}" class="card-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
-                                stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
-                                class="feather feather-arrow-up-right">
-                                <line x1="7" y1="17" x2="17" y2="7"></line>
-                                <polyline points="7 7 17 7 17 17"></polyline>
-                            </svg>
-                        </a>
-                    </div>
-                @endforeach
+                    @endforeach
+                </div>
+                <div class="swiper-pagination alumni-pagination"></div>
             </div>
         </div>
     </section>
@@ -177,7 +306,121 @@
 
 
     {{-- CSS --}}
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <style>
+            /* --- ALUMNI DECORATIVE LEFT IMAGE --- */
+            #alumni-section {
+                position: relative;
+            }
+            .decorative-side.alumni-left {
+                position: absolute;
+                top: 100px;
+                left: 0;
+                width: 35px;
+                height: 100%;
+                display: flex;
+                align-items: flex-start;
+                justify-content: center;
+                z-index: 1;
+                pointer-events: none;
+            }
+            .decorative-side.alumni-left img {
+                width: 35px;
+                height: 100%;
+                object-fit: cover;
+            }
+            /* --- PROGRAM KERJA DECORATIVE LEFT IMAGE --- */
+            #proker-section {
+                position: relative;
+            }
+            .decorative-side.proker-left {
+                position: absolute;
+                top: 100px;
+                left: 0;
+                width: 35px;
+                height: 100%;
+                display: flex;
+                align-items: flex-start;
+                justify-content: center;
+                z-index: 1;
+                pointer-events: none;
+            }
+            .decorative-side.proker-left img {
+                width: 35px;
+                height: 100%;
+                object-fit: cover;
+            }
+            /* --- VISI MISI DECORATIVE LEFT IMAGE --- */
+            .visi-misi-section {
+                position: relative;
+            }
+            .visi-misi-section .visi-misi-left {
+                position: absolute;
+                top: 100px;
+                left: 0;
+                width: 35px;
+                height: 100%;
+                display: flex;
+                align-items: flex-start;
+                justify-content: center;
+                z-index: 1;
+                pointer-events: none;
+            }
+            .visi-misi-section .visi-misi-left img {
+                width: 35px;
+                height: 100%;
+                object-fit: cover;
+            }
+        /* --- DECORATIVE SIDE IMAGE --- */
+        .decorative-side {
+            position: absolute;
+            top: 0;
+            width: 35px;
+            height: calc(100% + 100px);
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            z-index: 1000;
+            pointer-events: none;
+            margin-top: -100px;
+        }
+
+        .decorative-side.left-side {
+            left: 0;
+        }
+
+        .decorative-side img {
+            width: 35px;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Decorative right image for 'Apa Yang Kami Lakukan' section */
+            .decorative-side.right-side-apa {
+                position: absolute;
+                top: 120px;
+                right: 0;
+                width: 35px;
+                height: 100%;
+                display: flex;
+                align-items: flex-start;
+                justify-content: center;
+                z-index: 1;
+                pointer-events: none;
+            }
+
+      .decorative-side.right-side-apa img {
+          width: 35px;
+          height: 100%;
+          object-fit: cover;
+          transform: scaleX(-1);
+        }
+
+        /* Ensure section has proper positioning context */
+        .apa-kami-lakukan {
+            position: relative;
+        }
+
         /* --- HERO --- */
         .hero-section {
             background-color: #FEF9F1;
@@ -185,6 +428,7 @@
             display: flex;
             align-items: center;
             padding: 80px 0;
+            position: relative;
         }
 
         .hero-container {
@@ -274,7 +518,7 @@
         }
 
         .visi-misi-section .box {
-            background: #fff;
+            background: #FFFAF2;
             color: #000;
             padding: 20px;
             border-radius: 12px 12px 12px 0;
@@ -286,7 +530,8 @@
         }
 
         .visi-misi-section .box.misi {
-            border-left: 6px solid #013049;
+            border-left: 6px solid #910E19;
+            border-right: 6px solid #013049;
         }
 
         .visi-misi-section .photo img {
@@ -374,31 +619,70 @@
             font-weight: bold;
             padding: 10px 30px;
             border-radius: 50px;
-            margin-bottom: 40px;
+            margin-bottom: 20px;
         }
 
-        .proker-slider {
+        .navigation-wrapper {
             display: flex;
-            gap: 20px;
-            overflow-x: auto;
-            scroll-behavior: smooth;
-            scrollbar-width: none;
-            /* Firefox */
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            margin-bottom: 30px;
+            padding: 0 20px;
         }
 
-        .proker-slider::-webkit-scrollbar {
-            display: none;
-            /* Chrome, Safari */
+        .proker-swiper, .alumni-swiper {
+            padding-bottom: 50px;
+        }
+
+        .swiper-button-prev, .swiper-button-next {
+            position: static !important;
+            width: auto !important;
+            height: auto !important;
+            margin: 0 !important;
+            background: none !important;
+            color: #fff !important;
+            cursor: pointer;
+            border: none;
+            outline: none;
+        }
+
+        .nav-button-inner {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-button-inner:hover {
+            opacity: 0.7;
+        }
+
+        .nav-arrow {
+            width: 60%;
+            height: auto;
+            color: #fff;
+        }
+
+        .swiper-pagination-bullet {
+            background: rgba(255, 255, 255, 0.5) !important;
+        }
+
+        .swiper-pagination-bullet-active {
+            background: #9b0d18 !important;
         }
 
         .proker-card {
             flex: 0 0 250px;
             background: #9b0d18;
-            border-radius: 20px;
+            border-radius: 20px 20px 20px 20px;
             color: #fff;
             position: relative;
             overflow: hidden;
             padding-bottom: 40px;
+            clip-path: path('M 0 0 L 250 0 L 250 calc(100% - 40px) Q 250 100% calc(100% - 40px) 100% L 0 100% Z');
         }
 
         .card-img {
@@ -407,7 +691,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 15px 15px 0 0;
+            border-radius: 20px 20px 0 0;
             overflow: hidden;
         }
 
@@ -446,6 +730,156 @@
             align-items: center;
             justify-content: center;
             text-decoration: none;
+        }
+
+        /* --- ALUMNI REVIEW --- */
+        #alumni-section {
+            background: #013049;
+            padding: 60px 20px;
+            overflow: hidden;
+        }
+
+        .section-subtitle {
+            color: #fff;
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 16px;
+        }
+
+
+
+        .alumni-card {
+            flex: 0 0 250px;
+            height: 300px;
+            perspective: 1000px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .alumni-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            cursor: pointer;
+        }
+
+        .alumni-card-front,
+        .alumni-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 20px 20px 20px 20px;
+            clip-path: path('M 0 0 L 250 0 L 250 calc(100% - 40px) Q 250 100% calc(100% - 40px) 100% L 0 100% Z');
+        }
+
+        .alumni-card-front {
+            background: #9b0d18;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .alumni-card-back {
+            background: #9b0d18;
+            color: #fff;
+            transform: rotateY(180deg);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .alumni-card:hover .alumni-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .alumni-image-content {
+            padding: 25px 20px 10px;
+            text-align: center;
+        }
+
+        .alumni-card-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background-color: #f3f2eb;
+            padding: 5px;
+            border: 3px solid #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .alumni-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .alumni-card-content {
+            background-color: #f3f2eb;
+            color: #000;
+            padding: 8px 20px;
+            text-align: center;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            border-radius: 20px 20px 0 0;
+            margin-top: 10px;
+            width: 85%;
+            min-height: 120px;
+        }
+
+        .alumni-name {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 4px;
+            color: #000;
+        }
+
+        .alumni-motivation {
+            font-size: 13px;
+            line-height: 1.4;
+            color: #000;
+            text-align: center;
+            word-wrap: break-word;
+            overflow: hidden;
+        }
+
+        .alumni-card-back h4 {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .alumni-workplace {
+            font-size: 14px;
+            margin-bottom: 15px;
+            color: #fff;
+            opacity: 0.9;
+        }
+
+        .alumni-experience {
+            font-size: 14px;
+            line-height: 1.5;
+            text-align: justify;
+            color: #fff;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 10;
+            -webkit-box-orient: vertical;
+            text-overflow: ellipsis;
         }
 
         /* --- RESPONSIVE --- */
@@ -573,25 +1007,76 @@
             }
         }
     </style>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
-        const slider = document.querySelector('.proker-slider');
-
-        function autoScroll() {
-            if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth) {
-                // balik ke awal kalau sudah mentok kanan
-                slider.scrollTo({
-                    left: 0,
-                    behavior: 'smooth'
-                });
-            } else {
-                // geser 1 card (280px termasuk gap)
-                slider.scrollBy({
-                    left: 270,
-                    behavior: 'smooth'
-                });
+        // Program Kerja Swiper
+        const prokerSwiper = new Swiper('.proker-swiper', {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            loop: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.proker-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.proker-next',
+                prevEl: '.proker-prev',
+            },
+            breakpoints: {
+                0: {
+                    slidesPerView: 1,
+                    spaceBetween: 10,
+                },
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                },
+                1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 25,
+                },
+                1200: {
+                    slidesPerView: 4,
+                    spaceBetween: 30,
+                }
             }
-        }
+        });
 
-        setInterval(autoScroll, 3000); // setiap 3 detik auto geser
+        // Alumni Swiper
+        const alumniSwiper = new Swiper('.alumni-swiper', {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            loop: true,
+            autoplay: {
+                delay: 4000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.alumni-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.alumni-next',
+                prevEl: '.alumni-prev',
+            },
+            breakpoints: {
+                0: {
+                    slidesPerView: 1,
+                    spaceBetween: 10,
+                },
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                },
+                1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 25,
+                }
+            }
+        });
     </script>
 @endsection

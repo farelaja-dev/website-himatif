@@ -2,7 +2,7 @@
     <div class="max-w-7xl mx-auto flex items-center justify-between">
         <!-- Logo -->
         <a class="flex items-center space-x-3 mt-4" href="/">
-            <img src="img/logo.png" class="h-12 w-12" alt="Logo Himatif">
+            <img src="{{ asset('img/logo.png') }}" class="h-12 w-12" alt="Logo Himatif">
             <div class="text-3xl font-bold text-[#00101A]">HIMATIF</div>
         </a>
 

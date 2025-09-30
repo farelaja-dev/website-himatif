@@ -54,7 +54,7 @@
             <!-- Organization Info -->
             <div class="lg:w-1/3">
                 <div class="flex items-center mb-4">
-                    <img src="img/logo.png" class="h-12 w-12 mr-4" alt="Logo Himatif">
+                    <img src="{{ asset('img/logo.png') }}" class="h-12 w-12 mr-4" alt="Logo Himatif">
                     <h3 class="font-bold text-xl">HIMATIF</h3>
                 </div>
                 <p class="font-semibold leading-relaxed">

@@ -8,12 +8,16 @@
     <!-- Header Section - Di luar wrapper supaya lebar selayar -->
     <div class="pemilu-header">
         <!-- Gambar dekorasi di dalam header -->
-        <img src="{{ asset('img/bagian/3.png') }}" class="header-decoration-left">
-        <img src="{{ asset('img/bagian/4.png') }}" class="header-decoration-right">
+        <img src="{{ asset('img/bagian/3.png') }}"
+            class="header-decoration-left opacity-0 -translate-x-8 transition-all duration-1000 ease-out" data-animate-left>
+        <img src="{{ asset('img/bagian/4.png') }}"
+            class="header-decoration-right opacity-0 translate-x-8 transition-all duration-1000 ease-out" data-animate-right>
 
-        <h1 class="pemilu-title">PEMILU HIMATIF 2025</h1>
-        <p class="pemilu-subtitle">Dengan Tema</p>
-        <div class="theme-card">
+        <h1 class="pemilu-title opacity-0 translate-y-8 transition-all duration-1000 ease-out" data-animate>PEMILU HIMATIF
+            2025</h1>
+        <p class="pemilu-subtitle opacity-0 translate-y-8 transition-all duration-1000 ease-out delay-200" data-animate>
+            Dengan Tema</p>
+        <div class="theme-card opacity-0 translate-y-8 transition-all duration-1000 ease-out delay-400" data-animate>
             <p style="font-size: 1.5rem; line-height: 1.6; font-weight: 600;">
                 Mewujudkan Kepemimpinan Berintegritas, Visioner, dan
                 Kolaboratif untuk Teknologi Informasi
@@ -25,7 +29,8 @@
         <!-- konten utama -->
 
         <!-- Scroll Indicator -->
-        <div style="text-align: center; padding: 40px 0;">
+        <div style="text-align: center; padding: 40px 0;"
+            class="opacity-0 translate-y-8 transition-all duration-1000 ease-out" data-animate>
             <p style="color: #FEF9F1; margin-bottom: 15px;">Scroll kebawah untuk melihat Visi dan Misi mereka</p>
             <div style="width: 30px; height: 30px; margin: 0 auto; animation: bounce 2s infinite;">
                 <svg viewBox="0 0 24 24" fill="#FEF9F1" style="width: 100%; height: 100%;">
@@ -36,9 +41,11 @@
 
         <!-- 3 Reasons Section -->
         <div class="reasons-section">
-            <h2 class="reasons-title">3 Alasan Kenapa Jangan Sampai Golput</h2>
+            <h2 class="reasons-title opacity-0 translate-y-8 transition-all duration-1000 ease-out" data-animate>3 Alasan
+                Kenapa Jangan Sampai Golput</h2>
             <div class="reasons-grid">
-                <div class="reason-card">
+                <div class="reason-card opacity-0 translate-y-8 transition-all duration-1000 ease-out delay-200"
+                    data-animate>
                     <div class="reason-header">
                         Partisipasi Aktif Mendorong Kepemimpinan yang Berkualitas
                     </div>
@@ -49,7 +56,8 @@
                     </div>
                 </div>
 
-                <div class="reason-card">
+                <div class="reason-card opacity-0 translate-y-8 transition-all duration-1000 ease-out delay-400"
+                    data-animate>
                     <div class="reason-header">
                         Menghormati Proses Demokrasi
                     </div>
@@ -60,7 +68,8 @@
                     </div>
                 </div>
 
-                <div class="reason-card">
+                <div class="reason-card opacity-0 translate-y-8 transition-all duration-1000 ease-out delay-600"
+                    data-animate>
                     <div class="reason-header">
                         Meningkatkan Legitimasi Pemimpin Terpilih
                     </div>
@@ -80,10 +89,10 @@
         <div class="candidates-section">
             @foreach ($candidates as $key => $candidate)
                 @if ($key > 0)
-                    <div class="divider"></div>
+                    <div class="divider opacity-0 translate-y-8 transition-all duration-1000 ease-out" data-animate></div>
                 @endif
 
-                <div class="candidate-container">
+                <div class="candidate-container opacity-0 translate-y-8 transition-all duration-1000 ease-out" data-animate>
                     <div class="candidate-grid" style="{{ $key === 1 ? 'direction: rtl;' : '' }}">
                         <!-- Paslon Badge -->
                         <div class="badge-wrapper" style="{{ $key === 1 ? 'direction: ltr;' : '' }}">
@@ -139,7 +148,7 @@
         </div>
 
         <!-- Vote Section -->
-        <div class="vote-section">
+        <div class="vote-section opacity-0 translate-y-8 transition-all duration-1000 ease-out" data-animate>
             <p class="vote-text">Klik tombol, jika sudah siap memberikan suara</p>
             <button class="vote-button" onclick="location.href='{{ route('frontpage.pemilu.vote') }}'">
                 Vote Sekarang
@@ -148,7 +157,8 @@
         <!-- Footer Image -->
 
         <!-- Footer Image -->
-        <div style="width:100%;text-align:center;margin:48px 0 0 0;">
+        <div style="width:100%;text-align:center;margin:48px 0 0 0;"
+            class="opacity-0 translate-y-8 transition-all duration-1000 ease-out" data-animate>
             <div
                 style="background:#FEF9F1;width:100vw;max-width:100%;margin:0 auto;padding:32px 0;display:flex;justify-content:center;align-items:center;position:relative;">
                 <div style="width:100%;text-align:center;position:relative;">
@@ -555,6 +565,16 @@
                     display: none;
                 }
 
+                /* Hide entire cream footer section on mobile */
+                div[style*="background:#FEF9F1"] {
+                    display: none !important;
+                }
+
+                /* Hide bagian/9.png on mobile */
+                img[src*="bagian/9.png"] {
+                    display: none !important;
+                }
+
                 .pemilu-title {
                     font-size: 2.5rem;
                 }
@@ -564,24 +584,70 @@
                     flex-direction: column;
                     align-items: center;
                     gap: 20px;
+                    padding: 0 20px;
                 }
 
                 .badge-wrapper {
                     order: 1;
                     margin-bottom: 0;
-                    /* Adjusted to prevent overlap in responsive view */
                     margin-top: -20px;
-                    /* Added to create space above the badge */
+                    width: 100%;
                 }
 
                 .candidate-photo-section {
                     order: 2;
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                }
+
+                .photo-name-card {
+                    width: 250px;
+                    /* Ukuran card yang lebih pas untuk mobile */
+                }
+
+                .photo-section {
+                    padding: 30px 20px 25px 20px;
+                    /* Sesuaikan padding untuk mobile */
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                }
+
+                .name-social-section {
+                    padding: 20px;
+                    /* Perbesar padding area krem */
+                    width: 100%;
+                    box-sizing: border-box;
+                }
+
+                .social-section {
+                    justify-content: space-between;
+                    gap: 20px;
+                    /* Perbesar gap untuk lebih proporsional */
+                }
+
+                .arrow-left {
+                    font-size: 3rem;
+                    /* Sesuaikan ukuran panah untuk mobile */
+                }
+
+                .social-icons-right {
+                    gap: 12px;
+                    /* Perbesar gap antar icon */
+                }
+
+                .social-icon-img {
+                    height: 30px;
+                    /* Sesuaikan ukuran icon untuk mobile */
                 }
 
                 .candidate-info {
                     order: 3;
                     width: 100%;
                     padding: 0 20px;
+                    margin-top: 0;
                 }
 
                 .info-card {
@@ -589,12 +655,15 @@
                 }
 
                 .candidate-photo {
-                    width: 200px;
-                    height: 200px;
+                    width: 180px;
+                    height: 180px;
+                    /* Sesuaikan ukuran foto untuk mobile */
                 }
 
-                .photo-name-card {
-                    padding: 25px;
+                .candidate-name {
+                    font-size: 1.2rem;
+                    /* Sesuaikan ukuran font nama untuk mobile */
+                    padding: 0 15px;
                 }
 
                 .reasons-grid {
@@ -619,5 +688,94 @@
     @endsection
 
     @section('script')
-        <script></script>
+        <script>
+            // Smooth scroll animations with Intersection Observer
+            document.addEventListener('DOMContentLoaded', function() {
+                // Create intersection observer for animations
+                const observerOptions = {
+                    threshold: 0.1,
+                    rootMargin: '0px 0px -50px 0px'
+                };
+
+                // Observer for regular vertical animations
+                const observer = new IntersectionObserver(function(entries) {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.remove('opacity-0', 'translate-y-8');
+                            entry.target.classList.add('opacity-100', 'translate-y-0');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, observerOptions);
+
+                // Observer for left-to-right animations (3.png)
+                const observerLeft = new IntersectionObserver(function(entries) {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.remove('opacity-0', '-translate-x-8');
+                            entry.target.classList.add('opacity-100', 'translate-x-0');
+                            observerLeft.unobserve(entry.target);
+                        }
+                    });
+                }, observerOptions);
+
+                // Observer for right-to-left animations (4.png)
+                const observerRight = new IntersectionObserver(function(entries) {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.remove('opacity-0', 'translate-x-8');
+                            entry.target.classList.add('opacity-100', 'translate-x-0');
+                            observerRight.unobserve(entry.target);
+                        }
+                    });
+                }, observerOptions);
+
+                // Observe all elements with data-animate attribute
+                const animateElements = document.querySelectorAll('[data-animate]');
+                animateElements.forEach((element, index) => {
+                    // Add staggered delay for reason cards and candidate containers
+                    if (element.classList.contains('reason-card') || element.classList.contains(
+                            'candidate-container')) {
+                        element.style.transitionDelay = `${200 + (index * 100)}ms`;
+                    }
+                    observer.observe(element);
+                });
+
+                // Observe left-to-right decorative images
+                const animateLeftElements = document.querySelectorAll('[data-animate-left]');
+                animateLeftElements.forEach(element => {
+                    observerLeft.observe(element);
+                });
+
+                // Observe right-to-left decorative images
+                const animateRightElements = document.querySelectorAll('[data-animate-right]');
+                animateRightElements.forEach(element => {
+                    observerRight.observe(element);
+                });
+
+                // Header section animate on load (without intersection observer)
+                setTimeout(() => {
+                    const headerElements = document.querySelectorAll('.pemilu-header [data-animate]');
+                    headerElements.forEach(element => {
+                        element.classList.remove('opacity-0', 'translate-y-8');
+                        element.classList.add('opacity-100', 'translate-y-0');
+                    });
+
+                    // Animate header decorative images
+                    const headerDecorativeLeft = document.querySelectorAll(
+                        '.pemilu-header [data-animate-left]');
+                    headerDecorativeLeft.forEach(element => {
+                        element.classList.remove('opacity-0', '-translate-x-8');
+                        element.classList.add('opacity-100', 'translate-x-0');
+                    });
+
+                    const headerDecorativeRight = document.querySelectorAll(
+                        '.pemilu-header [data-animate-right]');
+                    headerDecorativeRight.forEach(element => {
+                        element.classList.remove('opacity-0', 'translate-x-8');
+                        element.classList.add('opacity-100', 'translate-x-0');
+                    });
+                }, 500);
+            });
+        </script>
     @endsection

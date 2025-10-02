@@ -6,26 +6,29 @@
 @section('content')
     <div class="nim-wrapper">
         <!-- sisi kiri -->
-        <div class="side left">
+        <div class="side left opacity-0 -translate-x-8 transition-all duration-1000 ease-out" data-animate-left>
             <img src="{{ asset('img/bagian/1.png') }}" alt="kiri">
         </div>
 
         <!-- konten utama -->
         <main class="nim-main">
-            <h1 class="title">NIM Checker</h1>
-            <h2 class="subtitle">MAHASISWA TEKNOLOGI INFORMASI</h2>
-            <p class="desc">Gunakan Pencarian Untuk Menampilkan List Detail Mahasiswa</p>
+            <h1 class="title opacity-0 translate-y-8 transition-all duration-1000 ease-out" data-animate>NIM Checker</h1>
+            <h2 class="subtitle opacity-0 translate-y-8 transition-all duration-1000 ease-out delay-200" data-animate>
+                MAHASISWA TEKNOLOGI INFORMASI</h2>
+            <p class="desc opacity-0 translate-y-8 transition-all duration-1000 ease-out delay-300" data-animate>Gunakan
+                Pencarian Untuk Menampilkan List Detail Mahasiswa</p>
 
-            <form action="{{ route('frontpage.nim-checker') }}" class="search-form">
+            <form action="{{ route('frontpage.nim-checker') }}"
+                class="search-form opacity-0 translate-y-8 transition-all duration-1000 ease-out delay-400" data-animate>
                 <input type="search" name="q" value="{{ Request::get('q') }}"
                     placeholder="Masukan NIM atau Nama Mahasiswa" required>
                 <button type="submit"></button>
                 <input type="hidden" name="limit" value="{{ Request::get('limit') ?? 8 }}">
             </form>
 
-            <div class="nim-list">
+            <div class="nim-list opacity-0 translate-y-8 transition-all duration-1000 ease-out delay-500" data-animate>
                 @foreach ($nims as $nim)
-                    <div class="nim-item">
+                    <div class="nim-item opacity-0 translate-y-8 transition-all duration-1000 ease-out" data-animate>
                         <p><strong>Nama:</strong> {{ $nim->name }}</p>
                         <p><strong>NIM:</strong> {{ $nim->nim }}</p>
                         <p><strong>Angkatan:</strong> {{ $nim->angkatan }}</p>
@@ -35,7 +38,8 @@
             </div>
 
             @if (isset($nims) && $nims !== [])
-                <form action="{{ route('frontpage.nim-checker') }}" class="more-form">
+                <form action="{{ route('frontpage.nim-checker') }}"
+                    class="more-form opacity-0 translate-y-8 transition-all duration-1000 ease-out delay-600" data-animate>
                     <input type="hidden" name="q" value="{{ Request::get('q') }}">
                     <input type="hidden" name="limit" value="{{ Request::get('limit') + 8 }}">
                     <button type="submit" class="more-btn">Tampilkan Lebih Banyak</button>
@@ -44,7 +48,7 @@
         </main>
 
         <!-- sisi kanan -->
-        <div class="side right">
+        <div class="side right opacity-0 translate-x-8 transition-all duration-1000 ease-out" data-animate-right>
             <img src="{{ asset('img/bagian/2.png') }}" alt="kanan">
         </div>
     </div>
@@ -91,6 +95,41 @@
         .side img {
             width: 35px !important;
             height: auto !important;
+        }
+
+        /* Custom animations for side images */
+        .side.left[data-animate-left] {
+            opacity: 0 !important;
+            transform: translateX(-32px) !important;
+            transition: all 1000ms ease-out !important;
+        }
+
+        .side.right[data-animate-right] {
+            opacity: 0 !important;
+            transform: translateX(32px) !important;
+            transition: all 1000ms ease-out !important;
+        }
+
+        .side.left[data-animate-left].animate-in {
+            opacity: 1 !important;
+            transform: translateX(0) !important;
+        }
+
+        .side.right[data-animate-right].animate-in {
+            opacity: 1 !important;
+            transform: translateX(0) !important;
+        }
+
+        /* Custom animations for main content */
+        .nim-main>* {
+            opacity: 0;
+            transform: translateY(32px);
+            transition: all 1000ms ease-out;
+        }
+
+        .nim-main>*.animate-in {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .nim-main {
@@ -266,4 +305,93 @@
             }
         }
     </style>
+
+    <script>
+        // Smooth scroll animations with Intersection Observer
+        document.addEventListener('DOMContentLoaded', function() {
+            // Create intersection observer for animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            // Observer for regular vertical animations
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.remove('opacity-0', 'translate-y-8');
+                        entry.target.classList.add('opacity-100', 'translate-y-0');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            // Observer for left-to-right animations (1.png)
+            const observerLeft = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-in');
+                        observerLeft.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            // Observer for right-to-left animations (2.png)
+            const observerRight = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-in');
+                        observerRight.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all elements with data-animate attribute
+            const animateElements = document.querySelectorAll('[data-animate]');
+            animateElements.forEach((element, index) => {
+                // Add staggered delay for nim items
+                if (element.classList.contains('nim-item')) {
+                    element.style.transitionDelay = `${600 + (index * 100)}ms`;
+                }
+                observer.observe(element);
+            });
+
+            // Observe left-to-right decorative images
+            const animateLeftElements = document.querySelectorAll('[data-animate-left]');
+            animateLeftElements.forEach(element => {
+                observerLeft.observe(element);
+            });
+
+            // Observe right-to-left decorative images
+            const animateRightElements = document.querySelectorAll('[data-animate-right]');
+            animateRightElements.forEach(element => {
+                observerRight.observe(element);
+            });
+
+            // Main content animate on load (without intersection observer)
+            setTimeout(() => {
+                const mainElements = document.querySelectorAll('.nim-main > *');
+                mainElements.forEach((element, index) => {
+                    setTimeout(() => {
+                        element.classList.add('animate-in');
+                    }, index * 200);
+                });
+
+                // Animate side decorative images immediately
+                const leftElements = document.querySelectorAll('[data-animate-left]');
+                console.log('Left elements found:', leftElements.length);
+                leftElements.forEach(element => {
+                    console.log('Animating left element');
+                    element.classList.add('animate-in');
+                });
+
+                const rightElements = document.querySelectorAll('[data-animate-right]');
+                console.log('Right elements found:', rightElements.length);
+                rightElements.forEach(element => {
+                    console.log('Animating right element');
+                    element.classList.add('animate-in');
+                });
+            }, 500);
+        });
+    </script>
 @endsection

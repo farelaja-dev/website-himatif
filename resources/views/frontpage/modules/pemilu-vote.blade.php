@@ -7,17 +7,21 @@
 @section('content')
     <!-- Header Section -->
     <div class="pemilu-header">
-        <img src="{{ asset('img/bagian/3.png') }}" class="header-decoration-left">
-        <img src="{{ asset('img/bagian/4.png') }}" class="header-decoration-right">
+        <img src="{{ asset('img/bagian/3.png') }}"
+            class="header-decoration-left opacity-0 -translate-x-8 transition-all duration-1000 ease-out" data-animate-left>
+        <img src="{{ asset('img/bagian/4.png') }}"
+            class="header-decoration-right opacity-0 translate-x-8 transition-all duration-1000 ease-out" data-animate-right>
 
-        <h1 class="pemilu-title">PEMILIHAN KANDIDAT</h1>
-        <p class="pemilu-subtitle">Ketua Umum HIMATIF 2025</p>
+        <h1 class="pemilu-title opacity-0 translate-y-8 transition-all duration-1000 ease-out" data-animate>PEMILIHAN
+            KANDIDAT</h1>
+        <p class="pemilu-subtitle opacity-0 translate-y-8 transition-all duration-1000 ease-out delay-200" data-animate>Ketua
+            Umum HIMATIF 2025</p>
     </div>
 
 
     <div class="pemilu-wrapper">
         @if (session('type') && session('message'))
-            <div class="alert-container">
+            <div class="alert-container opacity-0 translate-y-8 transition-all duration-1000 ease-out" data-animate>
                 <div class="alert-message">
                     {{ session('message') }}
                     <span class="alert-close" onclick="this.parentElement.parentElement.remove();">
@@ -35,7 +39,7 @@
             @csrf
 
             <!-- Form Input Section -->
-            <div class="form-inputs-section">
+            <div class="form-inputs-section opacity-0 translate-y-8 transition-all duration-1000 ease-out" data-animate>
                 <div class="input-group">
                     <label for="nim" class="input-label">NIM</label>
                     <input type="text" id="nim" name="nim" class="form-input" placeholder="Masukkan NIM Anda"
@@ -50,9 +54,10 @@
             </div>
 
             <!-- Candidates Selection Section -->
-            <div class="candidates-vote-section">
+            <div class="candidates-vote-section opacity-0 translate-y-8 transition-all duration-1000 ease-out" data-animate>
                 @foreach ($candidates as $candidate)
-                    <div class="candidate-vote-card">
+                    <div class="candidate-vote-card opacity-0 translate-y-8 transition-all duration-1000 ease-out"
+                        data-animate>
                         <input type="radio" name="candidate_id" value="{{ $candidate->id }}"
                             id="candidate-{{ $candidate->id }}" class="candidate-radio" required />
                         <label for="candidate-{{ $candidate->id }}" class="candidate-vote-label">
@@ -79,14 +84,15 @@
             </div>
 
             <!-- Submit Button -->
-            <div class="submit-section">
+            <div class="submit-section opacity-0 translate-y-8 transition-all duration-1000 ease-out" data-animate>
                 <button type="submit" class="submit-button">Kirim Pilihan</button>
             </div>
         </form>
     </div>
 
     <!-- Footer Image Dekorasi (moved to bottom) -->
-    <div style="width:100%;text-align:center;margin:0;">
+    <div style="width:100%;text-align:center;margin:0;"
+        class="opacity-0 translate-y-8 transition-all duration-1000 ease-out" data-animate>
         <div
             style="background:#FEF9F1;width:100vw;max-width:100%;margin:0 auto;padding:32px 0;display:flex;justify-content:center;align-items:center;position:relative;">
             <div style="width:100%;text-align:center;position:relative;">
@@ -400,6 +406,16 @@
                 display: none;
             }
 
+            /* Hide entire cream footer section on mobile */
+            div[style*="background:#FEF9F1"] {
+                display: none !important;
+            }
+
+            /* Hide bagian/9.png on mobile */
+            img[src*="bagian/9.png"] {
+                display: none !important;
+            }
+
             .pemilu-title {
                 font-size: 2rem;
                 padding: 15px 30px;
@@ -439,5 +455,93 @@
 @endsection
 
 @section('script')
-    <script></script>
+    <script>
+        // Smooth scroll animations with Intersection Observer
+        document.addEventListener('DOMContentLoaded', function() {
+            // Create intersection observer for animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            // Observer for regular vertical animations
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.remove('opacity-0', 'translate-y-8');
+                        entry.target.classList.add('opacity-100', 'translate-y-0');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            // Observer for left-to-right animations (3.png)
+            const observerLeft = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.remove('opacity-0', '-translate-x-8');
+                        entry.target.classList.add('opacity-100', 'translate-x-0');
+                        observerLeft.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            // Observer for right-to-left animations (4.png)
+            const observerRight = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.remove('opacity-0', 'translate-x-8');
+                        entry.target.classList.add('opacity-100', 'translate-x-0');
+                        observerRight.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all elements with data-animate attribute
+            const animateElements = document.querySelectorAll('[data-animate]');
+            animateElements.forEach((element, index) => {
+                // Add staggered delay for candidate vote cards
+                if (element.classList.contains('candidate-vote-card')) {
+                    element.style.transitionDelay = `${400 + (index * 200)}ms`;
+                }
+                observer.observe(element);
+            });
+
+            // Observe left-to-right decorative images
+            const animateLeftElements = document.querySelectorAll('[data-animate-left]');
+            animateLeftElements.forEach(element => {
+                observerLeft.observe(element);
+            });
+
+            // Observe right-to-left decorative images
+            const animateRightElements = document.querySelectorAll('[data-animate-right]');
+            animateRightElements.forEach(element => {
+                observerRight.observe(element);
+            });
+
+            // Header section animate on load (without intersection observer)
+            setTimeout(() => {
+                const headerElements = document.querySelectorAll('.pemilu-header [data-animate]');
+                headerElements.forEach(element => {
+                    element.classList.remove('opacity-0', 'translate-y-8');
+                    element.classList.add('opacity-100', 'translate-y-0');
+                });
+
+                // Animate header decorative images
+                const headerDecorativeLeft = document.querySelectorAll(
+                    '.pemilu-header [data-animate-left]');
+                headerDecorativeLeft.forEach(element => {
+                    element.classList.remove('opacity-0', '-translate-x-8');
+                    element.classList.add('opacity-100', 'translate-x-0');
+                });
+
+                const headerDecorativeRight = document.querySelectorAll(
+                    '.pemilu-header [data-animate-right]');
+                headerDecorativeRight.forEach(element => {
+                    element.classList.remove('opacity-0', 'translate-x-8');
+                    element.classList.add('opacity-100', 'translate-x-0');
+                });
+            }, 500);
+        });
+    </script>
 @endsection

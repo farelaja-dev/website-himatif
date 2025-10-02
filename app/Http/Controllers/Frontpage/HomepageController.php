@@ -83,9 +83,14 @@ class HomepageController extends Controller
     {
         $filter = [['title', 'LIKE', "%$request->q%"]];
         $filter2 = [['body', 'LIKE', "%$request->q%"]];
-        $limit = $request->limit ?? 8;
-
-        $posts = $this->postRepository->get($limit, $filter, $filter2);
+        $limit = $request->limit ?? 9;
+        
+        // Fix pagination logic
+        $perPage = 9;
+        $offset = max(0, $limit - $perPage); // Offset yang benar berdasarkan limit
+        
+        // Ambil data dengan offset yang tepat
+        $posts = $this->postRepository->get($perPage, $filter, $filter2, $offset);
         return view('frontpage.modules.berita-index', compact('posts'));
     }
 

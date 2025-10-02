@@ -58,7 +58,7 @@ class PostRepository
     /**
      * @return Collection
      */
-    public function get(int $limit = 8, array $condition = [], array $orCondition = [])
+    public function get(int $limit = 8, array $condition = [], array $orCondition = [], int $offset = 0)
     {
         return Post::orderBy('created_at', 'desc')
             ->when(count($condition) > 0, function ($q) use ($condition) {
@@ -67,6 +67,7 @@ class PostRepository
             ->when(count($orCondition) > 0, function ($q) use ($orCondition) {
                 $q->orWhere($orCondition);
             })
+            ->skip($offset)
             ->limit($limit)->get();
     }
 

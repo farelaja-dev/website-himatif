@@ -105,20 +105,8 @@
         align-items: center;
     }
 
-    .nav-outer-shape {
-        --outer-bg: #00101A;
-        background: var(--outer-bg);
-        /* Kembali ke bentuk kotak biasa */
-        border-radius: 0 0 18px 18px;
-        padding: 0 30px 0;
-        height: 80px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-top: 0;
-        position: relative;
 
-        .nav-outer-shape {
+    .nav-outer-shape {
             --outer-bg: #00101A;
             background: var(--outer-bg);
             /* Bentuk kotak biasa tanpa sudut melengkung */
@@ -132,7 +120,33 @@
             position: relative;
         }
 
-        /* Hapus semua pseudo-elements sudut melengkung */
+        /* Lekukan kiri atas (rounded keluar) */
+        .nav-outer-shape::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -24px;
+            width: 24px;
+            height: 24px;
+            background: radial-gradient(circle at bottom left, transparent 24px, var(--outer-bg) 24px);
+        }
+
+        /* Lekukan kanan atas (rounded keluar) */
+        .nav-outer-shape::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -24px;
+            width: 24px;
+            height: 24px;
+            background: radial-gradient(circle at bottom right, transparent 24px, var(--outer-bg) 24px);
+        }
+
+        /* Pastikan konten di atas background */
+        .nav-outer-shape>* {
+            position: relative;
+            z-index: 1;
+        }
 
         /* Pastikan konten di atas background */
         .nav-outer-shape>* {
@@ -149,7 +163,7 @@
             border-radius: 9999px;
             display: flex;
             gap: 4px;
-            padding: 6px 10px;
+            /* padding: 6px 10px; */
             /* dulu 4px 6px */
             position: relative;
         }

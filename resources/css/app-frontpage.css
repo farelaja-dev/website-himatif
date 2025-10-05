@@ -46,14 +46,14 @@ a {
 
 @tailwind utilities;
 
-/* Footer specific fixes for production */
-@layer utilities {
+/* Custom Himatif colors and components */
+@layer components {
     .footer-container {
-        @apply bg-[#FEF9F1] text-[#002F49];
+        @apply bg-himatif-cream text-himatif-navy;
     }
 
     .footer-social-icon {
-        @apply w-10 h-10 bg-[#002F49] rounded-lg flex items-center justify-center cursor-pointer flex-shrink-0;
+        @apply w-10 h-10 bg-himatif-navy rounded-lg flex items-center justify-center cursor-pointer flex-shrink-0;
     }
 
     .footer-responsive-flex {

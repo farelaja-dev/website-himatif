@@ -17,6 +17,9 @@ export default {
         colors: {
             ...colors,
             midnight: "#42465f",
+            "himatif-cream": "#FEF9F1",
+            "himatif-navy": "#002F49",
+            "himatif-red": "#910E19",
         },
         extend: {
             fontFamily: {

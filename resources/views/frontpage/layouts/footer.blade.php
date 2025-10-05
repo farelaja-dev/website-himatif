@@ -9,7 +9,7 @@
             <!-- Social Media Links -->
             <div class="flex flex-col lg:flex-row justify-between items-center gap-6 max-w-6xl mx-auto">
                 <!-- Left Side Social Icons -->
-                <div class="flex flex-wrap justify-center lg:justify-start items-center gap-4">
+                <div class="flex flex-wrap justify-center lg:justify-start items-center gap-4 w-full lg:w-auto">
                     <!-- Icon Reusable Class -->
                     <div class="w-10 h-10 bg-[#002F49] rounded-lg flex items-center justify-center cursor-pointer">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="#FEF9F1"
@@ -37,14 +37,15 @@
                 </div>
 
                 <!-- Right Side Website -->
-                <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 bg-[#002F49] rounded-full flex items-center justify-center cursor-pointer">
+                <div class="flex items-center gap-3 w-full lg:w-auto justify-center lg:justify-end">
+                    <div
+                        class="w-10 h-10 bg-[#002F49] rounded-full flex items-center justify-center cursor-pointer flex-shrink-0">
                         <svg width="20" height="20" fill="#FEF9F1" viewBox="0 0 24 24">
                             <path
                                 d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" />
                         </svg>
                     </div>
-                    <span class="text-xl font-semibold">himatifunej.com</span>
+                    <span class="text-xl font-semibold whitespace-nowrap">himatifunej.com</span>
                 </div>
             </div>
         </div>
@@ -52,12 +53,12 @@
         <!-- Content Section -->
         <div class="flex flex-col lg:flex-row justify-between gap-8 py-6 border-t-2 border-[#002F49]">
             <!-- Organization Info -->
-            <div class="lg:w-1/3">
+            <div class="w-full lg:w-1/3 mb-6 lg:mb-0">
                 <div class="flex items-center mb-4">
-                    <img src="{{ asset('img/logo.png') }}" class="h-12 w-12 mr-4" alt="Logo Himatif">
+                    <img src="{{ asset('img/logo.png') }}" class="h-12 w-12 mr-4 flex-shrink-0" alt="Logo Himatif">
                     <h3 class="font-bold text-xl">HIMATIF</h3>
                 </div>
-                <p class="font-semibold leading-relaxed">
+                <p class="font-semibold leading-relaxed text-sm lg:text-base">
                     Jalan. Kalimantan No. 37, Kampus<br>
                     Tegalboto, Jember, Jawa Timur,<br>
                     68121, Indonesia
@@ -65,7 +66,7 @@
             </div>
 
             <!-- Latest News -->
-            <div class="lg:w-1/3">
+            <div class="w-full lg:w-1/3 mb-6 lg:mb-0">
                 <h5 class="font-extrabold text-lg mb-4">BERITA TERBARU</h5>
                 @foreach (\App\Models\Post::take(3)->get() as $post)
                     <div class="flex items-center gap-3 mb-4">

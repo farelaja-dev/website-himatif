@@ -45,3 +45,18 @@ a {
 @tailwind components;
 
 @tailwind utilities;
+
+/* Footer specific fixes for production */
+@layer utilities {
+    .footer-container {
+        @apply bg-[#FEF9F1] text-[#002F49];
+    }
+
+    .footer-social-icon {
+        @apply w-10 h-10 bg-[#002F49] rounded-lg flex items-center justify-center cursor-pointer flex-shrink-0;
+    }
+
+    .footer-responsive-flex {
+        @apply flex flex-col lg:flex-row justify-between items-center gap-6 max-w-6xl mx-auto;
+    }
+}

@@ -323,8 +323,19 @@
                                         </div>
                                         <div class="alumni-card-content">
                                             <h3 class="alumni-name">{{ $review->name }}</h3>
-                                            <p class="alumni-motivation">
-                                                {{ substr($review->motivation, 0, 80) }}{{ strlen($review->motivation) > 80 ? '...' : '' }}
+                                            @php
+                                                $motivationLength = strlen($review->motivation);
+                                                $lengthClass = 'short';
+                                                if ($motivationLength > 200) {
+                                                    $lengthClass = 'extra-long';
+                                                } elseif ($motivationLength > 150) {
+                                                    $lengthClass = 'long';
+                                                } elseif ($motivationLength > 100) {
+                                                    $lengthClass = 'medium';
+                                                }
+                                            @endphp
+                                            <p class="alumni-motivation" data-length="{{ $lengthClass }}">
+                                                {{ $review->motivation }}
                                             </p>
                                         </div>
                                     </div>
@@ -519,12 +530,13 @@
 
         .hero-badge {
             margin-bottom: 30px;
+            margin-left: 55px;
         }
 
         .badge-text {
             background: #910E19;
             color: #FEF9F1;
-            padding: 20px 100px;
+            padding: 20px 40px;
             border-radius: 60px;
             font-weight: 900;
             font-size: 32px;
@@ -802,12 +814,15 @@
             justify-content: center;
             border-radius: 20px 20px 0 0;
             overflow: hidden;
+            position: relative;
         }
 
         .card-img img {
-            max-width: 100%;
-            max-height: 100%;
+            width: 100%;
+            height: 100%;
             object-fit: cover;
+            object-position: center;
+            display: block;
         }
 
         .card-content {
@@ -937,7 +952,7 @@
         .alumni-card-content {
             background-color: #f3f2eb;
             color: #000;
-            padding: 8px 20px;
+            padding: 8px 20px 20px 20px;
             text-align: center;
             flex: 1;
             display: flex;
@@ -947,6 +962,8 @@
             margin-top: 10px;
             width: 85%;
             min-height: 120px;
+            max-height: calc(100% - 100px);
+            overflow: hidden;
         }
 
         .alumni-name {
@@ -957,12 +974,39 @@
         }
 
         .alumni-motivation {
-            font-size: 13px;
+            font-size: clamp(10px, 2vw, 13px);
             line-height: 1.4;
             color: #000;
             text-align: center;
             word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+            flex: 1;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
             overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* Dynamic font sizing based on content length */
+        .alumni-motivation[data-length="short"] {
+            font-size: 13px;
+            -webkit-line-clamp: unset;
+        }
+
+        .alumni-motivation[data-length="medium"] {
+            font-size: 12px;
+            -webkit-line-clamp: 6;
+        }
+
+        .alumni-motivation[data-length="long"] {
+            font-size: 11px;
+            -webkit-line-clamp: 8;
+        }
+
+        .alumni-motivation[data-length="extra-long"] {
+            font-size: 10px;
+            -webkit-line-clamp: 10;
         }
 
         .alumni-card-back h4 {

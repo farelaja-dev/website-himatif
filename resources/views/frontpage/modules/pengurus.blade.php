@@ -8,31 +8,36 @@
     <!-- Main Content -->
     <main>
         <img src="{{ asset('img/bagian/3.png') }}"
-            class="header-decoration-left opacity-0 -translate-x-8 transition-all duration-1000 ease-out" data-animate-left>
+            class="header-decoration-left opacity-0 -translate-x-8 transition-all duration-1000 ease-out hidden md:block"
+            data-animate-left>
         <img src="{{ asset('img/bagian/4.png') }}"
-            class="header-decoration-right opacity-0 translate-x-8 transition-all duration-1000 ease-out" data-animate-right>
+            class="header-decoration-right opacity-0 translate-x-8 transition-all duration-1000 ease-out hidden md:block"
+            data-animate-right>
         <!-- Hero Section -->
         <section class="bg-[#FEF9F1] relative px-4 py-16 overflow-hidden md:px-6 md:py-24">
             <!-- Background Patterns -->
             <!-- <div class="absolute top-0 left-0 opacity-20">
-                <div class="w-64 h-64 bg-gradient-to-br from-gray-200 to-gray-300 rounded-full"></div>
-        </div>
-            <div class="absolute bottom-0 right-0 opacity-20">
-                <div class="w-64 h-64 bg-gradient-to-br from-gray-200 to-gray-300 rounded-full"></div>
-            </div> -->
-            
+                                                                    <div class="w-64 h-64 bg-gradient-to-br from-gray-200 to-gray-300 rounded-full"></div>
+                                                            </div>
+                                                                <div class="absolute bottom-0 right-0 opacity-20">
+                                                                    <div class="w-64 h-64 bg-gradient-to-br from-gray-200 to-gray-300 rounded-full"></div>
+                                                                </div> -->
+
             <div class="container relative z-10 mx-auto flex justify-center">
                 <div class="flex flex-col items-center">
                     <!-- Left Content -->
-                        <div class="inline-block px-8 py-4 mb-6 text-white rounded-full bg-[#910E19] opacity-0 translate-y-8 transition-all duration-1000 ease-out" data-animate>
-                            <span class="text-xl md:text-6xl font-semibold">Divisi & Pengurus</span>
-                        </div>
-                        <h1 class="mb-6 text-xl font-black text-gray-900 md:text-8xl opacity-0 translate-y-8 transition-all duration-1000 ease-out delay-200" data-animate>
-                            HIMATIF
-                        </h1>
-                        <p class="max-w-6xl text-lg leading-relaxed text-center text-gray-600 opacity-0 translate-y-8 transition-all duration-1000 ease-out delay-400" data-animate>
-                            {{ $header['2-text2']->content ?? 'HIMATIF memiliki struktur kepengurusan yang bertanggung jawab atas berbagai aspek dan kegiatan organisasi. Setiap divisi memiliki tugas pokok dan fungsi masing-masing untuk mencapai tujuan organisasi secara keseluruhan.' }}
-                        </p>
+                    <div class="inline-block px-8 py-4 mb-6 text-white rounded-full bg-[#910E19] opacity-0 translate-y-8 transition-all duration-1000 ease-out"
+                        data-animate>
+                        <span class="pengurus-title text-xl md:text-6xl font-semibold">DIVISI & PENGURUS</span>
+                    </div>
+                    <h1 class="mb-6 text-xl font-black text-gray-900 md:text-8xl opacity-0 translate-y-8 transition-all duration-1000 ease-out delay-200"
+                        data-animate>
+                        HIMATIF
+                    </h1>
+                    <p class="max-w-6xl text-lg leading-relaxed text-center text-gray-600 opacity-0 translate-y-8 transition-all duration-1000 ease-out delay-400"
+                        data-animate>
+                        {{ $header['2-text2']->content ?? 'HIMATIF memiliki struktur kepengurusan yang bertanggung jawab atas berbagai aspek dan kegiatan organisasi. Setiap divisi memiliki tugas pokok dan fungsi masing-masing untuk mencapai tujuan organisasi secara keseluruhan.' }}
+                    </p>
                 </div>
             </div>
         </section>
@@ -41,7 +46,8 @@
         <section class="px-4 py-16 md:px-6 bg-[#02314A] rounded-t-[4rem]">
             <div class="container mx-auto space-y-16">
                 @foreach ($divisions as $division)
-                    <div class="p-6 rounded-2xl md:p-8 flex flex-col justify-center items-center opacity-0 translate-y-8 transition-all duration-1000 ease-out" data-animate>
+                    <div class="p-6 rounded-2xl md:p-8 flex flex-col justify-center items-center opacity-0 translate-y-8 transition-all duration-1000 ease-out"
+                        data-animate>
                         <div class="flex flex-col justify-center items-center gap-6 mb-8">
                             @php
                                 $divisionIcons = [
@@ -51,7 +57,7 @@
                                     'HUMAS' => '🤝',
                                     'MEDTEK' => '💻',
                                     'MEDFO' => '📱',
-                                    'PEMTEK' => '⚙️'
+                                    'PEMTEK' => '⚙️',
                                 ];
                                 $divisionColors = [
                                     'BPH' => 'from-gray-500 to-gray-700',
@@ -60,124 +66,133 @@
                                     'HUMAS' => 'from-green-500 to-green-700',
                                     'MEDTEK' => 'from-red-500 to-red-700',
                                     'MEDFO' => 'from-indigo-500 to-indigo-700',
-                                    'PEMTEK' => 'from-orange-500 to-orange-700'
+                                    'PEMTEK' => 'from-orange-500 to-orange-700',
                                 ];
                                 $icon = $divisionIcons[$division->name] ?? '👥';
                                 $color = $divisionColors[$division->name] ?? 'from-blue-500 to-blue-700';
                             @endphp
-                            
+
                             <div class="flex items-center justify-center w-40 h-40 text-2xl md:text-3xl rounded-full">
-                                <img src="{{ asset('img/bagian/logo-divisi/' . $division->name . '.png') }}" alt="" class="w-full h-full object-contain">
+                                <img src="{{ asset('img/bagian/logo-divisi/' . $division->name . '.png') }}" alt=""
+                                    class="w-full h-full object-contain">
                             </div>
                             <div>
                                 <h2 class="mb-2 mt-2 text-2xl font-bold text-white md:text-3xl">{{ $division->name }}</h2>
                                 <!-- <p class="text-gray-600">{{ $division->description ?? 'Bertanggung jawab atas berbagai aspek dan kegiatan organisasi' }}</p> -->
-                                        </div>
-                                    </div>
-                        
+                            </div>
+                        </div>
+
                         @php
-                            $divisionMembers = $pengurus->filter(function($user) use ($division) {
-                                return $user->status === '1' && 
-                                       isset($user->periode[0]) && 
-                                       $user->periode[0]['division_id'] === strval($division->id);
+                            $divisionMembers = $pengurus->filter(function ($user) use ($division) {
+                                return $user->status === '1' &&
+                                    isset($user->periode[0]) &&
+                                    $user->periode[0]['division_id'] === strval($division->id);
                             });
-                            
-                            $kepalaDivisi = $divisionMembers->filter(function($user) {
+
+                            $kepalaDivisi = $divisionMembers->filter(function ($user) {
                                 return $user->periode[0]['position'] === 'Kepala Divisi';
                             });
-                            
-                            $anggota = $divisionMembers->filter(function($user) {
+
+                            $anggota = $divisionMembers->filter(function ($user) {
                                 return $user->periode[0]['position'] !== 'Kepala Divisi';
                             });
                         @endphp
-                        
-                        @if($kepalaDivisi->count() > 0)
+
+                        @if ($kepalaDivisi->count() > 0)
                             <!-- Kepala Divisi -->
                             <div class="mb-8 w-full">
                                 <div class="flex justify-center">
                                     <div class="grid grid-cols-1 max-w-6xl">
-                                        @foreach($kepalaDivisi as $user)
-                                            <div class="relative w-72 rounded-2xl overflow-hidden shadow-lg">
+                                        @foreach ($kepalaDivisi as $user)
+                                            <div
+                                                class="relative w-72 rounded-2xl overflow-hidden shadow-lg group cursor-pointer flex flex-col">
+                                                <!-- Hover Overlay -->
+                                                <div class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-all duration-300 z-10 flex flex-col items-center justify-center rounded-2xl"
+                                                    style="clip-path: polygon(20px 0, 100% 0, 100% 100%, 0 100%, 0 20px);">
+                                                    <div class="text-white text-center mb-6 px-4">
+                                                        <h4 class="text-xl font-bold mb-2 leading-tight">{{ $user->name }}
+                                                        </h4>
+                                                        <p class="text-sm opacity-90">{{ $user->periode[0]['position'] }}
+                                                        </p>
+                                                    </div>
+                                                    <div class="flex gap-4">
+                                                        @if ($user->linkedin)
+                                                            <a href="{{ $user->linkedin }}" target="_blank"
+                                                                class="w-12 h-12 bg-[#0077B5] text-white rounded-full flex items-center justify-center hover:bg-[#005885] transition-colors duration-200">
+                                                                <svg width="20" height="20" fill="currentColor"
+                                                                    viewBox="0 0 24 24">
+                                                                    <path
+                                                                        d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                                                                </svg>
+                                                            </a>
+                                                        @endif
+                                                        @if ($user->instagram)
+                                                            <a href="{{ $user->instagram }}" target="_blank"
+                                                                class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full flex items-center justify-center hover:from-purple-600 hover:to-pink-600 transition-all duration-200">
+                                                                <svg width="20" height="20" viewBox="0 0 24 24"
+                                                                    fill="currentColor">
+                                                                    <path
+                                                                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                                                                </svg>
+                                                            </a>
+                                                        @endif
+                                                        @if (!$user->linkedin && !$user->instagram)
+                                                            <div class="text-white/70 text-sm">No social media links</div>
+                                                        @endif
+                                                    </div>
+                                                </div>
+
                                                 <!-- Bagian Merah -->
-                                                <div class="bg-[#910E19] relative pt-8 pb-16 px-6" style="clip-path: polygon(20px 0, 100% 0, 100% 100%, 0 100%, 0 20px);">
+                                                <div class="bg-[#910E19] relative pt-8 pb-4 px-6 flex-grow flex flex-col justify-center"
+                                                    style="clip-path: polygon(20px 0, 100% 0, 100% 100%, 0 100%, 0 20px);">
                                                     <!-- Foto Profil -->
-                                                    <div class="flex justify-center">
-                                            @if ($user->photo)
-                                                            <img src="{{ asset('storage/' . $user->photo) }}" 
-                                                                alt="{{ $user->name }}" 
+                                                    <div class="flex justify-center mb-4">
+                                                        @if ($user->photo)
+                                                            <img src="{{ asset('storage/' . $user->photo) }}"
+                                                                alt="{{ $user->name }}"
                                                                 class="w-32 h-32 object-cover rounded-full border-4 border-[#FEF9F1] shadow-md">
-                                            @else
-                                                            <div class="w-32 h-32 flex items-center justify-center rounded-full bg-gray-300 text-4xl">👤</div>
-                                                    @endif
+                                                        @else
+                                                            <div
+                                                                class="w-32 h-32 flex items-center justify-center rounded-full bg-gray-300 text-4xl">
+                                                                👤</div>
+                                                        @endif
                                                     </div>
                                                     <!-- Nama & Jabatan -->
-                                                    <div class="text-center mt-4">
-                                                        <h4 class="text-xl font-bold text-white truncate max-w-[200px]">{{ $user->name }}</h4>
-                                                        <p class="text-sm text-white/90">{{ $user->periode[0]['position'] }}</p>
+                                                    <div class="text-center px-4">
+                                                        <h4 class="text-xl font-bold text-white leading-tight mb-2">
+                                                            {{ $user->name }}
+                                                        </h4>
+                                                        <p class="text-sm text-white/90">
+                                                            {{ $user->periode[0]['position'] }}
+                                                        </p>
                                                     </div>
                                                 </div>
 
                                                 <!-- Bagian Krem -->
-                                                <div class="bg-[#FEF9F1] flex justify-between items-center px-6 py-3 rounded-b-2xl">
+                                                <div
+                                                    class="bg-[#FEF9F1] flex justify-between items-center px-6 py-3 rounded-b-2xl">
                                                     <!-- Panah -->
                                                     <span class="text-[#910E19] text-2xl font-bold">→</span>
                                                     <!-- Icon Sosmed -->
                                                     <div class="flex gap-3">
-                                                        <a href="#" class="w-8 h-8 flex items-center justify-center rounded-md bg-[#910E19] text-white">
-                                                            <i class="fab fa-linkedin-in"></i>
+                                                        <a href="#"
+                                                            class="w-8 h-8 flex items-center justify-center rounded-md bg-[#910E19] text-white">
+                                                            <svg width="16" height="16" fill="currentColor"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                                                            </svg>
                                                         </a>
-                                                        <a href="#" class="w-8 h-8 flex items-center justify-center rounded-md bg-[#910E19] text-white">
-                                                            <i class="fab fa-instagram"></i>
+                                                        <a href="#"
+                                                            class="w-8 h-8 flex items-center justify-center rounded-md bg-[#910E19] text-white">
+                                                            <svg width="16" height="16" viewBox="0 0 24 24"
+                                                                fill="currentColor">
+                                                                <path
+                                                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.80-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                                                            </svg>
                                                         </a>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        @endforeach
-                                    </div>
-                                                    </div>
-                                        </div>
-                                    @endif
-
-                        @if($anggota->count() > 0)
-                            <!-- Anggota -->
-                            <div class="mb-8 w-full">
-                                <div class="flex justify-center">
-                                    <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 max-w-6xl">
-                                        @foreach($anggota as $user)
-                                        <div class="relative w-72 rounded-2xl overflow-hidden shadow-lg">
-                                            <!-- Bagian Merah -->
-                                            <div class="bg-[#910E19] relative pt-8 pb-16 px-6" style="clip-path: polygon(20px 0, 100% 0, 100% 100%, 0 100%, 0 20px);">
-                                                <!-- Foto Profil -->
-                                                <div class="flex justify-center">
-                                            @if ($user->photo)
-                                                        <img src="{{ asset('storage/' . $user->photo) }}" 
-                                                            alt="{{ $user->name }}" 
-                                                            class="w-32 h-32 object-cover rounded-full border-4 border-[#FEF9F1] shadow-md">
-                                            @else
-                                                        <div class="w-32 h-32 flex items-center justify-center rounded-full bg-gray-300 text-4xl">👤</div>
-                                                    @endif
-                                                </div>
-                                                <!-- Nama & Jabatan -->
-                                                <div class="text-center mt-4">
-                                                    <h4 class="text-xl font-bold text-white truncate max-w-[200px]">{{ $user->name }}</h4>
-                                                    <p class="text-sm text-white/90">{{ $user->periode[0]['position'] }}</p>
-                                                </div>
-                                            </div>
-
-                                            <!-- Bagian Krem -->
-                                            <div class="bg-[#FEF9F1] flex justify-between items-center px-6 py-3 rounded-b-2xl">
-                                                <!-- Panah -->
-                                                <span class="text-[#910E19] text-2xl font-bold">→</span>
-                                                <!-- Icon Sosmed -->
-                                                <div class="flex gap-3">
-                                                    <a href="#" class="w-8 h-8 flex items-center justify-center rounded-md bg-[#910E19] text-white">
-                                                        <i class="fab fa-linkedin-in"></i>
-                                                    </a>
-                                                    <a href="#" class="w-8 h-8 flex items-center justify-center rounded-md bg-[#910E19] text-white">
-                                                        <i class="fab fa-instagram"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
                                             </div>
                                         @endforeach
                                     </div>
@@ -185,77 +200,237 @@
                             </div>
                         @endif
 
-                        @if($division->subDivisions->count() > 0)
-                            @foreach($division->subDivisions as $subdivision)
+                        @if ($anggota->count() > 0)
+                            <!-- Anggota -->
+                            <div class="mb-8 w-full">
+                                <div class="flex justify-center">
+                                    <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 max-w-6xl">
+                                        @foreach ($anggota as $user)
+                                            <div
+                                                class="relative w-72 rounded-2xl overflow-hidden shadow-lg group cursor-pointer flex flex-col">
+                                                <!-- Hover Overlay -->
+                                                <div class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-all duration-300 z-10 flex flex-col items-center justify-center rounded-2xl"
+                                                    style="clip-path: polygon(20px 0, 100% 0, 100% 100%, 0 100%, 0 20px);">
+                                                    <div class="text-white text-center mb-6 px-4">
+                                                        <h4 class="text-xl font-bold mb-2 leading-tight">
+                                                            {{ $user->name }}</h4>
+                                                        <p class="text-sm opacity-90">{{ $user->periode[0]['position'] }}
+                                                        </p>
+                                                    </div>
+                                                    <div class="flex gap-4">
+                                                        @if ($user->linkedin)
+                                                            <a href="{{ $user->linkedin }}" target="_blank"
+                                                                class="w-12 h-12 bg-[#0077B5] text-white rounded-full flex items-center justify-center hover:bg-[#005885] transition-colors duration-200">
+                                                                <svg width="20" height="20" fill="currentColor"
+                                                                    viewBox="0 0 24 24">
+                                                                    <path
+                                                                        d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                                                                </svg>
+                                                            </a>
+                                                        @endif
+                                                        @if ($user->instagram)
+                                                            <a href="{{ $user->instagram }}" target="_blank"
+                                                                class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full flex items-center justify-center hover:from-purple-600 hover:to-pink-600 transition-all duration-200">
+                                                                <svg width="20" height="20" viewBox="0 0 24 24"
+                                                                    fill="currentColor">
+                                                                    <path
+                                                                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.80 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.40z" />
+                                                                </svg>
+                                                            </a>
+                                                        @endif
+                                                        @if (!$user->linkedin && !$user->instagram)
+                                                            <div class="text-white/70 text-sm">No social media links</div>
+                                                        @endif
+                                                    </div>
+                                                </div>
+
+                                                <!-- Bagian Merah -->
+                                                <div class="bg-[#910E19] relative pt-8 pb-4 px-6 flex-grow flex flex-col justify-center"
+                                                    style="clip-path: polygon(20px 0, 100% 0, 100% 100%, 0 100%, 0 20px);">
+                                                    <!-- Foto Profil -->
+                                                    <div class="flex justify-center mb-4">
+                                                        @if ($user->photo)
+                                                            <img src="{{ asset('storage/' . $user->photo) }}"
+                                                                alt="{{ $user->name }}"
+                                                                class="w-32 h-32 object-cover rounded-full border-4 border-[#FEF9F1] shadow-md">
+                                                        @else
+                                                            <div
+                                                                class="w-32 h-32 flex items-center justify-center rounded-full bg-gray-300 text-4xl">
+                                                                👤</div>
+                                                        @endif
+                                                    </div>
+                                                    <!-- Nama & Jabatan -->
+                                                    <div class="text-center px-4">
+                                                        <h4 class="text-xl font-bold text-white leading-tight mb-2">
+                                                            {{ $user->name }}
+                                                        </h4>
+                                                        <p class="text-sm text-white/90">
+                                                            {{ $user->periode[0]['position'] }}</p>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Bagian Krem -->
+                                                <div
+                                                    class="bg-[#FEF9F1] flex justify-between items-center px-6 py-3 rounded-b-2xl">
+                                                    <!-- Panah -->
+                                                    <span class="text-[#910E19] text-2xl font-bold">→</span>
+                                                    <!-- Icon Sosmed -->
+                                                    <div class="flex gap-3">
+                                                        <a href="#"
+                                                            class="w-8 h-8 flex items-center justify-center rounded-md bg-[#910E19] text-white">
+                                                            <svg width="16" height="16" fill="currentColor"
+                                                                viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                                                            </svg>
+                                                        </a>
+                                                        <a href="#"
+                                                            class="w-8 h-8 flex items-center justify-center rounded-md bg-[#910E19] text-white">
+                                                            <svg width="16" height="16" viewBox="0 0 24 24"
+                                                                fill="currentColor">
+                                                                <path
+                                                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.80-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.40z" />
+                                                            </svg>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
+
+                        @if ($division->subDivisions->count() > 0)
+                            @foreach ($division->subDivisions as $subdivision)
                                 @php
-                                    $subdivisionMembers = $pengurus->filter(function($user) use ($subdivision) {
-                                        return $user->status === '1' && 
-                                               isset($user->periode[0]) && 
-                                               $user->periode[0]['division_id'] === strval($subdivision->id);
+                                    $subdivisionMembers = $pengurus->filter(function ($user) use ($subdivision) {
+                                        return $user->status === '1' &&
+                                            isset($user->periode[0]) &&
+                                            $user->periode[0]['division_id'] === strval($subdivision->id);
                                     });
                                 @endphp
-                                
-                                @if($subdivisionMembers->count() > 0)
-                                <!-- Subdivisi -->
-                                <div class="mb-12 w-full opacity-0 translate-y-8 transition-all duration-1000 ease-out" data-animate>
-                                    <h3 class="mb-8 text-2xl font-bold text-white text-center">{{ $subdivision->name }}</h3>
-                                    
-                                        <div class="flex justify-center">
-                                        <div class="grid grid-cols-1 gap-24 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 max-w-6xl">
-                                                @foreach($subdivisionMembers as $user)
-                                                <div class="relative w-72 rounded-2xl overflow-hidden shadow-lg">
-                                                    <!-- Bagian Merah -->
-                                                    <div class="bg-[#910E19] relative pt-8 pb-16 px-6" 
-                                                        style="clip-path: polygon(20px 0, 100% 0, 100% 100%, 0 100%, 0 20px);">
-                                                        
-                                                        <!-- Foto Profil -->
-                                                        <div class="flex justify-center">
-                                                @if ($user->photo)
-                                                                <img src="{{ asset('storage/' . $user->photo) }}" 
-                                                                    alt="{{ $user->name }}" 
-                                                                    class="w-28 h-28 object-cover rounded-full border-4 border-[#FEF9F1] shadow-md">
-                                                @else
-                                                                <div class="w-28 h-28 flex items-center justify-center rounded-full bg-gray-300 text-3xl">👤</div>
-                                                @endif
-                                                        </div>
-                                                        
-                                                        <!-- Nama & Jabatan -->
-                                                        <div class="text-center mt-4">
-                                                            <h4 class="text-lg font-bold text-white truncate max-w-[200px]">{{ $user->name }}</h4>
-                                                            <p class="text-sm text-white/90">{{ $user->periode[0]['position'] }}</p>
-                                                        </div>
-                                                    </div>
 
-                                                    <!-- Bagian Krem -->
-                                                    <div class="bg-[#FEF9F1] flex justify-between items-center px-6 py-3 rounded-b-2xl">
-                                                        <!-- Panah -->
-                                                        <span class="text-[#910E19] text-xl font-bold">→</span>
-                                                        
-                                                        <!-- Icon Sosmed -->
-                                                        <div class="flex gap-3">
-                                                            <a href="#" class="w-7 h-7 flex items-center justify-center rounded-md bg-[#910E19] text-white">
-                                                                <i class="fab fa-linkedin-in"></i>
-                                                            </a>
-                                                            <a href="#" class="w-7 h-7 flex items-center justify-center rounded-md bg-[#910E19] text-white">
-                                                                <i class="fab fa-instagram"></i>
-                                                            </a>
+                                @if ($subdivisionMembers->count() > 0)
+                                    <!-- Subdivisi -->
+                                    <div class="mb-12 w-full opacity-0 translate-y-8 transition-all duration-1000 ease-out"
+                                        data-animate>
+                                        <h3 class="mb-8 text-2xl font-bold text-white text-center">
+                                            {{ $subdivision->name }}
+                                        </h3>
+
+                                        <div class="flex justify-center">
+                                            <div
+                                                class="grid grid-cols-1 gap-24 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 max-w-6xl">
+                                                @foreach ($subdivisionMembers as $user)
+                                                    <div
+                                                        class="relative w-72 rounded-2xl overflow-hidden shadow-lg group cursor-pointer flex flex-col">
+                                                        <!-- Hover Overlay -->
+                                                        <div class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-all duration-300 z-10 flex flex-col items-center justify-center rounded-2xl"
+                                                            style="clip-path: polygon(20px 0, 100% 0, 100% 100%, 0 100%, 0 20px);">
+                                                            <div class="text-white text-center mb-6 px-4">
+                                                                <h4 class="text-lg font-bold mb-2 leading-tight">
+                                                                    {{ $user->name }}
+                                                                </h4>
+                                                                <p class="text-sm opacity-90">
+                                                                    {{ $user->periode[0]['position'] }}</p>
+                                                            </div>
+                                                            <div class="flex gap-3">
+                                                                @if ($user->linkedin)
+                                                                    <a href="{{ $user->linkedin }}" target="_blank"
+                                                                        class="w-10 h-10 bg-[#0077B5] text-white rounded-full flex items-center justify-center hover:bg-[#005885] transition-colors duration-200">
+                                                                        <svg width="16" height="16"
+                                                                            fill="currentColor" viewBox="0 0 24 24">
+                                                                            <path
+                                                                                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                                                                        </svg>
+                                                                    </a>
+                                                                @endif
+                                                                @if ($user->instagram)
+                                                                    <a href="{{ $user->instagram }}" target="_blank"
+                                                                        class="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full flex items-center justify-center hover:from-purple-600 hover:to-pink-600 transition-all duration-200">
+                                                                        <svg width="16" height="16"
+                                                                            viewBox="0 0 24 24" fill="currentColor">
+                                                                            <path
+                                                                                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.40s-.644-1.44-1.439-1.40z" />
+                                                                        </svg>
+                                                                    </a>
+                                                                @endif
+                                                                @if (!$user->linkedin && !$user->instagram)
+                                                                    <div class="text-white/70 text-xs">No social media
+                                                                        links</div>
+                                                                @endif
+                                                            </div>
                                                         </div>
-                                                    </div>
+
+                                                        <!-- Bagian Merah -->
+                                                        <div class="bg-[#910E19] relative pt-8 pb-4 px-6 flex-grow flex flex-col justify-center"
+                                                            style="clip-path: polygon(20px 0, 100% 0, 100% 100%, 0 100%, 0 20px);">
+
+                                                            <!-- Foto Profil -->
+                                                            <div class="flex justify-center mb-4">
+                                                                @if ($user->photo)
+                                                                    <img src="{{ asset('storage/' . $user->photo) }}"
+                                                                        alt="{{ $user->name }}"
+                                                                        class="w-28 h-28 object-cover rounded-full border-4 border-[#FEF9F1] shadow-md">
+                                                                @else
+                                                                    <div
+                                                                        class="w-28 h-28 flex items-center justify-center rounded-full bg-gray-300 text-3xl">
+                                                                        👤</div>
+                                                                @endif
+                                                            </div>
+
+                                                            <!-- Nama & Jabatan -->
+                                                            <div class="text-center px-4">
+                                                                <h4
+                                                                    class="text-lg font-bold text-white leading-tight mb-2">
+                                                                    {{ $user->name }}
+                                                                </h4>
+                                                                <p class="text-sm text-white/90">
+                                                                    {{ $user->periode[0]['position'] }}</p>
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- Bagian Krem -->
+                                                        <div
+                                                            class="bg-[#FEF9F1] flex justify-between items-center px-6 py-3 rounded-b-2xl">
+                                                            <!-- Panah -->
+                                                            <span class="text-[#910E19] text-xl font-bold">→</span>
+
+                                                            <!-- Icon Sosmed -->
+                                                            <div class="flex gap-3">
+                                                                <a href="#"
+                                                                    class="w-7 h-7 flex items-center justify-center rounded-md bg-[#910E19] text-white">
+                                                                    <svg width="14" height="14"
+                                                                        fill="currentColor" viewBox="0 0 24 24">
+                                                                        <path
+                                                                            d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                                                                    </svg>
+                                                                </a>
+                                                                <a href="#"
+                                                                    class="w-7 h-7 flex items-center justify-center rounded-md bg-[#910E19] text-white">
+                                                                    <svg width="14" height="14"
+                                                                        viewBox="0 0 24 24" fill="currentColor">
+                                                                        <path
+                                                                            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                                                                    </svg>
+                                                                </a>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 @endforeach
                                             </div>
                                         </div>
                                     </div>
                                 @endif
-
                             @endforeach
-                            @endif
+                        @endif
                     </div>
                 @endforeach
             </div>
         </section>
 
-    </section>
+        </section>
     </main>
 
 @endsection
@@ -266,107 +441,107 @@
         .bg-gradient-to-br {
             background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
         }
-        
+
         .from-red-600 {
             --tw-gradient-from: #dc2626;
             --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(220, 38, 38, 0));
         }
-        
+
         .to-red-800 {
             --tw-gradient-to: #991b1b;
         }
-        
+
         .from-yellow-400 {
             --tw-gradient-from: #facc15;
             --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(250, 204, 21, 0));
         }
-        
+
         .to-yellow-300 {
             --tw-gradient-to: #fde047;
         }
-        
+
         .from-green-600 {
             --tw-gradient-from: #16a34a;
             --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(22, 163, 74, 0));
         }
-        
+
         .to-green-700 {
             --tw-gradient-to: #15803d;
         }
-        
+
         .from-gray-200 {
             --tw-gradient-from: #e5e7eb;
             --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(229, 231, 235, 0));
         }
-        
+
         .to-gray-300 {
             --tw-gradient-to: #d1d5db;
         }
-        
+
         .from-gray-300 {
             --tw-gradient-from: #d1d5db;
             --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(209, 213, 219, 0));
         }
-        
+
         .to-gray-500 {
             --tw-gradient-to: #6b7280;
         }
-        
+
         .from-gray-500 {
             --tw-gradient-from: #6b7280;
             --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(107, 114, 128, 0));
         }
-        
+
         .to-gray-700 {
             --tw-gradient-to: #374151;
         }
-        
+
         .from-blue-500 {
             --tw-gradient-from: #3b82f6;
             --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(59, 130, 246, 0));
         }
-        
+
         .to-blue-700 {
             --tw-gradient-to: #1d4ed8;
         }
-        
+
         .from-purple-500 {
             --tw-gradient-from: #8b5cf6;
             --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(139, 92, 246, 0));
         }
-        
+
         .to-purple-700 {
             --tw-gradient-to: #7c3aed;
         }
-        
+
         .from-indigo-500 {
             --tw-gradient-from: #6366f1;
             --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(99, 102, 241, 0));
         }
-        
+
         .to-indigo-700 {
             --tw-gradient-to: #4338ca;
         }
-        
+
         .from-orange-500 {
             --tw-gradient-from: #f97316;
             --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(249, 115, 22, 0));
         }
-        
+
         .to-orange-700 {
             --tw-gradient-to: #c2410c;
         }
-        
+
         /* Member card hover effects */
         .member-card {
             transition: all 0.3s ease;
         }
-        
+
         .member-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
-        
+
         /* Responsive design */
         @media (max-width: 768px) {
             .container {
@@ -374,112 +549,112 @@
                 padding-right: 1rem;
             }
         }
-        
+
         /* Ensure proper spacing */
-        .space-y-16 > * + * {
+        .space-y-16>*+* {
             margin-top: 4rem;
         }
-        
-        .space-y-8 > * + * {
+
+        .space-y-8>*+* {
             margin-top: 2rem;
         }
-        
-        .space-y-4 > * + * {
+
+        .space-y-4>*+* {
             margin-top: 1rem;
         }
-        
-        .space-y-6 > * + * {
+
+        .space-y-6>*+* {
             margin-top: 1.5rem;
         }
-        
+
         .gap-12 {
             gap: 3rem;
         }
-        
+
         .gap-8 {
             gap: 2rem;
         }
-        
+
         .gap-6 {
             gap: 1.5rem;
         }
-        
+
         .gap-4 {
             gap: 1rem;
         }
-        
+
         /* Shadow utilities */
         .shadow-lg {
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
-        
+
         .shadow-yellow-500\/30 {
             box-shadow: 0 10px 15px -3px rgba(245, 158, 11, 0.3), 0 4px 6px -2px rgba(245, 158, 11, 0.1);
         }
-        
+
         /* Rounded utilities */
         .rounded-2xl {
             border-radius: 1rem;
         }
-        
+
         .rounded-xl {
             border-radius: 0.75rem;
         }
-        
+
         .rounded-lg {
             border-radius: 0.5rem;
         }
-        
+
         .rounded-full {
             border-radius: 9999px;
         }
-        
+
         /* Grid centering utilities */
         .max-w-6xl {
             max-width: 72rem;
         }
-        
+
         .flex {
             display: flex;
         }
-        
+
         .justify-center {
             justify-content: center;
         }
-        
+
         .items-center {
             align-items: center;
         }
-        
+
         .text-center {
             text-align: center;
         }
-        
+
         .w-full {
             width: 100%;
         }
-        
+
         /* Grid utilities */
         .grid {
             display: grid;
         }
-        
+
         .grid-cols-1 {
             grid-template-columns: repeat(1, minmax(0, 1fr));
         }
-        
+
         @media (min-width: 640px) {
             .sm\:grid-cols-2 {
                 grid-template-columns: repeat(2, minmax(0, 1fr));
             }
         }
-        
+
         @media (min-width: 768px) {
             .md\:grid-cols-3 {
                 grid-template-columns: repeat(3, minmax(0, 1fr));
             }
         }
-        
+
         @media (min-width: 1024px) {
             .lg\:grid-cols-4 {
                 grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -553,6 +728,175 @@
 
         .delay-400 {
             transition-delay: 400ms;
+        }
+
+        /* Custom font-weight for DIVISI & PENGURUS title */
+        .pengurus-title {
+            font-weight: 700;
+        }
+
+        /* Hover overlay styles */
+        .group:hover .w-72 {
+            transform: scale(1.02);
+        }
+
+        /* Smooth transitions for cards */
+        .group .w-72 {
+            transition: transform 0.3s ease;
+        }
+
+        /* Social media button hover effects */
+        .group .absolute a {
+            transform: translateY(10px);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .group:hover .absolute a {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .group:hover .absolute a:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+
+        .group:hover .absolute a:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+
+        /* Ensure overlay covers the entire card including clip-path */
+        .group .absolute.inset-0 {
+            border-radius: 1rem;
+        }
+
+        /* Card consistency and name handling */
+        .w-72 {
+            width: 18rem;
+        }
+
+        /* Ensure names can wrap and stay centered */
+        .member-name {
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1.25;
+        }
+
+        /* Leading tight for better line spacing */
+        .leading-tight {
+            line-height: 1.25;
+        }
+
+        /* Padding for better text spacing */
+        .px-4 {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        /* Flexbox card layout */
+        .flex-col {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .flex-grow {
+            flex-grow: 1;
+        }
+
+        /* Ensure proper card height with flexible content */
+        .member-card {
+            min-height: 22rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Force footer layout consistency on pengurus page */
+        body.pengurus footer {
+            /* Override any conflicting styles */
+        }
+
+        /* Reset footer container */
+        body.pengurus footer .container {
+            max-width: 1200px !important;
+            margin: 0 auto !important;
+            padding: 0 1rem !important;
+        }
+
+        /* Force 2-column layout for footer content */
+        body.pengurus footer div[class*="flex"][class*="flex-col"][class*="lg:flex-row"] {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 2rem !important;
+        }
+
+        @media (min-width: 1024px) {
+            body.pengurus footer div[class*="flex"][class*="flex-col"][class*="lg:flex-row"] {
+                flex-direction: row !important;
+                justify-content: space-between !important;
+                align-items: flex-start !important;
+            }
+        }
+
+        /* Force left column (Organization info) */
+        body.pengurus footer div[class*="w-full"][class*="lg:w-1/2"]:first-of-type {
+            width: 100% !important;
+            order: 1 !important;
+        }
+
+        @media (min-width: 1024px) {
+            body.pengurus footer div[class*="w-full"][class*="lg:w-1/2"]:first-of-type {
+                width: 48% !important;
+                flex: 0 0 48% !important;
+                order: 1 !important;
+            }
+        }
+
+        /* Force right column (Latest News) */
+        body.pengurus footer div[class*="w-full"][class*="lg:w-1/2"]:last-of-type {
+            width: 100% !important;
+            order: 2 !important;
+        }
+
+        @media (min-width: 1024px) {
+            body.pengurus footer div[class*="w-full"][class*="lg:w-1/2"]:last-of-type {
+                width: 48% !important;
+                flex: 0 0 48% !important;
+                order: 2 !important;
+            }
+        }
+
+        /* Ensure proper spacing */
+        body.pengurus footer div[class*="py-6"][class*="border-t-2"] {
+            padding: 1.5rem 0 !important;
+            border-top: 2px solid !important;
+        }
+
+        /* Fix header section */
+        body.pengurus footer div[class*="text-center"][class*="py-12"] {
+            text-align: center !important;
+            padding: 3rem 0 !important;
+        }
+
+        /* Fix social media section layout */
+        body.pengurus footer div[class*="text-center"] div[class*="flex"][class*="justify-between"] {
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            gap: 1.5rem !important;
+            max-width: 72rem !important;
+            margin: 0 auto !important;
+        }
+
+        @media (min-width: 1024px) {
+            body.pengurus footer div[class*="text-center"] div[class*="flex"][class*="justify-between"] {
+                flex-direction: row !important;
+                justify-content: space-between !important;
+            }
         }
     </style>
 @endsection

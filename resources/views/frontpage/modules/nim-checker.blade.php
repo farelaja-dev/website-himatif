@@ -12,7 +12,7 @@
 
         <!-- konten utama -->
         <main class="nim-main">
-            <h1 class="title opacity-0 translate-y-8 transition-all duration-1000 ease-out" data-animate>NIM Checker</h1>
+            <h1 class="title opacity-0 translate-y-8 transition-all duration-1000 ease-out" data-animate>NIM CHECKER</h1>
             <h2 class="subtitle opacity-0 translate-y-8 transition-all duration-1000 ease-out delay-200" data-animate>
                 MAHASISWA TEKNOLOGI INFORMASI</h2>
             <p class="desc opacity-0 translate-y-8 transition-all duration-1000 ease-out delay-300" data-animate>Gunakan
@@ -57,7 +57,7 @@
         body.blog {
             background: #FEF9F1;
             margin: 0;
-            font-family: sans-serif;
+            font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
 
         .nim-wrapper {
@@ -147,7 +147,7 @@
             background: #910E19;
             color: #fff;
             font-size: 2.5rem;
-            font-weight: bold;
+            font-weight: 700;
             padding: 12px 30px;
             border-radius: 999px;
         }

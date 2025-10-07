@@ -105,7 +105,7 @@
             background-color: #013049 !important;
             margin: 0;
             padding: 0;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
 
         .berita-header {
@@ -141,7 +141,7 @@
 
         .berita-title {
             font-size: 1.8rem;
-            font-weight: 900;
+            font-weight: 700;
             color: white;
             background: #910E19;
             padding: 15px 30px;

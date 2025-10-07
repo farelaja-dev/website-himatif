@@ -107,161 +107,161 @@
 
 
     .nav-outer-shape {
-            --outer-bg: #00101A;
-            background: var(--outer-bg);
-            /* Bentuk kotak biasa tanpa sudut melengkung */
-            border-radius: 0 0 18px 18px;
-            padding: 0 30px 0;
-            height: 80px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-top: 0;
-            position: relative;
-        }
+        --outer-bg: #00101A;
+        background: var(--outer-bg);
+        /* Bentuk kotak biasa tanpa sudut melengkung */
+        border-radius: 0 0 18px 18px;
+        padding: 0 30px 0;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 0;
+        position: relative;
+    }
 
-        /* Lekukan kiri atas (rounded keluar) */
-        .nav-outer-shape::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -24px;
-            width: 24px;
-            height: 24px;
-            background: radial-gradient(circle at bottom left, transparent 24px, var(--outer-bg) 24px);
-        }
+    /* Lekukan kiri atas (rounded keluar) */
+    .nav-outer-shape::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -24px;
+        width: 24px;
+        height: 24px;
+        background: radial-gradient(circle at bottom left, transparent 24px, var(--outer-bg) 24px);
+    }
 
-        /* Lekukan kanan atas (rounded keluar) */
-        .nav-outer-shape::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: -24px;
-            width: 24px;
-            height: 24px;
-            background: radial-gradient(circle at bottom right, transparent 24px, var(--outer-bg) 24px);
-        }
+    /* Lekukan kanan atas (rounded keluar) */
+    .nav-outer-shape::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: -24px;
+        width: 24px;
+        height: 24px;
+        background: radial-gradient(circle at bottom right, transparent 24px, var(--outer-bg) 24px);
+    }
 
-        /* Pastikan konten di atas background */
-        .nav-outer-shape>* {
-            position: relative;
-            z-index: 1;
-        }
+    /* Pastikan konten di atas background */
+    .nav-outer-shape>* {
+        position: relative;
+        z-index: 1;
+    }
 
-        /* Pastikan konten di atas background */
-        .nav-outer-shape>* {
-            position: relative;
-            z-index: 1;
-        }
+    /* Pastikan konten di atas background */
+    .nav-outer-shape>* {
+        position: relative;
+        z-index: 1;
+    }
 
-        .nav-inner-pill {
-            /* Inner pill tetap, sedikit diperbesar */
-            --cream: #FEF9F1;
-            background: #00101A;
-            border: 4px solid var(--cream);
-            /* Border lebih tebal dari 2px jadi 4px */
-            border-radius: 9999px;
-            display: flex;
-            gap: 4px;
-            /* padding: 6px 10px; */
-            /* dulu 4px 6px */
-            position: relative;
-        }
+    .nav-inner-pill {
+        /* Inner pill tetap, sedikit diperbesar */
+        --cream: #FEF9F1;
+        background: #00101A;
+        border: 4px solid var(--cream);
+        /* Border lebih tebal dari 2px jadi 4px */
+        border-radius: 9999px;
+        display: flex;
+        gap: 4px;
+        /* padding: 6px 10px; */
+        /* dulu 4px 6px */
+        position: relative;
+    }
 
-        .nav-link {
-            color: #FFFFFF;
-            font-size: 0.95rem;
-            /* diperbesar */
-            font-weight: 600;
-            /* sedikit lebih tebal */
-            padding: 12px 26px;
-            /* diperbesar dari 10px 22px */
-            line-height: 1.1;
-            border-radius: 9999px;
-            cursor: pointer;
-            transition: background .25s ease, color .25s ease;
-            user-select: none;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-        }
+    .nav-link {
+        color: #FFFFFF;
+        font-size: 0.95rem;
+        /* diperbesar */
+        font-weight: 600;
+        /* sedikit lebih tebal */
+        padding: 12px 26px;
+        /* diperbesar dari 10px 22px */
+        line-height: 1.1;
+        border-radius: 9999px;
+        cursor: pointer;
+        transition: background .25s ease, color .25s ease;
+        user-select: none;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+    }
 
-        .nav-link:hover {
-            background: #333333;
-        }
+    .nav-link:hover {
+        background: #333333;
+    }
 
-        .nav-link.active {
-            background: #FEF9F1;
-            color: #00101A;
-        }
+    .nav-link.active {
+        background: #FEF9F1;
+        color: #00101A;
+    }
 
-        /* Dropdown */
-        .dropdown-wrapper {
-            position: relative;
-        }
+    /* Dropdown */
+    .dropdown-wrapper {
+        position: relative;
+    }
 
-        .dropdown-toggle {
-            padding-right: 30px;
-        }
+    .dropdown-toggle {
+        padding-right: 30px;
+    }
 
-        .dropdown-wrapper:hover .dropdown-menu {
-            opacity: 1;
-            pointer-events: auto;
-            transform: translateY(0);
-        }
+    .dropdown-wrapper:hover .dropdown-menu {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+    }
 
-        .dropdown-menu {
-            position: absolute;
-            top: 100%;
-            right: 0;
-            margin-top: 10px;
-            background: #FFFFFF;
-            border-radius: 14px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, .15);
-            padding: 8px 0;
-            list-style: none;
-            width: 190px;
-            opacity: 0;
-            pointer-events: none;
-            transform: translateY(6px);
-            transition: opacity .25s ease, transform .25s ease;
-            z-index: 60;
-        }
+    .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        margin-top: 10px;
+        background: #FFFFFF;
+        border-radius: 14px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, .15);
+        padding: 8px 0;
+        list-style: none;
+        width: 190px;
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(6px);
+        transition: opacity .25s ease, transform .25s ease;
+        z-index: 60;
+    }
 
-        .dropdown-item {
-            display: block;
-            padding: 9px 18px;
-            font-size: 0.75rem;
-            /* 12px */
-            text-decoration: none;
-            color: #00101A;
-            font-weight: 500;
-            transition: background .25s ease, padding-left .25s ease;
-            white-space: nowrap;
-        }
+    .dropdown-item {
+        display: block;
+        padding: 9px 18px;
+        font-size: 0.75rem;
+        /* 12px */
+        text-decoration: none;
+        color: #00101A;
+        font-weight: 500;
+        transition: background .25s ease, padding-left .25s ease;
+        white-space: nowrap;
+    }
 
-        .dropdown-item:hover {
-            background: #F2F2F2;
-            padding-left: 22px;
-        }
+    .dropdown-item:hover {
+        background: #F2F2F2;
+        padding-left: 22px;
+    }
 
-        /* Small helper classes for quick future shape tuning */
-        .nav-outer-shape.variant-rounded {
-            border-radius: 50px;
-        }
+    /* Small helper classes for quick future shape tuning */
+    .nav-outer-shape.variant-rounded {
+        border-radius: 50px;
+    }
 
-        .nav-outer-shape.variant-cut-left {
-            border-top-left-radius: 12px;
-            border-bottom-left-radius: 50px;
-        }
+    .nav-outer-shape.variant-cut-left {
+        border-top-left-radius: 12px;
+        border-bottom-left-radius: 50px;
+    }
 
-        @media (max-width:1023px) {
+    @media (max-width:1023px) {
 
-            /* hide custom desktop nav on mobile */
-            .desktop-nav {
-                display: none;
-            }
+        /* hide custom desktop nav on mobile */
+        .desktop-nav {
+            display: none;
         }
+    }
 </style>
 
 <script>

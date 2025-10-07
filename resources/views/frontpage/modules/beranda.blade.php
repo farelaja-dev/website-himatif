@@ -1075,6 +1075,11 @@
                 margin-bottom: 30px;
             }
 
+            .hero-badge {
+                margin-left: 0;
+                text-align: center;
+            }
+
             .hero-title {
                 font-size: 2.5rem;
                 margin: 0 0 20px 0;

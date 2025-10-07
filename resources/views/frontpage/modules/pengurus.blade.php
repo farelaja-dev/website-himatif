@@ -17,18 +17,19 @@
         <section class="bg-[#FEF9F1] relative px-4 py-16 overflow-hidden md:px-6 md:py-24">
             <!-- Background Patterns -->
             <!-- <div class="absolute top-0 left-0 opacity-20">
-                                                                    <div class="w-64 h-64 bg-gradient-to-br from-gray-200 to-gray-300 rounded-full"></div>
-                                                            </div>
-                                                                <div class="absolute bottom-0 right-0 opacity-20">
-                                                                    <div class="w-64 h-64 bg-gradient-to-br from-gray-200 to-gray-300 rounded-full"></div>
-                                                                </div> -->
+                                                                            <div class="w-64 h-64 bg-gradient-to-br from-gray-200 to-gray-300 rounded-full"></div>
+                                                                    </div>
+                                                                        <div class="absolute bottom-0 right-0 opacity-20">
+                                                                            <div class="w-64 h-64 bg-gradient-to-br from-gray-200 to-gray-300 rounded-full"></div>
+                                                                        </div> -->
 
-            <div class="container relative z-10 mx-auto flex justify-center">
+            <div class="container-responsive relative z-10 flex justify-center">
                 <div class="flex flex-col items-center">
                     <!-- Left Content -->
-                    <div class="inline-block px-8 py-4 mb-6 text-white rounded-full bg-[#910E19] opacity-0 translate-y-8 transition-all duration-1000 ease-out"
+                    <div class="inline-block px-4 py-3 sm:px-8 sm:py-4 mb-6 text-white rounded-full bg-[#910E19] opacity-0 translate-y-8 transition-all duration-1000 ease-out"
                         data-animate>
-                        <span class="pengurus-title text-xl md:text-6xl font-semibold">DIVISI & PENGURUS</span>
+                        <span class="pengurus-title text-lg sm:text-xl md:text-4xl lg:text-6xl font-semibold">DIVISI &
+                            PENGURUS</span>
                     </div>
                     <h1 class="mb-6 text-xl font-black text-gray-900 md:text-8xl opacity-0 translate-y-8 transition-all duration-1000 ease-out delay-200"
                         data-animate>
@@ -43,8 +44,8 @@
         </section>
 
         <!-- Divisi Sections -->
-        <section class="px-4 py-16 md:px-6 bg-[#02314A] rounded-t-[4rem]">
-            <div class="container mx-auto space-y-16">
+        <section class="py-12 sm:py-16 bg-[#02314A] rounded-t-[2rem] sm:rounded-t-[4rem]">
+            <div class="container-responsive space-y-12 sm:space-y-16">
                 @foreach ($divisions as $division)
                     <div class="p-6 rounded-2xl md:p-8 flex flex-col justify-center items-center opacity-0 translate-y-8 transition-all duration-1000 ease-out"
                         data-animate>
@@ -76,8 +77,10 @@
                                 <img src="{{ asset('img/bagian/logo-divisi/' . $division->name . '.png') }}" alt=""
                                     class="w-full h-full object-contain">
                             </div>
-                            <div>
-                                <h2 class="mb-2 mt-2 text-2xl font-bold text-white md:text-3xl">{{ $division->name }}</h2>
+                            <div class="text-center">
+                                <h2
+                                    class="mb-2 mt-2 text-2xl font-bold text-white md:text-3xl text-center leading-tight break-words">
+                                    {{ $division->name }}</h2>
                                 <!-- <p class="text-gray-600">{{ $division->description ?? 'Bertanggung jawab atas berbagai aspek dan kegiatan organisasi' }}</p> -->
                             </div>
                         </div>
@@ -102,10 +105,10 @@
                             <!-- Kepala Divisi -->
                             <div class="mb-8 w-full">
                                 <div class="flex justify-center">
-                                    <div class="grid grid-cols-1 max-w-6xl">
+                                    <div class="w-full max-w-sm mx-auto">
                                         @foreach ($kepalaDivisi as $user)
                                             <div
-                                                class="relative w-72 rounded-2xl overflow-hidden shadow-lg group cursor-pointer flex flex-col">
+                                                class="relative w-full max-w-xs mx-auto rounded-2xl overflow-hidden shadow-lg group cursor-pointer flex flex-col">
                                                 <!-- Hover Overlay -->
                                                 <div class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-all duration-300 z-10 flex flex-col items-center justify-center rounded-2xl"
                                                     style="clip-path: polygon(20px 0, 100% 0, 100% 100%, 0 100%, 0 20px);">
@@ -204,10 +207,11 @@
                             <!-- Anggota -->
                             <div class="mb-8 w-full">
                                 <div class="flex justify-center">
-                                    <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 max-w-6xl">
+                                    <div
+                                        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 w-full max-w-6xl">
                                         @foreach ($anggota as $user)
                                             <div
-                                                class="relative w-72 rounded-2xl overflow-hidden shadow-lg group cursor-pointer flex flex-col">
+                                                class="relative w-full max-w-xs mx-auto rounded-2xl overflow-hidden shadow-lg group cursor-pointer flex flex-col">
                                                 <!-- Hover Overlay -->
                                                 <div class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-all duration-300 z-10 flex flex-col items-center justify-center rounded-2xl"
                                                     style="clip-path: polygon(20px 0, 100% 0, 100% 100%, 0 100%, 0 20px);">
@@ -315,16 +319,17 @@
                                     <!-- Subdivisi -->
                                     <div class="mb-12 w-full opacity-0 translate-y-8 transition-all duration-1000 ease-out"
                                         data-animate>
-                                        <h3 class="mb-8 text-2xl font-bold text-white text-center">
+                                        <h3
+                                            class="mb-8 text-2xl font-bold text-white text-center leading-tight break-words px-4">
                                             {{ $subdivision->name }}
                                         </h3>
 
                                         <div class="flex justify-center">
                                             <div
-                                                class="grid grid-cols-1 gap-24 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 max-w-6xl">
+                                                class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8 w-full max-w-7xl">
                                                 @foreach ($subdivisionMembers as $user)
                                                     <div
-                                                        class="relative w-72 rounded-2xl overflow-hidden shadow-lg group cursor-pointer flex flex-col">
+                                                        class="relative w-full max-w-xs mx-auto rounded-2xl overflow-hidden shadow-lg group cursor-pointer flex flex-col">
                                                         <!-- Hover Overlay -->
                                                         <div class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-all duration-300 z-10 flex flex-col items-center justify-center rounded-2xl"
                                                             style="clip-path: polygon(20px 0, 100% 0, 100% 100%, 0 100%, 0 20px);">
@@ -542,7 +547,29 @@
             box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
 
-        /* Responsive design */
+        /* Responsive design and container utilities */
+        .container-responsive {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        @media (min-width: 640px) {
+            .container-responsive {
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .container-responsive {
+                padding-left: 2rem;
+                padding-right: 2rem;
+            }
+        }
+
         @media (max-width: 768px) {
             .container {
                 padding-left: 1rem;
@@ -634,9 +661,10 @@
             width: 100%;
         }
 
-        /* Grid utilities */
+        /* Grid utilities with proper centering */
         .grid {
             display: grid;
+            place-items: center;
         }
 
         .grid-cols-1 {
@@ -646,6 +674,7 @@
         @media (min-width: 640px) {
             .sm\:grid-cols-2 {
                 grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 1.5rem;
             }
         }
 
@@ -656,7 +685,17 @@
         }
 
         @media (min-width: 1024px) {
+            .lg\:grid-cols-3 {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+
             .lg\:grid-cols-4 {
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+            }
+        }
+
+        @media (min-width: 1280px) {
+            .xl\:grid-cols-4 {
                 grid-template-columns: repeat(4, minmax(0, 1fr));
             }
         }
@@ -770,9 +809,23 @@
             border-radius: 1rem;
         }
 
-        /* Card consistency and name handling */
-        .w-72 {
-            width: 18rem;
+        /* Responsive card layout */
+        .member-card {
+            width: 100%;
+            max-width: 20rem;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 640px) {
+            .member-card {
+                max-width: 18rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .member-card {
+                max-width: 17rem;
+            }
         }
 
         /* Ensure names can wrap and stay centered */

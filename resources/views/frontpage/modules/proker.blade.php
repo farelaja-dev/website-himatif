@@ -16,11 +16,11 @@
         <section class="bg-[#FEF9F1] relative px-4 py-16 overflow-hidden md:px-6 md:py-24">
             <!-- Background Patterns -->
             <!-- <div class="absolute top-0 left-0 opacity-20">
-                                        <div class="w-64 h-64 bg-gradient-to-br from-gray-200 to-gray-300 rounded-full"></div>
-                                    </div>
-                                    <div class="absolute bottom-0 right-0 opacity-20">
-                                        <div class="w-64 h-64 bg-gradient-to-br from-gray-200 to-gray-300 rounded-full"></div>
-                                    </div> -->
+                                            <div class="w-64 h-64 bg-gradient-to-br from-gray-200 to-gray-300 rounded-full"></div>
+                                        </div>
+                                        <div class="absolute bottom-0 right-0 opacity-20">
+                                            <div class="w-64 h-64 bg-gradient-to-br from-gray-200 to-gray-300 rounded-full"></div>
+                                        </div> -->
 
             <div class="container relative z-10 mx-auto flex justify-center">
                 <div class="flex flex-col items-center">
@@ -184,7 +184,7 @@
 
                                     <!-- Description -->
                                     <p class="flex-1 mb-4 text-base leading-relaxed text-white text-opacity-90">
-                                        {{ substr(strip_tags($proker->description), 0, 120) . (strlen(strip_tags($proker->description)) > 120 ? '...' : '') }}
+                                        {{ substr(strip_tags($proker->description), 0, 85) . (strlen(strip_tags($proker->description)) > 85 ? '...' : '') }}
                                     </p>
 
                                     <!-- Bottom Section -->

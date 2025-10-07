@@ -77,12 +77,12 @@
                                 NIM CHECKER
                             </a>
                         </div>
-                        <div>
+                        {{-- <div>
                             <a id="cakap-mobile" href="/CakapxHimatif"
                                 class="block w-full bg-gray-100 text-[#00101A] px-5 py-3 rounded-xl text-center text-sm font-medium hover:bg-gray-200 transition-all duration-300">
                                 CAKAPxHIMATIF
                             </a>
-                        </div>
+                        </div> --}}
                         <div>
                             <a id="pemilu-mobile" href="/pemilu"
                                 class="block w-full bg-gray-100 text-[#00101A] px-5 py-3 rounded-xl text-center text-sm font-medium hover:bg-gray-200 transition-all duration-300">

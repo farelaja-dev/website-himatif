@@ -17,11 +17,11 @@
         <section class="bg-[#FEF9F1] relative px-4 py-16 overflow-hidden md:px-6 md:py-24">
             <!-- Background Patterns -->
             <!-- <div class="absolute top-0 left-0 opacity-20">
-                                                                            <div class="w-64 h-64 bg-gradient-to-br from-gray-200 to-gray-300 rounded-full"></div>
-                                                                    </div>
-                                                                        <div class="absolute bottom-0 right-0 opacity-20">
-                                                                            <div class="w-64 h-64 bg-gradient-to-br from-gray-200 to-gray-300 rounded-full"></div>
-                                                                        </div> -->
+                                                                                                                            <div class="w-64 h-64 bg-gradient-to-br from-gray-200 to-gray-300 rounded-full"></div>
+                                                                                                                    </div>
+                                                                                                                        <div class="absolute bottom-0 right-0 opacity-20">
+                                                                                                                            <div class="w-64 h-64 bg-gradient-to-br from-gray-200 to-gray-300 rounded-full"></div>
+                                                                                                                        </div> -->
 
             <div class="container-responsive relative z-10 flex justify-center">
                 <div class="flex flex-col items-center">
@@ -105,48 +105,13 @@
                             <!-- Kepala Divisi -->
                             <div class="mb-8 w-full">
                                 <div class="flex justify-center">
-                                    <div class="w-full max-w-sm mx-auto">
+                                    <div class="flex justify-center w-full">
                                         @foreach ($kepalaDivisi as $user)
                                             <div
-                                                class="relative w-full max-w-xs mx-auto rounded-2xl overflow-hidden shadow-lg group cursor-pointer flex flex-col">
-                                                <!-- Hover Overlay -->
-                                                <div class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-all duration-300 z-10 flex flex-col items-center justify-center rounded-2xl"
-                                                    style="clip-path: polygon(20px 0, 100% 0, 100% 100%, 0 100%, 0 20px);">
-                                                    <div class="text-white text-center mb-6 px-4">
-                                                        <h4 class="text-xl font-bold mb-2 leading-tight">{{ $user->name }}
-                                                        </h4>
-                                                        <p class="text-sm opacity-90">{{ $user->periode[0]['position'] }}
-                                                        </p>
-                                                    </div>
-                                                    <div class="flex gap-4">
-                                                        @if ($user->linkedin)
-                                                            <a href="{{ $user->linkedin }}" target="_blank"
-                                                                class="w-12 h-12 bg-[#0077B5] text-white rounded-full flex items-center justify-center hover:bg-[#005885] transition-colors duration-200">
-                                                                <svg width="20" height="20" fill="currentColor"
-                                                                    viewBox="0 0 24 24">
-                                                                    <path
-                                                                        d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                                                                </svg>
-                                                            </a>
-                                                        @endif
-                                                        @if ($user->instagram)
-                                                            <a href="{{ $user->instagram }}" target="_blank"
-                                                                class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full flex items-center justify-center hover:from-purple-600 hover:to-pink-600 transition-all duration-200">
-                                                                <svg width="20" height="20" viewBox="0 0 24 24"
-                                                                    fill="currentColor">
-                                                                    <path
-                                                                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-                                                                </svg>
-                                                            </a>
-                                                        @endif
-                                                        @if (!$user->linkedin && !$user->instagram)
-                                                            <div class="text-white/70 text-sm">No social media links</div>
-                                                        @endif
-                                                    </div>
-                                                </div>
+                                                class="relative w-full max-w-xs mx-auto rounded-2xl overflow-hidden shadow-lg member-card-fixed">
 
                                                 <!-- Bagian Merah -->
-                                                <div class="bg-[#910E19] relative pt-8 pb-4 px-6 flex-grow flex flex-col justify-center"
+                                                <div class="bg-[#910E19] relative pt-6 pb-4 px-6 member-card-red-section"
                                                     style="clip-path: polygon(20px 0, 100% 0, 100% 100%, 0 100%, 0 20px);">
                                                     <!-- Foto Profil -->
                                                     <div class="flex justify-center mb-4">
@@ -161,8 +126,8 @@
                                                         @endif
                                                     </div>
                                                     <!-- Nama & Jabatan -->
-                                                    <div class="text-center px-4">
-                                                        <h4 class="text-xl font-bold text-white leading-tight mb-2">
+                                                    <div class="text-center px-4 member-name-container">
+                                                        <h4 class="text-xl font-bold text-white mb-2 member-name-text">
                                                             {{ $user->name }}
                                                         </h4>
                                                         <p class="text-sm text-white/90">
@@ -173,27 +138,31 @@
 
                                                 <!-- Bagian Krem -->
                                                 <div
-                                                    class="bg-[#FEF9F1] flex justify-between items-center px-6 py-3 rounded-b-2xl">
+                                                    class="bg-[#FEF9F1] flex justify-between items-center px-6 py-3 rounded-b-2xl member-card-cream-section">
                                                     <!-- Panah -->
-                                                    <span class="text-[#910E19] text-2xl font-bold">→</span>
+                                                    <span class="text-[#910E19] text-3xl font-bold">→</span>
                                                     <!-- Icon Sosmed -->
                                                     <div class="flex gap-3">
-                                                        <a href="#"
-                                                            class="w-8 h-8 flex items-center justify-center rounded-md bg-[#910E19] text-white">
-                                                            <svg width="16" height="16" fill="currentColor"
-                                                                viewBox="0 0 24 24">
-                                                                <path
-                                                                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                                                            </svg>
-                                                        </a>
-                                                        <a href="#"
-                                                            class="w-8 h-8 flex items-center justify-center rounded-md bg-[#910E19] text-white">
-                                                            <svg width="16" height="16" viewBox="0 0 24 24"
-                                                                fill="currentColor">
-                                                                <path
-                                                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.80-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-                                                            </svg>
-                                                        </a>
+                                                        @if ($user->linkedin)
+                                                            <a href="{{ $user->linkedin }}" target="_blank"
+                                                                class="w-10 h-10 flex items-center justify-center rounded-md bg-[#910E19] text-white hover:bg-[#7a0c15] transition-colors duration-200">
+                                                                <svg width="18" height="18" fill="currentColor"
+                                                                    viewBox="0 0 24 24">
+                                                                    <path
+                                                                        d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                                                                </svg>
+                                                            </a>
+                                                        @endif
+                                                        @if ($user->instagram)
+                                                            <a href="{{ $user->instagram }}" target="_blank"
+                                                                class="w-10 h-10 flex items-center justify-center rounded-md bg-[#910E19] text-white hover:bg-[#7a0c15] transition-colors duration-200">
+                                                                <svg width="18" height="18" viewBox="0 0 24 24"
+                                                                    fill="currentColor">
+                                                                    <path
+                                                                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.80-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                                                                </svg>
+                                                            </a>
+                                                        @endif
                                                     </div>
                                                 </div>
                                             </div>
@@ -211,45 +180,10 @@
                                         class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 w-full max-w-6xl">
                                         @foreach ($anggota as $user)
                                             <div
-                                                class="relative w-full max-w-xs mx-auto rounded-2xl overflow-hidden shadow-lg group cursor-pointer flex flex-col">
-                                                <!-- Hover Overlay -->
-                                                <div class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-all duration-300 z-10 flex flex-col items-center justify-center rounded-2xl"
-                                                    style="clip-path: polygon(20px 0, 100% 0, 100% 100%, 0 100%, 0 20px);">
-                                                    <div class="text-white text-center mb-6 px-4">
-                                                        <h4 class="text-xl font-bold mb-2 leading-tight">
-                                                            {{ $user->name }}</h4>
-                                                        <p class="text-sm opacity-90">{{ $user->periode[0]['position'] }}
-                                                        </p>
-                                                    </div>
-                                                    <div class="flex gap-4">
-                                                        @if ($user->linkedin)
-                                                            <a href="{{ $user->linkedin }}" target="_blank"
-                                                                class="w-12 h-12 bg-[#0077B5] text-white rounded-full flex items-center justify-center hover:bg-[#005885] transition-colors duration-200">
-                                                                <svg width="20" height="20" fill="currentColor"
-                                                                    viewBox="0 0 24 24">
-                                                                    <path
-                                                                        d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                                                                </svg>
-                                                            </a>
-                                                        @endif
-                                                        @if ($user->instagram)
-                                                            <a href="{{ $user->instagram }}" target="_blank"
-                                                                class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full flex items-center justify-center hover:from-purple-600 hover:to-pink-600 transition-all duration-200">
-                                                                <svg width="20" height="20" viewBox="0 0 24 24"
-                                                                    fill="currentColor">
-                                                                    <path
-                                                                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.80 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.40z" />
-                                                                </svg>
-                                                            </a>
-                                                        @endif
-                                                        @if (!$user->linkedin && !$user->instagram)
-                                                            <div class="text-white/70 text-sm">No social media links</div>
-                                                        @endif
-                                                    </div>
-                                                </div>
+                                                class="relative w-full max-w-xs mx-auto rounded-2xl overflow-hidden shadow-lg member-card-fixed">
 
                                                 <!-- Bagian Merah -->
-                                                <div class="bg-[#910E19] relative pt-8 pb-4 px-6 flex-grow flex flex-col justify-center"
+                                                <div class="bg-[#910E19] relative pt-6 pb-4 px-6 member-card-red-section"
                                                     style="clip-path: polygon(20px 0, 100% 0, 100% 100%, 0 100%, 0 20px);">
                                                     <!-- Foto Profil -->
                                                     <div class="flex justify-center mb-4">
@@ -264,8 +198,8 @@
                                                         @endif
                                                     </div>
                                                     <!-- Nama & Jabatan -->
-                                                    <div class="text-center px-4">
-                                                        <h4 class="text-xl font-bold text-white leading-tight mb-2">
+                                                    <div class="text-center px-4 member-name-container">
+                                                        <h4 class="text-xl font-bold text-white mb-2 member-name-text">
                                                             {{ $user->name }}
                                                         </h4>
                                                         <p class="text-sm text-white/90">
@@ -275,27 +209,31 @@
 
                                                 <!-- Bagian Krem -->
                                                 <div
-                                                    class="bg-[#FEF9F1] flex justify-between items-center px-6 py-3 rounded-b-2xl">
+                                                    class="bg-[#FEF9F1] flex justify-between items-center px-6 py-3 rounded-b-2xl member-card-cream-section">
                                                     <!-- Panah -->
-                                                    <span class="text-[#910E19] text-2xl font-bold">→</span>
+                                                    <span class="text-[#910E19] text-3xl font-bold">→</span>
                                                     <!-- Icon Sosmed -->
                                                     <div class="flex gap-3">
-                                                        <a href="#"
-                                                            class="w-8 h-8 flex items-center justify-center rounded-md bg-[#910E19] text-white">
-                                                            <svg width="16" height="16" fill="currentColor"
-                                                                viewBox="0 0 24 24">
-                                                                <path
-                                                                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                                                            </svg>
-                                                        </a>
-                                                        <a href="#"
-                                                            class="w-8 h-8 flex items-center justify-center rounded-md bg-[#910E19] text-white">
-                                                            <svg width="16" height="16" viewBox="0 0 24 24"
-                                                                fill="currentColor">
-                                                                <path
-                                                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.80-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.40z" />
-                                                            </svg>
-                                                        </a>
+                                                        @if ($user->linkedin)
+                                                            <a href="{{ $user->linkedin }}" target="_blank"
+                                                                class="w-10 h-10 flex items-center justify-center rounded-md bg-[#910E19] text-white hover:bg-[#7a0c15] transition-colors duration-200">
+                                                                <svg width="18" height="18" fill="currentColor"
+                                                                    viewBox="0 0 24 24">
+                                                                    <path
+                                                                        d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                                                                </svg>
+                                                            </a>
+                                                        @endif
+                                                        @if ($user->instagram)
+                                                            <a href="{{ $user->instagram }}" target="_blank"
+                                                                class="w-10 h-10 flex items-center justify-center rounded-md bg-[#910E19] text-white hover:bg-[#7a0c15] transition-colors duration-200">
+                                                                <svg width="18" height="18" viewBox="0 0 24 24"
+                                                                    fill="currentColor">
+                                                                    <path
+                                                                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.80-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.40z" />
+                                                                </svg>
+                                                            </a>
+                                                        @endif
                                                     </div>
                                                 </div>
                                             </div>
@@ -326,50 +264,13 @@
 
                                         <div class="flex justify-center">
                                             <div
-                                                class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8 w-full max-w-7xl">
+                                                class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 w-full max-w-6xl">
                                                 @foreach ($subdivisionMembers as $user)
                                                     <div
-                                                        class="relative w-full max-w-xs mx-auto rounded-2xl overflow-hidden shadow-lg group cursor-pointer flex flex-col">
-                                                        <!-- Hover Overlay -->
-                                                        <div class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-all duration-300 z-10 flex flex-col items-center justify-center rounded-2xl"
-                                                            style="clip-path: polygon(20px 0, 100% 0, 100% 100%, 0 100%, 0 20px);">
-                                                            <div class="text-white text-center mb-6 px-4">
-                                                                <h4 class="text-lg font-bold mb-2 leading-tight">
-                                                                    {{ $user->name }}
-                                                                </h4>
-                                                                <p class="text-sm opacity-90">
-                                                                    {{ $user->periode[0]['position'] }}</p>
-                                                            </div>
-                                                            <div class="flex gap-3">
-                                                                @if ($user->linkedin)
-                                                                    <a href="{{ $user->linkedin }}" target="_blank"
-                                                                        class="w-10 h-10 bg-[#0077B5] text-white rounded-full flex items-center justify-center hover:bg-[#005885] transition-colors duration-200">
-                                                                        <svg width="16" height="16"
-                                                                            fill="currentColor" viewBox="0 0 24 24">
-                                                                            <path
-                                                                                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                                                                        </svg>
-                                                                    </a>
-                                                                @endif
-                                                                @if ($user->instagram)
-                                                                    <a href="{{ $user->instagram }}" target="_blank"
-                                                                        class="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full flex items-center justify-center hover:from-purple-600 hover:to-pink-600 transition-all duration-200">
-                                                                        <svg width="16" height="16"
-                                                                            viewBox="0 0 24 24" fill="currentColor">
-                                                                            <path
-                                                                                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.40s-.644-1.44-1.439-1.40z" />
-                                                                        </svg>
-                                                                    </a>
-                                                                @endif
-                                                                @if (!$user->linkedin && !$user->instagram)
-                                                                    <div class="text-white/70 text-xs">No social media
-                                                                        links</div>
-                                                                @endif
-                                                            </div>
-                                                        </div>
+                                                        class="relative w-full max-w-xs mx-auto rounded-2xl overflow-hidden shadow-lg member-card-fixed">
 
                                                         <!-- Bagian Merah -->
-                                                        <div class="bg-[#910E19] relative pt-8 pb-4 px-6 flex-grow flex flex-col justify-center"
+                                                        <div class="bg-[#910E19] relative pt-6 pb-4 px-6 member-card-red-section"
                                                             style="clip-path: polygon(20px 0, 100% 0, 100% 100%, 0 100%, 0 20px);">
 
                                                             <!-- Foto Profil -->
@@ -377,18 +278,18 @@
                                                                 @if ($user->photo)
                                                                     <img src="{{ asset('storage/' . $user->photo) }}"
                                                                         alt="{{ $user->name }}"
-                                                                        class="w-28 h-28 object-cover rounded-full border-4 border-[#FEF9F1] shadow-md">
+                                                                        class="w-32 h-32 object-cover rounded-full border-4 border-[#FEF9F1] shadow-md">
                                                                 @else
                                                                     <div
-                                                                        class="w-28 h-28 flex items-center justify-center rounded-full bg-gray-300 text-3xl">
+                                                                        class="w-32 h-32 flex items-center justify-center rounded-full bg-gray-300 text-4xl">
                                                                         👤</div>
                                                                 @endif
                                                             </div>
 
                                                             <!-- Nama & Jabatan -->
-                                                            <div class="text-center px-4">
+                                                            <div class="text-center px-4 member-name-container">
                                                                 <h4
-                                                                    class="text-lg font-bold text-white leading-tight mb-2">
+                                                                    class="text-xl font-bold text-white mb-2 member-name-text">
                                                                     {{ $user->name }}
                                                                 </h4>
                                                                 <p class="text-sm text-white/90">
@@ -398,28 +299,32 @@
 
                                                         <!-- Bagian Krem -->
                                                         <div
-                                                            class="bg-[#FEF9F1] flex justify-between items-center px-6 py-3 rounded-b-2xl">
+                                                            class="bg-[#FEF9F1] flex justify-between items-center px-6 py-3 rounded-b-2xl member-card-cream-section">
                                                             <!-- Panah -->
-                                                            <span class="text-[#910E19] text-xl font-bold">→</span>
+                                                            <span class="text-[#910E19] text-3xl font-bold">→</span>
 
                                                             <!-- Icon Sosmed -->
                                                             <div class="flex gap-3">
-                                                                <a href="#"
-                                                                    class="w-7 h-7 flex items-center justify-center rounded-md bg-[#910E19] text-white">
-                                                                    <svg width="14" height="14"
-                                                                        fill="currentColor" viewBox="0 0 24 24">
-                                                                        <path
-                                                                            d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                                                                    </svg>
-                                                                </a>
-                                                                <a href="#"
-                                                                    class="w-7 h-7 flex items-center justify-center rounded-md bg-[#910E19] text-white">
-                                                                    <svg width="14" height="14"
-                                                                        viewBox="0 0 24 24" fill="currentColor">
-                                                                        <path
-                                                                            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-                                                                    </svg>
-                                                                </a>
+                                                                @if ($user->linkedin)
+                                                                    <a href="{{ $user->linkedin }}" target="_blank"
+                                                                        class="w-10 h-10 flex items-center justify-center rounded-md bg-[#910E19] text-white hover:bg-[#7a0c15] transition-colors duration-200">
+                                                                        <svg width="18" height="18"
+                                                                            fill="currentColor" viewBox="0 0 24 24">
+                                                                            <path
+                                                                                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                                                                        </svg>
+                                                                    </a>
+                                                                @endif
+                                                                @if ($user->instagram)
+                                                                    <a href="{{ $user->instagram }}" target="_blank"
+                                                                        class="w-10 h-10 flex items-center justify-center rounded-md bg-[#910E19] text-white hover:bg-[#7a0c15] transition-colors duration-200">
+                                                                        <svg width="18" height="18"
+                                                                            viewBox="0 0 24 24" fill="currentColor">
+                                                                            <path
+                                                                                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                                                                        </svg>
+                                                                    </a>
+                                                                @endif
                                                             </div>
                                                         </div>
                                                     </div>
@@ -661,43 +566,101 @@
             width: 100%;
         }
 
-        /* Grid utilities with proper centering */
+        /* Grid utilities with consistent 3-column max layout */
         .grid {
             display: grid;
             place-items: center;
+            gap: 1.5rem;
+            max-width: 100%;
+            justify-content: center;
         }
 
         .grid-cols-1 {
-            grid-template-columns: repeat(1, minmax(0, 1fr));
+            grid-template-columns: repeat(1, 17rem);
         }
 
         @media (min-width: 640px) {
             .sm\:grid-cols-2 {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-                gap: 1.5rem;
-            }
-        }
-
-        @media (min-width: 768px) {
-            .md\:grid-cols-3 {
-                grid-template-columns: repeat(3, minmax(0, 1fr));
+                grid-template-columns: repeat(2, 17rem);
+                gap: 2rem;
             }
         }
 
         @media (min-width: 1024px) {
             .lg\:grid-cols-3 {
-                grid-template-columns: repeat(3, minmax(0, 1fr));
-            }
-
-            .lg\:grid-cols-4 {
-                grid-template-columns: repeat(4, minmax(0, 1fr));
+                grid-template-columns: repeat(3, 17rem);
+                gap: 2rem;
             }
         }
 
-        @media (min-width: 1280px) {
-            .xl\:grid-cols-4 {
-                grid-template-columns: repeat(4, minmax(0, 1fr));
+        /* Remove 4-column support to maintain 3-column max */
+        .lg\:grid-cols-4,
+        .xl\:grid-cols-4 {
+            grid-template-columns: repeat(3, 17rem) !important;
+        }
+
+        /* Ensure all grids use consistent card sizes */
+        .grid>.member-card-fixed {
+            width: 17rem !important;
+            max-width: 17rem !important;
+        }
+
+        /* Override any responsive variations to maintain consistency */
+        @media (min-width: 640px) {
+            .member-card-fixed {
+                width: 17rem !important;
+                min-width: 17rem !important;
+                max-width: 17rem !important;
             }
+        }
+
+        @media (min-width: 768px) {
+            .member-card-fixed {
+                width: 17rem !important;
+                min-width: 17rem !important;
+                max-width: 17rem !important;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .member-card-fixed {
+                width: 17rem !important;
+                min-width: 17rem !important;
+                max-width: 17rem !important;
+            }
+        }
+
+        /* Force consistent grid item sizing - maximum 3 columns */
+        .grid-cols-1>*,
+        .sm\\:grid-cols-2>*,
+        .lg\\:grid-cols-3>* {
+            width: 17rem !important;
+            max-width: 17rem !important;
+            min-width: 17rem !important;
+            justify-self: center !important;
+        }
+
+        /* Ensure grid containers center their content when less than 3 items */
+        .grid {
+            justify-content: center !important;
+        }
+
+        /* Special styling for kepala divisi to always center */
+        .flex.justify-center .member-card-fixed {
+            margin: 0 auto !important;
+        }
+
+        /* If multiple kepala divisi, arrange them centered with gap */
+        .flex.justify-center {
+            gap: 2rem !important;
+            flex-wrap: wrap !important;
+        }
+
+        /* Override any existing 4-column rules */
+        .grid-cols-4,
+        .lg\\:grid-cols-4,
+        .xl\\:grid-cols-4 {
+            grid-template-columns: repeat(3, 17rem) !important;
         }
 
         .header-decoration-left {
@@ -809,22 +772,32 @@
             border-radius: 1rem;
         }
 
-        /* Responsive card layout */
+        /* Consistent card layout for all cards */
         .member-card {
             width: 100%;
             max-width: 20rem;
             margin: 0 auto;
         }
 
+        .member-card-fixed {
+            width: 100% !important;
+            max-width: 20rem !important;
+            margin: 0 auto !important;
+        }
+
         @media (min-width: 640px) {
-            .member-card {
-                max-width: 18rem;
+
+            .member-card,
+            .member-card-fixed {
+                max-width: 18rem !important;
             }
         }
 
         @media (min-width: 1024px) {
-            .member-card {
-                max-width: 17rem;
+
+            .member-card,
+            .member-card-fixed {
+                max-width: 17rem !important;
             }
         }
 
@@ -859,6 +832,61 @@
 
         .flex-grow {
             flex-grow: 1;
+        }
+
+        /* Fixed card dimensions for absolute consistency */
+        .member-card-fixed {
+            width: 17rem !important;
+            min-width: 17rem !important;
+            max-width: 17rem !important;
+            height: 22rem !important;
+            min-height: 22rem !important;
+            max-height: 22rem !important;
+            display: flex !important;
+            flex-direction: column !important;
+            margin: 0 auto !important;
+            flex-shrink: 0 !important;
+            flex-grow: 0 !important;
+        }
+
+        /* Fixed red section height with balanced spacing */
+        .member-card-red-section {
+            flex: 1 !important;
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: space-evenly !important;
+            align-items: center !important;
+            min-height: 14rem !important;
+            padding: 0.75rem 1.5rem !important;
+        }
+
+        /* Fixed cream section height */
+        .member-card-cream-section {
+            height: 4rem !important;
+            min-height: 4rem !important;
+            max-height: 4rem !important;
+            flex-shrink: 0 !important;
+        }
+
+        /* Name container with balanced spacing */
+        .member-name-container {
+            width: 100% !important;
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: center !important;
+            align-items: center !important;
+            overflow: hidden !important;
+        }
+
+        /* Name text with line clamping and better spacing */
+        .member-name-text {
+            display: -webkit-box !important;
+            -webkit-line-clamp: 2 !important;
+            -webkit-box-orient: vertical !important;
+            overflow: hidden !important;
+            text-overflow: ellipsis !important;
+            line-height: 1.3 !important;
+            margin-bottom: 0.25rem !important;
         }
 
         /* Ensure proper card height with flexible content */

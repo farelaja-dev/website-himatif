@@ -65,10 +65,8 @@
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center px-6 md:px-12">
             <!-- Content Section - pada mobile akan tampil setelah foto -->
             <div class="w-full md:w-2/3 order-2 md:order-2">
-                <h2 class="text-3xl md:text-4xl font-black text-white text-center md:text-left bg-[#910E19] inline-block px-10 py-4 rounded-full mb-10 opacity-0 translate-y-8 transition-all duration-1000 ease-out delay-200"
-                    data-animate>
-                    APA YANG KAMI LAKUKAN
-                </h2>
+                <h2 class="title font-black opacity-0 translate-y-8 transition-all duration-1000 ease-out" data-animate>APA
+                    YANG KAMI LAKUKAN</h2>
                 <div class="grid md:grid-cols-3 gap-6">
                     <!-- Card -->
                     <div class="bg-[#910E19] text-white px-6 py-6 rounded-[30px] shadow-lg relative opacity-0 translate-y-8 transition-all duration-1000 ease-out delay-300"
@@ -497,6 +495,17 @@
             position: relative;
         }
 
+        .apa-kami-lakukan .title {
+            background: #910E19;
+            padding: 12px 35px;
+            border-radius: 50px;
+            font-size: 22px;
+            font-weight: bold;
+            color: #fff;
+            margin-bottom: 40px;
+            display: inline-block;
+        }
+
         /* --- HERO --- */
         .hero-section {
             background-color: #FEF9F1 !important;
@@ -808,7 +817,8 @@
 
         .card-img {
             background: #ddd;
-            height: 150px;
+            height: 250px;
+            /* dibuat 1:1 ratio (sama dengan width card 250px) */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -1145,6 +1155,11 @@
             /* Responsive layout untuk section Apa Yang Kami Lakukan */
             .apa-kami-lakukan .max-w-7xl {
                 flex-direction: column !important;
+            }
+
+            /* Rata tengah judul pada mobile */
+            .apa-kami-lakukan .w-full {
+                text-align: center !important;
             }
 
             /* Posisikan foto adinadunadan di atas dan di tengah pada mobile */

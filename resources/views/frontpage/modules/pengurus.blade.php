@@ -17,11 +17,11 @@
         <section class="bg-[#FEF9F1] relative px-4 py-16 overflow-hidden md:px-6 md:py-24">
             <!-- Background Patterns -->
             <!-- <div class="absolute top-0 left-0 opacity-20">
-                                                                                                                            <div class="w-64 h-64 bg-gradient-to-br from-gray-200 to-gray-300 rounded-full"></div>
-                                                                                                                    </div>
-                                                                                                                        <div class="absolute bottom-0 right-0 opacity-20">
-                                                                                                                            <div class="w-64 h-64 bg-gradient-to-br from-gray-200 to-gray-300 rounded-full"></div>
-                                                                                                                        </div> -->
+                                                                                                                                        <div class="w-64 h-64 bg-gradient-to-br from-gray-200 to-gray-300 rounded-full"></div>
+                                                                                                                                </div>
+                                                                                                                                    <div class="absolute bottom-0 right-0 opacity-20">
+                                                                                                                                        <div class="w-64 h-64 bg-gradient-to-br from-gray-200 to-gray-300 rounded-full"></div>
+                                                                                                                                    </div> -->
 
             <div class="container-responsive relative z-10 flex justify-center">
                 <div class="flex flex-col items-center">
@@ -96,9 +96,27 @@
                                 return $user->periode[0]['position'] === 'Kepala Divisi';
                             });
 
-                            $anggota = $divisionMembers->filter(function ($user) {
-                                return $user->periode[0]['position'] !== 'Kepala Divisi';
-                            });
+                            $anggota = $divisionMembers
+                                ->filter(function ($user) {
+                                    return $user->periode[0]['position'] !== 'Kepala Divisi';
+                                })
+                                ->sortBy(function ($user) {
+                                    // Urutan prioritas pengurus
+                                    if ($user->name === 'Arifa Amilani') {
+                                        return '0';
+                                    }
+                                    if ($user->name === 'Anugrah Farel Putra Firdyantara') {
+                                        return '1';
+                                    }
+                                    if ($user->name === 'Muhammad Aka Sahadi') {
+                                        return '2';
+                                    }
+                                    if ($user->name === "Ulul 'Azmi") {
+                                        return '3';
+                                    }
+                                    // Anggota lain diurutkan berdasarkan nama
+                                    return '9' . $user->name;
+                                });
                         @endphp
 
                         @if ($kepalaDivisi->count() > 0)
@@ -246,11 +264,29 @@
                         @if ($division->subDivisions->count() > 0)
                             @foreach ($division->subDivisions as $subdivision)
                                 @php
-                                    $subdivisionMembers = $pengurus->filter(function ($user) use ($subdivision) {
-                                        return $user->status === '1' &&
-                                            isset($user->periode[0]) &&
-                                            $user->periode[0]['division_id'] === strval($subdivision->id);
-                                    });
+                                    $subdivisionMembers = $pengurus
+                                        ->filter(function ($user) use ($subdivision) {
+                                            return $user->status === '1' &&
+                                                isset($user->periode[0]) &&
+                                                $user->periode[0]['division_id'] === strval($subdivision->id);
+                                        })
+                                        ->sortBy(function ($user) {
+                                            // Urutan prioritas pengurus
+                                            if ($user->name === 'Arifa Amilani') {
+                                                return '0';
+                                            }
+                                            if ($user->name === 'Anugrah Farel Putra Firdyantara') {
+                                                return '1';
+                                            }
+                                            if ($user->name === 'Muhammad Aka Sahadi') {
+                                                return '2';
+                                            }
+                                            if ($user->name === "Ulul 'Azmi") {
+                                                return '3';
+                                            }
+                                            // Anggota lain diurutkan berdasarkan nama
+                                            return '9' . $user->name;
+                                        });
                                 @endphp
 
                                 @if ($subdivisionMembers->count() > 0)
@@ -839,9 +875,9 @@
             width: 17rem !important;
             min-width: 17rem !important;
             max-width: 17rem !important;
-            height: 22rem !important;
-            min-height: 22rem !important;
-            max-height: 22rem !important;
+            height: 19rem !important;
+            min-height: 19rem !important;
+            max-height: 19rem !important;
             display: flex !important;
             flex-direction: column !important;
             margin: 0 auto !important;
@@ -856,8 +892,8 @@
             flex-direction: column !important;
             justify-content: space-evenly !important;
             align-items: center !important;
-            min-height: 14rem !important;
-            padding: 0.75rem 1.5rem !important;
+            min-height: 11rem !important;
+            padding: 0.5rem 1.5rem !important;
         }
 
         /* Fixed cream section height */
@@ -891,7 +927,7 @@
 
         /* Ensure proper card height with flexible content */
         .member-card {
-            min-height: 22rem;
+            min-height: 19rem;
             display: flex;
             flex-direction: column;
         }

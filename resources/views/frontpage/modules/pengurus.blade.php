@@ -17,11 +17,11 @@
         <section class="bg-[#FEF9F1] relative px-4 py-16 overflow-hidden md:px-6 md:py-24">
             <!-- Background Patterns -->
             <!-- <div class="absolute top-0 left-0 opacity-20">
-                                                                                                                                            <div class="w-64 h-64 bg-gradient-to-br from-gray-200 to-gray-300 rounded-full"></div>
-                                                                                                                                    </div>
-                                                                                                                                        <div class="absolute bottom-0 right-0 opacity-20">
-                                                                                                                                            <div class="w-64 h-64 bg-gradient-to-br from-gray-200 to-gray-300 rounded-full"></div>
-                                                                                                                                        </div> -->
+                                                                                                                                                    <div class="w-64 h-64 bg-gradient-to-br from-gray-200 to-gray-300 rounded-full"></div>
+                                                                                                                                            </div>
+                                                                                                                                                <div class="absolute bottom-0 right-0 opacity-20">
+                                                                                                                                                    <div class="w-64 h-64 bg-gradient-to-br from-gray-200 to-gray-300 rounded-full"></div>
+                                                                                                                                                </div> -->
 
             <div class="container-responsive relative z-10 flex justify-center">
                 <div class="flex flex-col items-center">
@@ -101,7 +101,7 @@
                                     return $user->periode[0]['position'] !== 'Kepala Divisi';
                                 })
                                 ->sortBy(function ($user) {
-                                    // Urutan prioritas pengurus
+                                    // Urutan prioritas pengurus nama
                                     if ($user->name === 'Arifa Amilani') {
                                         return '0';
                                     }
@@ -117,6 +117,15 @@
                                     if ($user->name === 'Aulia Putri Rachmawati') {
                                         return '4';
                                     }
+
+                                    // Prioritas berdasarkan tahun (setelah nama prioritas)
+                                    if (isset($user->periode[0]) && $user->periode[0]['year'] === '2022') {
+                                        return '5' . $user->name;
+                                    }
+                                    if (isset($user->periode[0]) && $user->periode[0]['year'] === '2023') {
+                                        return '6' . $user->name;
+                                    }
+
                                     // Anggota lain diurutkan berdasarkan nama
                                     return '9' . $user->name;
                                 });
@@ -274,7 +283,7 @@
                                                 $user->periode[0]['division_id'] === strval($subdivision->id);
                                         })
                                         ->sortBy(function ($user) {
-                                            // Urutan prioritas pengurus
+                                            // Urutan prioritas pengurus nama
                                             if ($user->name === 'Arifa Amilani') {
                                                 return '0';
                                             }
@@ -290,6 +299,15 @@
                                             if ($user->name === 'Aulia Putri Rachmawati') {
                                                 return '4';
                                             }
+
+                                            // Prioritas berdasarkan tahun (setelah nama prioritas)
+                                            if (isset($user->periode[0]) && $user->periode[0]['year'] === '2022') {
+                                                return '5' . $user->name;
+                                            }
+                                            if (isset($user->periode[0]) && $user->periode[0]['year'] === '2023') {
+                                                return '6' . $user->name;
+                                            }
+
                                             // Anggota lain diurutkan berdasarkan nama
                                             return '9' . $user->name;
                                         });

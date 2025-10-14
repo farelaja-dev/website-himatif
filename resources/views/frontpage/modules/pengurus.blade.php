@@ -17,11 +17,11 @@
         <section class="bg-[#FEF9F1] relative px-4 py-16 overflow-hidden md:px-6 md:py-24">
             <!-- Background Patterns -->
             <!-- <div class="absolute top-0 left-0 opacity-20">
-                                                                                                                                                    <div class="w-64 h-64 bg-gradient-to-br from-gray-200 to-gray-300 rounded-full"></div>
-                                                                                                                                            </div>
-                                                                                                                                                <div class="absolute bottom-0 right-0 opacity-20">
-                                                                                                                                                    <div class="w-64 h-64 bg-gradient-to-br from-gray-200 to-gray-300 rounded-full"></div>
-                                                                                                                                                </div> -->
+                                                                                                                                                                                                        <div class="w-64 h-64 bg-gradient-to-br from-gray-200 to-gray-300 rounded-full"></div>
+                                                                                                                                                                                                </div>
+                                                                                                                                                                                                    <div class="absolute bottom-0 right-0 opacity-20">
+                                                                                                                                                                                                        <div class="w-64 h-64 bg-gradient-to-br from-gray-200 to-gray-300 rounded-full"></div>
+                                                                                                                                                                                                    </div> -->
 
             <div class="container-responsive relative z-10 flex justify-center">
                 <div class="flex flex-col items-center">
@@ -956,88 +956,96 @@
             flex-direction: column;
         }
 
-        /* Force footer layout consistency on pengurus page */
-        body.pengurus footer {
-            /* Override any conflicting styles */
+        /* Basic footer style reset for pengurus page */
+        body.pengurus .footer-container {
+            background-color: #FEF9F1 !important;
+            color: #02314A !important;
         }
 
-        /* Reset footer container */
-        body.pengurus footer .container {
-            max-width: 1200px !important;
-            margin: 0 auto !important;
-            padding: 0 1rem !important;
-        }
-
-        /* Force 2-column layout for footer content */
-        body.pengurus footer div[class*="flex"][class*="flex-col"][class*="lg:flex-row"] {
-            display: flex !important;
-            flex-direction: column !important;
-            gap: 2rem !important;
-        }
-
-        @media (min-width: 1024px) {
-            body.pengurus footer div[class*="flex"][class*="flex-col"][class*="lg:flex-row"] {
-                flex-direction: row !important;
-                justify-content: space-between !important;
-                align-items: flex-start !important;
-            }
-        }
-
-        /* Force left column (Organization info) */
-        body.pengurus footer div[class*="w-full"][class*="lg:w-1/2"]:first-of-type {
-            width: 100% !important;
-            order: 1 !important;
-        }
-
-        @media (min-width: 1024px) {
-            body.pengurus footer div[class*="w-full"][class*="lg:w-1/2"]:first-of-type {
-                width: 48% !important;
-                flex: 0 0 48% !important;
-                order: 1 !important;
-            }
-        }
-
-        /* Force right column (Latest News) */
-        body.pengurus footer div[class*="w-full"][class*="lg:w-1/2"]:last-of-type {
-            width: 100% !important;
-            order: 2 !important;
-        }
-
-        @media (min-width: 1024px) {
-            body.pengurus footer div[class*="w-full"][class*="lg:w-1/2"]:last-of-type {
-                width: 48% !important;
-                flex: 0 0 48% !important;
-                order: 2 !important;
-            }
-        }
-
-        /* Ensure proper spacing */
-        body.pengurus footer div[class*="py-6"][class*="border-t-2"] {
-            padding: 1.5rem 0 !important;
-            border-top: 2px solid !important;
-        }
-
-        /* Fix header section */
-        body.pengurus footer div[class*="text-center"][class*="py-12"] {
-            text-align: center !important;
-            padding: 3rem 0 !important;
-        }
-
-        /* Fix social media section layout */
-        body.pengurus footer div[class*="text-center"] div[class*="flex"][class*="justify-between"] {
+        /* Ensure proper footer layout on pengurus page */
+        body.pengurus .footer-container .max-w-6xl.mx-auto {
             display: flex !important;
             flex-direction: column !important;
             align-items: center !important;
             gap: 1.5rem !important;
-            max-width: 72rem !important;
-            margin: 0 auto !important;
         }
 
         @media (min-width: 1024px) {
-            body.pengurus footer div[class*="text-center"] div[class*="flex"][class*="justify-between"] {
+            body.pengurus .footer-container .max-w-6xl.mx-auto {
                 flex-direction: row !important;
                 justify-content: space-between !important;
+                align-items: center !important;
             }
+        }
+
+        /* Fix social media section alignment */
+        body.pengurus .footer-container .max-w-6xl.mx-auto>div:first-child {
+            justify-content: center !important;
+        }
+
+        @media (min-width: 1024px) {
+            body.pengurus .footer-container .max-w-6xl.mx-auto>div:first-child {
+                justify-content: flex-start !important;
+            }
+        }
+
+        /* Fix website section alignment */
+        body.pengurus .footer-container .max-w-6xl.mx-auto>div:last-child {
+            justify-content: center !important;
+        }
+
+        @media (min-width: 1024px) {
+            body.pengurus .footer-container .max-w-6xl.mx-auto>div:last-child {
+                justify-content: flex-end !important;
+            }
+        }
+
+        /* Tighten social media icons spacing */
+        body.pengurus .footer-container .max-w-6xl.mx-auto>div:first-child {
+            gap: 0.5rem !important;
+            /* Reduce gap between icons and text */
+        }
+
+        body.pengurus .footer-container .footer-social-icon {
+            margin-right: 0.25rem !important;
+            /* Reduce space between individual icons */
+        }
+
+        body.pengurus .footer-container .footer-social-icon:last-of-type {
+            margin-right: 0 !important;
+            /* Remove margin from last icon */
+        }
+
+        /* Fix content section - ensure alamat (left) and berita terbaru (right) are side by side */
+        body.pengurus .footer-container>div>div:nth-child(2) {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 1.5rem !important;
+        }
+
+        @media (min-width: 1024px) {
+            body.pengurus .footer-container>div>div:nth-child(2) {
+                flex-direction: row !important;
+                justify-content: space-between !important;
+                gap: 2rem !important;
+            }
+        }
+
+        /* Center copyright text only */
+        body.pengurus .footer-container .text-center p {
+            text-align: center !important;
+        }
+
+        /* Adjust social media icons spacing - make it slightly wider */
+        body.pengurus .footer-container .footer-social-icon {
+            margin-right: 0.5rem !important;
+            /* Increase from 0.25rem to 0.5rem */
+        }
+
+        /* Reduce gap between website icon and text */
+        body.pengurus .footer-container .max-w-6xl.mx-auto>div:last-child {
+            gap: 0.5rem !important;
+            /* Reduce gap between icon and text */
         }
     </style>
 @endsection

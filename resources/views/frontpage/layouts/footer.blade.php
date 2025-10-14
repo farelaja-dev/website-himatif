@@ -9,8 +9,8 @@
 
             <!-- Social Media Links -->
             <div class="flex flex-col lg:flex-row justify-between items-center gap-6 lg:gap-8 max-w-6xl mx-auto">
-                <!-- Left Side Social Icons -->
-                <div class="flex flex-wrap justify-center lg:justify-start items-center gap-3 sm:gap-4 w-full lg:w-auto">
+                <!-- Left Side - Social Media Section with @himatifunej -->
+                <div class="flex justify-center lg:justify-start items-center gap-3 sm:gap-4 w-full lg:w-auto">
                     <!-- Instagram Icon -->
                     <div class="footer-social-icon">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"
@@ -46,7 +46,7 @@
                         </svg>
                     </div>
 
-                    <span class="text-lg sm:text-xl font-semibold ml-2 sm:ml-3">@himatifunej</span>
+                    <span class="text-lg sm:text-xl font-semibold ml-2 sm:ml-3 flex items-center">@himatifunej</span>
                 </div>
 
                 <!-- Right Side Website -->

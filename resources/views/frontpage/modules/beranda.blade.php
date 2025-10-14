@@ -66,7 +66,7 @@
             <!-- Content Section - pada mobile akan tampil setelah foto -->
             <div class="w-full md:w-2/3 order-2 md:order-2">
                 <h2 class="title font-black opacity-0 translate-y-8 transition-all duration-1000 ease-out" data-animate>APA
-                    YANG KAMI LAKUKAN</h2>
+                    YANG KAMI LAKUKAN.</h2>
                 <div class="grid md:grid-cols-3 gap-6">
                     <!-- Card -->
                     <div class="bg-[#910E19] text-white px-6 py-6 rounded-[30px] shadow-lg relative opacity-0 translate-y-8 transition-all duration-1000 ease-out delay-300"
@@ -143,15 +143,32 @@
                 </div>
                 <div class="box misi opacity-0 translate-y-8 transition-all duration-1000 ease-out delay-400" data-animate>
                     <h3>MISI</h3>
-                    <ol>
-                        <li>Mengadakan kegiatan yang bertujuan untuk mengembangkan IPTEK.</li>
-                        <li>Meningkatkan kualitas sumber daya manusia di bidang akademis, kewirausahaan, dan keprofesian.
+                    <ol style="counter-reset: item; padding-left: 0;">
+                        <li style="display: block; margin-bottom: 0.5em; padding-left: 2em; position: relative;">
+                            <span style="position: absolute; left: 0; top: 0; font-weight: bold; color: #910E19;">1.</span>
+                            Mengadakan kegiatan yang bertujuan untuk mengembangkan IPTEK.
                         </li>
-                        <li>Memperkenalkan Program Studi Teknologi Informasi di lingkungan masyarakat luas.</li>
-                        <li>Menjalin hubungan dan kerjasama atas dasar kekeluargaan dengan organisasi di dalam atau di luar
-                            Program Studi Teknologi Informasi.</li>
-                        <li>Melaksanakan setiap kegiatan dengan berlandaskan disiplin dan penuh tanggung jawab.</li>
-                        <li>Mempererat tali persaudaraan antar mahasiswa khususnya anggota HIMATIF.</li>
+                        <li style="display: block; margin-bottom: 0.5em; padding-left: 2em; position: relative;">
+                            <span style="position: absolute; left: 0; top: 0; font-weight: bold; color: #910E19;">2.</span>
+                            Meningkatkan kualitas sumber daya manusia di bidang akademis, kewirausahaan, dan keprofesian.
+                        </li>
+                        <li style="display: block; margin-bottom: 0.5em; padding-left: 2em; position: relative;">
+                            <span style="position: absolute; left: 0; top: 0; font-weight: bold; color: #910E19;">3.</span>
+                            Memperkenalkan Program Studi Teknologi Informasi di lingkungan masyarakat luas.
+                        </li>
+                        <li style="display: block; margin-bottom: 0.5em; padding-left: 2em; position: relative;">
+                            <span style="position: absolute; left: 0; top: 0; font-weight: bold; color: #910E19;">4.</span>
+                            Menjalin hubungan dan kerjasama atas dasar kekeluargaan dengan organisasi di dalam atau di luar
+                            Program Studi Teknologi Informasi.
+                        </li>
+                        <li style="display: block; margin-bottom: 0.5em; padding-left: 2em; position: relative;">
+                            <span style="position: absolute; left: 0; top: 0; font-weight: bold; color: #910E19;">5.</span>
+                            Melaksanakan setiap kegiatan dengan berlandaskan disiplin dan penuh tanggung jawab.
+                        </li>
+                        <li style="display: block; margin-bottom: 0.5em; padding-left: 2em; position: relative;">
+                            <span style="position: absolute; left: 0; top: 0; font-weight: bold; color: #910E19;">6.</span>
+                            Mempererat tali persaudaraan antar mahasiswa khususnya anggota HIMATIF.
+                        </li>
                     </ol>
                 </div>
                 <div class="photo opacity-0 translate-y-8 transition-all duration-1000 ease-out delay-600" data-animate>
@@ -176,7 +193,7 @@
                     data-animate>
                     <div class="logo-wrapper"><img src="{{ asset('img/logo2.png') }}" alt="PSDM"></div>
                     <strong>PSDM</strong>
-                    <p>Pengembangan Sumber Daya Manusia</p>
+                    <p>Pengembangan Sumber Daya Mahasiswa</p>
                 </div>
                 <div class="divisi-item opacity-0 translate-y-8 transition-all duration-1000 ease-out delay-400"
                     data-animate>

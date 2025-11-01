@@ -16,11 +16,11 @@
         <section class="bg-[#FEF9F1] relative px-4 py-16 overflow-hidden md:px-6 md:py-24">
             <!-- Background Patterns -->
             <!-- <div class="absolute top-0 left-0 opacity-20">
-                                            <div class="w-64 h-64 bg-gradient-to-br from-gray-200 to-gray-300 rounded-full"></div>
-                                        </div>
-                                        <div class="absolute bottom-0 right-0 opacity-20">
-                                            <div class="w-64 h-64 bg-gradient-to-br from-gray-200 to-gray-300 rounded-full"></div>
-                                        </div> -->
+                                                        <div class="w-64 h-64 bg-gradient-to-br from-gray-200 to-gray-300 rounded-full"></div>
+                                                    </div>
+                                                    <div class="absolute bottom-0 right-0 opacity-20">
+                                                        <div class="w-64 h-64 bg-gradient-to-br from-gray-200 to-gray-300 rounded-full"></div>
+                                                    </div> -->
 
             <div class="container relative z-10 mx-auto flex justify-center">
                 <div class="flex flex-col items-center">
@@ -180,7 +180,22 @@
                                 <!-- Content -->
                                 <div class="relative z-10 flex flex-col flex-1 p-6">
                                     <!-- Title -->
-                                    <h3 class="mt-40 mb-4 text-3xl font-bold text-white">{{ $proker->name }}</h3>
+                                    @php
+                                        $nameLength = strlen($proker->name);
+                                        if ($nameLength <= 14) {
+                                            $fontClass = 'text-3xl';
+                                        } elseif ($nameLength <= 18) {
+                                            $fontClass = 'text-2xl';
+                                        } elseif ($nameLength <= 22) {
+                                            $fontClass = 'text-xl';
+                                        } else {
+                                            $fontClass = 'text-lg';
+                                        }
+                                    @endphp
+                                    <h3 class="mt-40 mb-4 font-bold text-white {{ $fontClass }}"
+                                        style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                                        {{ $proker->name }}
+                                    </h3>
 
                                     <!-- Description -->
                                     <p class="flex-1 mb-4 text-base leading-relaxed text-white text-opacity-90">

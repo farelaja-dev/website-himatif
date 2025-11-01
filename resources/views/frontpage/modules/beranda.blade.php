@@ -211,7 +211,7 @@
                     data-animate>
                     <div class="logo-wrapper"><img src="{{ asset('img/logo5.png') }}" alt="Mediatek"></div>
                     <strong>MEDIATEK</strong>
-                    <p>Media Teknologi</p>
+                    <p>Media & Teknologi</p>
                 </div>
             </div>
         </div>

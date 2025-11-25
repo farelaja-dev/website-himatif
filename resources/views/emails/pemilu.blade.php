@@ -1,7 +1,7 @@
 @component('mail::layout')
     {{-- Header --}}
     @slot('header')
-        @component('mail::header', ['url' => 'https://himatif.ilkom.unej.ac.id/pemilu'])
+        @component('mail::header', ['url' => 'https://himatifunej.com/pemilu'])
             HIMATIF PEMILU
         @endcomponent
     @endslot
@@ -9,9 +9,9 @@
     {{-- Body --}}
     <h1>Halo, Mahasiswa Teknologi Informasi 👋,</h1>
 
-    <p>Berikut adalah Token yang digunakan untuk Pemilu HIMATIF 2024</p>
+    <p>Berikut adalah Token yang digunakan untuk Pemilu HIMATIF 2025</p>
 
-    @component('vendor.mail.html.kode', ['url' => 'https://himatif.ilkom.unej.ac.id/pemilu'])
+    @component('vendor.mail.html.kode', ['url' => 'https://himatifunej.com/pemilu'])
         {{ $details['token'] }}
     @endcomponent
 
@@ -20,7 +20,7 @@
     </p>
 
     <p> <br> Untuk mekanisme pemilihan pemilu dapat dilihat pada website HIMATIF
-        <a href= "https://himatif.ilkom.unej.ac.id/pemilu"> Klik disini </a>
+        <a href= "https://himatifunej.com/pemilu"> Klik disini </a>
     </p>
 
     @slot('subcopy')

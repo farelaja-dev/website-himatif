@@ -29,7 +29,7 @@
         @endcomponent
     @endslot
     <p>Terima kasih atas partisipasinya pada <br>
-        <strong>Pemilu HIMATIF 2024</strong>
+        <strong>Pemilu HIMATIF 2025</strong>
     </p>
 
     {{-- Footer --}}

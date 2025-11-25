@@ -32,7 +32,7 @@
                         class="w-2/3 max-w-lg my-12 rounded-2xl shadow-lg opacity-0 translate-y-8 transition-all duration-1000 ease-out delay-400"
                         data-animate />
                     <p class="text-xl text-[#013049] opacity-0 translate-y-8 transition-all duration-1000 ease-out delay-600"
-                        data-animate>Terima kasih sudah mengikuti kegiatan Pemilu HIMATIF 2024.</p>
+                        data-animate>Terima kasih sudah mengikuti kegiatan Pemilu HIMATIF 2025.</p>
                 </div>
             @elseif (request()->query('status') === 'notstarted')
                 <div class="text-center flex flex-col items-center">
@@ -43,7 +43,7 @@
                         data-animate />
                     <p class="text-xl text-[#013049] opacity-0 translate-y-8 transition-all duration-1000 ease-out delay-600"
                         data-animate>Silahkan menunggu informasi lebih lanjut terkait PEMILU HIMATIF
-                        2024.</p>
+                        2025.</p>
                 </div>
             @elseif (request()->query('status') === 'success')
                 <div class="text-center flex flex-col items-center">
@@ -53,18 +53,18 @@
                         class="w-2/3 max-w-lg my-12 rounded-2xl shadow-lg opacity-0 translate-y-8 transition-all duration-1000 ease-out delay-400"
                         data-animate />
                     <p class="text-xl text-[#013049] opacity-0 translate-y-8 transition-all duration-1000 ease-out delay-600"
-                        data-animate>Terima kasih sudah mengikuti kegiatan Pemilu HIMATIF 2024.</p>
+                        data-animate>Terima kasih sudah mengikuti kegiatan Pemilu HIMATIF 2025.</p>
                 </div>
             @else
                 <div class="text-center flex flex-col items-center">
                     <h2 class="font-extrabold text-5xl text-[#013049] mb-10 opacity-0 translate-y-8 transition-all duration-1000 ease-out delay-200"
-                        data-animate>Pemilu HIMATIF 2024</h2>
+                        data-animate>Pemilu HIMATIF 2025</h2>
                     <img src="{{ asset('img/illustration/vote-info.svg') }}" alt=""
                         class="w-2/3 max-w-lg my-12 rounded-2xl shadow-lg opacity-0 translate-y-8 transition-all duration-1000 ease-out delay-400"
                         data-animate />
                     <p class="text-xl text-[#013049] opacity-0 translate-y-8 transition-all duration-1000 ease-out delay-600"
                         data-animate>Silahkan nantikan informasi lebih lanjut terkait Pemilu HIMATIF
-                        2024.</p>
+                        2025.</p>
                 </div>
             @endif
         </div>

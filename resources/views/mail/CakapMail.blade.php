@@ -73,7 +73,7 @@
 
             <p class="mt-3 text-gray-500 dark:text-gray-400"
                 style="box-sizing: border-box; border-width: 0; border-style: solid; border-color: #E5E7EB; --tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-scroll-snap-strictness: proximity; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgb(63 131 248 / 0.5); --tw-ring-offset-shadow: 0 0 #0000; --tw-ring-shadow: 0 0 #0000; --tw-shadow: 0 0 #0000; --tw-shadow-colored: 0 0 #0000; margin: 0; font-size: 1.25rem; line-height: 1.75rem; margin-top: 0.75rem; --tw-text-opacity: 1; color: rgb(107 114 128 / var(--tw-text-opacity)); ">
-                © 2024 Himpunan Mahasiswa Teknologi Informsi .</p>
+                © 2025 Himpunan Mahasiswa Teknologi Informsi .</p>
         </footer>
     </section>
 </body>

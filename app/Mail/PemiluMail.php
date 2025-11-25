@@ -30,7 +30,7 @@ class PemiluMail extends Mailable
      */
     public function build()
     {
-        return $this->subject('Token Pemilihan | Pemilu HIMATIF 2024')
+        return $this->subject('Token Pemilihan | Pemilu HIMATIF 2025')
                     ->markdown('emails.pemilu');
     }
 }
